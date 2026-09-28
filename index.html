@@ -3,112 +3,174 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#176d73">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    >
 
     <title>STG Fee WhatsApp</title>
 
+    <!-- PWA -->
+    <link rel="manifest" href="manifest.json">
+
+    <!-- Android -->
+    <meta name="theme-color" content="#176d73">
+
+    <!-- iPhone / iPad -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="STG Fees">
+    <link rel="apple-touch-icon" href="icon.png">
+
     <style>
+
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: Arial, sans-serif;
+            font-family: Arial, Helvetica, sans-serif;
         }
 
         body {
             background: #f3f7f7;
             color: #173b3d;
+            min-height: 100vh;
         }
 
         header {
-            background: linear-gradient(135deg, #176d73, #239b91);
+            background: linear-gradient(
+                135deg,
+                #176d73,
+                #239b91
+            );
+
             color: white;
-            padding: 22px 18px;
+            padding: 20px 16px;
             text-align: center;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+
+            box-shadow:
+                0 3px 12px rgba(0,0,0,0.15);
         }
 
         header h1 {
-            font-size: 21px;
-            margin-bottom: 5px;
+            font-size: 20px;
+            font-weight: 700;
         }
 
         header p {
-            font-size: 13px;
+            font-size: 12px;
+            margin-top: 5px;
             opacity: 0.9;
         }
 
         .container {
-            max-width: 600px;
+            max-width: 650px;
             margin: auto;
-            padding: 18px;
-        }
-
-        .date-card {
-            background: white;
-            border-radius: 15px;
-            padding: 18px;
-            margin-bottom: 18px;
-            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
-            text-align: center;
-        }
-
-        .date-card .date {
-            font-size: 28px;
-            font-weight: bold;
-            color: #176d73;
-        }
-
-        .date-card .month {
-            margin-top: 4px;
-            color: #666;
+            padding: 16px;
+            padding-bottom: 95px;
         }
 
         .card {
             background: white;
-            border-radius: 15px;
-            padding: 20px;
-            margin-bottom: 18px;
-            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+            border-radius: 17px;
+            padding: 18px;
+            margin-bottom: 16px;
+
+            box-shadow:
+                0 3px 14px rgba(0,0,0,0.07);
         }
 
         .card h2 {
-            font-size: 18px;
             color: #176d73;
+            font-size: 18px;
             margin-bottom: 15px;
         }
 
-        label {
-            display: block;
-            font-size: 13px;
-            font-weight: bold;
-            margin: 12px 0 6px;
+        /* DATE */
+
+        .date-card {
+            text-align: center;
         }
 
-        input,
-        select {
-            width: 100%;
+        .date-number {
+            font-size: 38px;
+            font-weight: bold;
+            color: #176d73;
+        }
+
+        .date-text {
+            margin-top: 4px;
+            color: #777;
+            font-size: 14px;
+        }
+
+        /* STATUS */
+
+        .status {
             padding: 13px;
+            border-radius: 11px;
+
+            background: #fff8df;
+            color: #715c19;
+
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        /* FORMS */
+
+        label {
+            display: block;
+
+            font-size: 13px;
+            font-weight: bold;
+
+            margin-top: 13px;
+            margin-bottom: 6px;
+        }
+
+        select,
+        input {
+
+            width: 100%;
+
+            padding: 13px;
+
             border: 1px solid #ccdada;
+
             border-radius: 10px;
+
+            background: white;
+
             font-size: 15px;
+
             outline: none;
         }
 
-        input:focus,
-        select:focus {
+        select:focus,
+        input:focus {
             border-color: #239b91;
         }
 
+        /* BUTTONS */
+
         button {
+
             width: 100%;
+
             border: none;
-            border-radius: 10px;
+
+            border-radius: 11px;
+
             padding: 14px;
-            margin-top: 15px;
+
+            margin-top: 14px;
+
             font-size: 15px;
+
             font-weight: bold;
+
             cursor: pointer;
         }
 
@@ -122,341 +184,1405 @@
             color: white;
         }
 
+        .gold {
+            background: #e4ad3e;
+            color: white;
+        }
+
         .secondary {
-            background: #e8f2f2;
+            background: #e9f2f2;
             color: #176d73;
         }
 
-        .reminder {
-            border-left: 5px solid #e4ad3e;
-        }
+        /* MESSAGE */
 
-        .status {
-            padding: 12px;
-            border-radius: 10px;
-            background: #fff8df;
-            color: #745d16;
-            font-size: 14px;
-            line-height: 1.5;
-        }
+        .message {
 
-        .message-preview {
-            background: #f5f7f7;
-            border-radius: 10px;
-            padding: 13px;
-            margin-top: 12px;
-            font-size: 14px;
-            line-height: 1.5;
+            background: #f4f7f7;
+
+            padding: 14px;
+
+            border-radius: 11px;
+
+            margin-top: 13px;
+
             white-space: pre-line;
+
+            font-size: 14px;
+
+            line-height: 1.5;
         }
 
-        .small {
-            color: #777;
-            font-size: 12px;
-            margin-top: 8px;
-            line-height: 1.4;
+        /* STUDENT INFO */
+
+        .student-info {
+
+            background: #f5fafa;
+
+            border-radius: 12px;
+
+            padding: 14px;
+
+            margin-top: 12px;
+
+            display: none;
+
+            font-size: 14px;
+
+            line-height: 1.6;
+        }
+
+        .student-info strong {
+            color: #176d73;
+            font-size: 16px;
+        }
+
+        /* STUDENT LIST */
+
+        .student-item {
+
+            border: 1px solid #dce8e8;
+
+            border-radius: 12px;
+
+            padding: 14px;
+
+            margin-bottom: 10px;
+
+            background: #fbfdfd;
+        }
+
+        .student-name {
+
+            font-weight: bold;
+
+            color: #176d73;
+
+            font-size: 16px;
+        }
+
+        .student-details {
+
+            margin-top: 5px;
+
+            font-size: 13px;
+
+            color: #666;
+
+            line-height: 1.5;
+        }
+
+        /* INSTALL */
+
+        .install-box {
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #176d73,
+                    #239b91
+                );
+
+            color: white;
+
+            border-radius: 16px;
+
+            padding: 17px;
+
+            margin-bottom: 16px;
+        }
+
+        .install-box h3 {
+            margin-bottom: 7px;
+        }
+
+        .install-box p {
+
+            font-size: 13px;
+
+            line-height: 1.5;
+
+            opacity: 0.95;
+        }
+
+        /* HIDDEN */
+
+        .hidden {
+            display: none !important;
+        }
+
+        /* NAVIGATION */
+
+        nav {
+
+            position: fixed;
+
+            bottom: 0;
+            left: 0;
+            right: 0;
+
+            background: white;
+
+            box-shadow:
+                0 -3px 15px rgba(0,0,0,0.10);
+
+            display: flex;
+
+            justify-content: space-around;
+
+            padding: 8px 4px;
+
+            z-index: 1000;
+        }
+
+        nav button {
+
+            width: 25%;
+
+            margin: 0;
+
+            padding: 7px 3px;
+
+            background: transparent;
+
+            color: #176d73;
+
+            font-size: 11px;
+
+            border-radius: 9px;
+        }
+
+        nav button.active {
+
+            background: #e8f2f2;
+
+            font-weight: bold;
         }
 
         footer {
+
             text-align: center;
-            padding: 25px;
+
             color: #777;
-            font-size: 12px;
+
+            font-size: 11px;
+
+            padding: 20px;
         }
+
     </style>
 </head>
 
+
 <body>
 
+
+<!-- HEADER -->
+
 <header>
-    <h1>ST. THERESA’S GEMS</h1>
-    <p>Monthly Fee WhatsApp</p>
+
+    <h1>
+        ST. THERESA’S GEMS
+    </h1>
+
+    <p>
+        Monthly Fee WhatsApp
+    </p>
+
 </header>
+
+
 
 <div class="container">
 
-    <!-- DATE -->
-    <div class="date-card">
-        <div class="date" id="todayDate">--</div>
-        <div class="month" id="todayMonth">--</div>
-    </div>
 
-    <!-- PAYMENT MESSAGE -->
-    <div class="card">
-        <h2>💳 Payment Successful</h2>
+    <!-- ================= HOME ================= -->
 
-        <label>Child Name</label>
-        <input type="text" id="childName" placeholder="Enter child's name">
+    <section id="homePage">
 
-        <label>Parent WhatsApp Number</label>
-        <input type="tel" id="parentNumber" placeholder="Example: 94771234567">
 
-        <label>Fee Month</label>
-        <select id="paymentMonth"></select>
+        <div class="card date-card">
 
-        <div class="message-preview" id="paymentPreview"></div>
+            <div
+                class="date-number"
+                id="todayNumber"
+            >
+                --
+            </div>
 
-        <button class="whatsapp" onclick="sendPaymentWhatsApp()">
-            💬 Send Payment Message
-        </button>
-    </div>
+            <div
+                class="date-text"
+                id="todayText"
+            >
+                --
+            </div>
 
-    <!-- REMINDER -->
-    <div class="card reminder">
-        <h2>📅 Monthly Fee Reminder</h2>
+        </div>
 
-        <div class="status" id="reminderStatus"></div>
 
-        <label>Parent WhatsApp Number</label>
-        <input type="tel" id="reminderNumber" placeholder="Example: 94771234567">
+        <div class="install-box">
 
-        <div class="message-preview" id="reminderPreview"></div>
+            <h3>
+                📱 STG Fee App
+            </h3>
 
-        <button class="whatsapp" onclick="sendReminderWhatsApp()">
-            💬 Send Fee Reminder
-        </button>
-    </div>
+            <p>
+                Add this website to your phone
+                Home Screen to use it like an app.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <h2>
+                📅 Monthly Fee Status
+            </h2>
+
+            <div
+                class="status"
+                id="feeStatus"
+            >
+                Loading...
+            </div>
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- ================= PAYMENT ================= -->
+
+    <section
+        id="paymentPage"
+        class="hidden"
+    >
+
+        <div class="card">
+
+            <h2>
+                💳 Payment Successful
+            </h2>
+
+
+            <label>
+                Select Student
+            </label>
+
+
+            <select
+                id="studentSelect"
+                onchange="studentSelected()"
+            >
+
+                <option value="">
+                    -- Select Student --
+                </option>
+
+            </select>
+
+
+            <div
+                class="student-info"
+                id="studentInfo"
+            >
+            </div>
+
+
+            <label>
+                Fee Month
+            </label>
+
+
+            <select
+                id="paymentMonth"
+                onchange="updatePaymentMessage()"
+            >
+            </select>
+
+
+            <label>
+                Payment Amount
+            </label>
+
+
+            <input
+                type="number"
+                id="paymentAmount"
+                placeholder="Enter amount"
+                oninput="updatePaymentMessage()"
+            >
+
+
+            <div
+                class="message"
+                id="paymentMessage"
+            >
+                Select a student to generate
+                the payment message.
+            </div>
+
+
+            <button
+                class="whatsapp"
+                onclick="sendPaymentWhatsApp()"
+            >
+                💬 Send Payment WhatsApp
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= REMINDER ================= -->
+
+    <section
+        id="reminderPage"
+        class="hidden"
+    >
+
+        <div class="card">
+
+            <h2>
+                📅 Monthly Fee Reminder
+            </h2>
+
+
+            <div
+                class="status"
+                id="reminderStatus"
+            >
+                Loading...
+            </div>
+
+
+            <label>
+                Select Parent
+            </label>
+
+
+            <select
+                id="reminderStudent"
+            >
+
+                <option value="">
+                    -- Select Parent --
+                </option>
+
+            </select>
+
+
+            <div
+                class="message"
+                id="reminderMessage"
+            >
+            </div>
+
+
+            <button
+                class="whatsapp"
+                onclick="sendReminderWhatsApp()"
+            >
+                💬 Send Fee Reminder
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= STUDENTS ================= -->
+
+    <section
+        id="studentsPage"
+        class="hidden"
+    >
+
+        <div class="card">
+
+            <h2>
+                👨‍👩‍👧 Saved Students
+            </h2>
+
+
+            <p
+                style="
+                font-size:13px;
+                color:#777;
+                line-height:1.5;
+                "
+            >
+
+                Students are pre-saved in the app.
+                Select a student when recording
+                a payment.
+
+            </p>
+
+
+            <div
+                id="studentList"
+                style="margin-top:15px;"
+            >
+            </div>
+
+        </div>
+
+    </section>
+
 
 </div>
 
+
+
 <footer>
+
     ST. THERESA’S GEMS INTERNATIONAL PRESCHOOL
+
 </footer>
+
+
+
+<!-- ================= NAVIGATION ================= -->
+
+<nav>
+
+    <button
+        onclick="showPage('homePage', this)"
+        class="active"
+    >
+        🏠
+        <br>
+        Home
+    </button>
+
+
+    <button
+        onclick="showPage('paymentPage', this)"
+    >
+        💳
+        <br>
+        Payment
+    </button>
+
+
+    <button
+        onclick="showPage('reminderPage', this)"
+    >
+        📅
+        <br>
+        Reminder
+    </button>
+
+
+    <button
+        onclick="showPage('studentsPage', this)"
+    >
+        👧
+        <br>
+        Students
+    </button>
+
+</nav>
+
+
 
 <script>
 
-    const months = [
-        "January", "February", "March", "April",
-        "May", "June", "July", "August",
-        "September", "October", "November", "December"
+
+/*
+==========================================================
+PRE-SAVED STUDENTS
+==========================================================
+
+Replace these sample students with your actual students.
+
+For now, DO NOT put real parent phone numbers into
+a public GitHub repository.
+
+Format:
+
+{
+    id: "STG-STU-0001",
+    name: "CHILD NAME",
+    className: "LKG",
+    parent: "PARENT NAME",
+    whatsapp: "94770000000",
+    fee: 5000
+}
+
+==========================================================
+*/
+
+
+const students = [
+
+    {
+        id: "STG-STU-0001",
+        name: "RAYELI ONELYA",
+        className: "LKG",
+        parent: "Sample Parent",
+        whatsapp: "94770000000",
+        fee: 5000
+    },
+
+
+    {
+        id: "STG-STU-0002",
+        name: "SAMPLE STUDENT",
+        className: "UKG",
+        parent: "Sample Parent",
+        whatsapp: "94771111111",
+        fee: 5000
+    }
+
+];
+
+
+
+/*
+==========================================================
+MONTHS
+==========================================================
+*/
+
+
+const months = [
+
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December"
+
+];
+
+
+
+/*
+==========================================================
+DATE
+==========================================================
+*/
+
+
+function updateDate() {
+
+
+    const now = new Date();
+
+
+    document.getElementById(
+        "todayNumber"
+    ).textContent = now.getDate();
+
+
+    document.getElementById(
+        "todayText"
+    ).textContent = now.toLocaleDateString(
+        "en-US",
+        {
+            weekday: "long",
+            month: "long",
+            year: "numeric"
+        }
+    );
+
+
+    updateFeeStatus();
+
+}
+
+
+
+/*
+==========================================================
+FEE STATUS
+==========================================================
+*/
+
+
+function updateFeeStatus() {
+
+
+    const now = new Date();
+
+
+    const day = now.getDate();
+
+
+    const currentMonth =
+        months[now.getMonth()];
+
+
+    if (day > 20) {
+
+
+        let nextMonth =
+            now.getMonth() + 1;
+
+
+        if (nextMonth > 11) {
+
+            nextMonth = 0;
+
+        }
+
+
+        document.getElementById(
+            "feeStatus"
+        ).textContent =
+
+            `The 20th has passed.
+            Monthly fee payment reminder
+            is active for ${months[nextMonth]}.`;
+
+
+    } else {
+
+
+        document.getElementById(
+            "feeStatus"
+        ).textContent =
+
+            `Monthly fee reminder is not active yet.
+            Current month: ${currentMonth}.`;
+
+    }
+
+}
+
+
+
+/*
+==========================================================
+LOAD STUDENTS
+==========================================================
+*/
+
+
+function populateStudents() {
+
+
+    const paymentSelect =
+        document.getElementById(
+            "studentSelect"
+        );
+
+
+    const reminderSelect =
+        document.getElementById(
+            "reminderStudent"
+        );
+
+
+    const list =
+        document.getElementById(
+            "studentList"
+        );
+
+
+    students.forEach(
+        (student, index) => {
+
+
+            /* PAYMENT SELECT */
+
+
+            const option =
+                document.createElement(
+                    "option"
+                );
+
+
+            option.value = index;
+
+
+            option.textContent =
+                `${student.name} — ${student.className}`;
+
+
+            paymentSelect.appendChild(
+                option
+            );
+
+
+
+            /* REMINDER SELECT */
+
+
+            const reminderOption =
+                document.createElement(
+                    "option"
+                );
+
+
+            reminderOption.value =
+                index;
+
+
+            reminderOption.textContent =
+                `${student.name} — ${student.className}`;
+
+
+            reminderSelect.appendChild(
+                reminderOption
+            );
+
+
+
+            /* STUDENT LIST */
+
+
+            const item =
+                document.createElement(
+                    "div"
+                );
+
+
+            item.className =
+                "student-item";
+
+
+            item.innerHTML = `
+
+                <div class="student-name">
+                    ${student.name}
+                </div>
+
+                <div class="student-details">
+
+                    Class:
+                    ${student.className}
+
+                    <br>
+
+                    Student ID:
+                    ${student.id}
+
+                    <br>
+
+                    Parent:
+                    ${student.parent}
+
+                </div>
+
+            `;
+
+
+            list.appendChild(
+                item
+            );
+
+        }
+    );
+
+}
+
+
+
+/*
+==========================================================
+PAYMENT MONTHS
+==========================================================
+*/
+
+
+function populateMonths() {
+
+
+    const select =
+        document.getElementById(
+            "paymentMonth"
+        );
+
+
+    const now = new Date();
+
+
+    months.forEach(
+        (month, index) => {
+
+
+            const option =
+                document.createElement(
+                    "option"
+                );
+
+
+            option.value =
+                month;
+
+
+            option.textContent =
+                month;
+
+
+            if (
+                index ===
+                now.getMonth()
+            ) {
+
+                option.selected =
+                    true;
+
+            }
+
+
+            select.appendChild(
+                option
+            );
+
+        }
+    );
+
+}
+
+
+
+/*
+==========================================================
+SELECT STUDENT
+==========================================================
+*/
+
+
+function studentSelected() {
+
+
+    const index =
+        document.getElementById(
+            "studentSelect"
+        ).value;
+
+
+    const info =
+        document.getElementById(
+            "studentInfo"
+        );
+
+
+    if (index === "") {
+
+
+        info.style.display =
+            "none";
+
+
+        return;
+
+    }
+
+
+    const student =
+        students[index];
+
+
+    info.style.display =
+        "block";
+
+
+    info.innerHTML = `
+
+        <strong>
+            ${student.name}
+        </strong>
+
+        <br>
+
+        Class:
+        ${student.className}
+
+        <br>
+
+        Parent:
+        ${student.parent}
+
+        <br>
+
+        Monthly Fee:
+        ${student.fee}
+
+    `;
+
+
+    document.getElementById(
+        "paymentAmount"
+    ).value =
+        student.fee;
+
+
+    updatePaymentMessage();
+
+}
+
+
+
+/*
+==========================================================
+PAYMENT MESSAGE
+==========================================================
+*/
+
+
+function updatePaymentMessage() {
+
+
+    const index =
+        document.getElementById(
+            "studentSelect"
+        ).value;
+
+
+    if (index === "") {
+
+
+        document.getElementById(
+            "paymentMessage"
+        ).textContent =
+
+            "Select a student to generate the payment message.";
+
+
+        return;
+
+    }
+
+
+    const student =
+        students[index];
+
+
+    const month =
+        document.getElementById(
+            "paymentMonth"
+        ).value;
+
+
+    const amount =
+        document.getElementById(
+            "paymentAmount"
+        ).value ||
+        student.fee;
+
+
+    const message =
+
+`Payment received successfully.
+
+Child: ${student.name}
+Month: ${month}
+Amount: ${amount}
+
+Thank you.`;
+
+
+    document.getElementById(
+        "paymentMessage"
+    ).textContent =
+        message;
+
+}
+
+
+
+/*
+==========================================================
+SEND PAYMENT WHATSAPP
+==========================================================
+*/
+
+
+function sendPaymentWhatsApp() {
+
+
+    const index =
+        document.getElementById(
+            "studentSelect"
+        ).value;
+
+
+    if (index === "") {
+
+        alert(
+            "Please select a student."
+        );
+
+        return;
+
+    }
+
+
+    const student =
+        students[index];
+
+
+    const month =
+        document.getElementById(
+            "paymentMonth"
+        ).value;
+
+
+    const amount =
+        document.getElementById(
+            "paymentAmount"
+        ).value ||
+        student.fee;
+
+
+    const message =
+
+`Payment received successfully.
+
+Child: ${student.name}
+Month: ${month}
+Amount: ${amount}
+
+Thank you.`;
+
+
+    const url =
+
+        "https://wa.me/" +
+        student.whatsapp +
+        "?text=" +
+        encodeURIComponent(
+            message
+        );
+
+
+    window.open(
+        url,
+        "_blank"
+    );
+
+}
+
+
+
+/*
+==========================================================
+REMINDER MESSAGE
+==========================================================
+
+IMPORTANT:
+
+The child's name is NOT included.
+
+==========================================================
+*/
+
+
+function getReminderMonth() {
+
+
+    const now =
+        new Date();
+
+
+    let monthIndex =
+        now.getMonth();
+
+
+    if (
+        now.getDate() > 20
+    ) {
+
+        monthIndex++;
+
+
+        if (
+            monthIndex > 11
+        ) {
+
+            monthIndex = 0;
+
+        }
+
+    }
+
+
+    return months[
+        monthIndex
     ];
 
-    function updateDate() {
+}
 
-        const now = new Date();
 
-        document.getElementById("todayDate").textContent =
-            now.getDate();
 
-        document.getElementById("todayMonth").textContent =
-            now.toLocaleDateString("en-US", {
-                weekday: "long",
-                month: "long",
-                year: "numeric"
-            });
+function updateReminderMessage() {
 
-        updateReminder();
+
+    const now =
+        new Date();
+
+
+    const month =
+        getReminderMonth();
+
+
+    if (
+        now.getDate() > 20
+    ) {
+
+
+        document.getElementById(
+            "reminderStatus"
+        ).textContent =
+
+            `The 20th has passed.
+            The monthly fee reminder
+            is active for ${month}.`;
+
+
+    } else {
+
+
+        document.getElementById(
+            "reminderStatus"
+        ).textContent =
+
+            `The reminder will become active
+            after the 20th.`;
+
     }
 
 
-    function populateMonths() {
+    const message =
 
-        const select = document.getElementById("paymentMonth");
-
-        const now = new Date();
-
-        months.forEach((month, index) => {
-
-            const option = document.createElement("option");
-
-            option.value = month;
-            option.textContent = month;
-
-            if (index === now.getMonth()) {
-                option.selected = true;
-            }
-
-            select.appendChild(option);
-
-        });
-
-        updatePaymentPreview();
-    }
-
-
-    function updatePaymentPreview() {
-
-        const child =
-            document.getElementById("childName").value ||
-            "[Child Name]";
-
-        const month =
-            document.getElementById("paymentMonth").value;
-
-        const message =
-`Payment received successfully for ${child} for the month of ${month}.
-
-Thank you.`;
-
-        document.getElementById("paymentPreview").textContent =
-            message;
-    }
-
-
-    function updateReminder() {
-
-        const now = new Date();
-
-        const day = now.getDate();
-
-        let reminderMonth;
-        let reminderYear = now.getFullYear();
-
-        /*
-            If the 20th has passed, reminder is for next month.
-        */
-
-        if (day > 20) {
-
-            let nextMonth = now.getMonth() + 1;
-
-            if (nextMonth > 11) {
-                nextMonth = 0;
-                reminderYear++;
-            }
-
-            reminderMonth = months[nextMonth];
-
-            document.getElementById("reminderStatus").textContent =
-                `The 20th has passed. Monthly fee reminder is now due for ${reminderMonth}.`;
-
-        } else {
-
-            reminderMonth = months[now.getMonth()];
-
-            document.getElementById("reminderStatus").textContent =
-                `The monthly reminder will become active after the 20th. Current fee month: ${reminderMonth}.`;
-        }
-
-
-        /*
-            IMPORTANT:
-            Child name is intentionally NOT included.
-        */
-
-        const message =
 `Dear Parent/Guardian,
 
-This is a reminder to kindly pay the monthly school fee for ${reminderMonth}.
+This is a reminder to kindly pay the monthly school fee for ${month}.
 
 Thank you.`;
 
-        document.getElementById("reminderPreview").textContent =
-            message;
+
+    document.getElementById(
+        "reminderMessage"
+    ).textContent =
+        message;
+
+}
+
+
+
+/*
+==========================================================
+SEND REMINDER
+==========================================================
+*/
+
+
+function sendReminderWhatsApp() {
+
+
+    const index =
+        document.getElementById(
+            "reminderStudent"
+        ).value;
+
+
+    if (index === "") {
+
+
+        alert(
+            "Please select a parent."
+        );
+
+
+        return;
+
     }
 
 
-    function cleanNumber(number) {
-
-        number = number.replace(/\D/g, "");
-
-        /*
-            Sri Lankan numbers:
-            0771234567 → 94771234567
-        */
-
-        if (number.startsWith("0")) {
-            number = "94" + number.substring(1);
-        }
-
-        return number;
-    }
+    const student =
+        students[index];
 
 
-    function sendPaymentWhatsApp() {
-
-        const child =
-            document.getElementById("childName").value.trim();
-
-        const number =
-            cleanNumber(
-                document.getElementById("parentNumber").value
-            );
-
-        const month =
-            document.getElementById("paymentMonth").value;
-
-        if (!child) {
-            alert("Please enter the child's name.");
-            return;
-        }
-
-        if (!number) {
-            alert("Please enter the parent's WhatsApp number.");
-            return;
-        }
-
-        const message =
-`Payment received successfully for ${child} for the month of ${month}.
-
-Thank you.`;
-
-        const url =
-            "https://wa.me/" +
-            number +
-            "?text=" +
-            encodeURIComponent(message);
-
-        window.open(url, "_blank");
-    }
+    const month =
+        getReminderMonth();
 
 
-    function sendReminderWhatsApp() {
+    /*
+    NO CHILD NAME HERE.
+    */
 
-        const number =
-            cleanNumber(
-                document.getElementById("reminderNumber").value
-            );
 
-        if (!number) {
-            alert("Please enter the parent's WhatsApp number.");
-            return;
-        }
+    const message =
 
-        const now = new Date();
-
-        let monthIndex = now.getMonth();
-
-        if (now.getDate() > 20) {
-            monthIndex++;
-
-            if (monthIndex > 11) {
-                monthIndex = 0;
-            }
-        }
-
-        const reminderMonth = months[monthIndex];
-
-        const message =
 `Dear Parent/Guardian,
 
-This is a reminder to kindly pay the monthly school fee for ${reminderMonth}.
+This is a reminder to kindly pay the monthly school fee for ${month}.
 
 Thank you.`;
 
-        const url =
-            "https://wa.me/" +
-            number +
-            "?text=" +
-            encodeURIComponent(message);
 
-        window.open(url, "_blank");
-    }
+    const url =
+
+        "https://wa.me/" +
+        student.whatsapp +
+        "?text=" +
+        encodeURIComponent(
+            message
+        );
+
+
+    window.open(
+        url,
+        "_blank"
+    );
+
+}
+
+
+
+/*
+==========================================================
+PAGE NAVIGATION
+==========================================================
+*/
+
+
+function showPage(
+    pageId,
+    button
+) {
+
+
+    const pages = [
+
+        "homePage",
+        "paymentPage",
+        "reminderPage",
+        "studentsPage"
+
+    ];
+
+
+    pages.forEach(
+        id => {
+
+            document
+                .getElementById(id)
+                .classList.add(
+                    "hidden"
+                );
+
+        }
+    );
 
 
     document
-        .getElementById("childName")
-        .addEventListener("input", updatePaymentPreview);
+        .getElementById(pageId)
+        .classList.remove(
+            "hidden"
+        );
+
 
     document
-        .getElementById("paymentMonth")
-        .addEventListener("change", updatePaymentPreview);
+        .querySelectorAll(
+            "nav button"
+        )
+        .forEach(
+            btn => {
+
+                btn.classList.remove(
+                    "active"
+                );
+
+            }
+        );
 
 
-    populateMonths();
-    updateDate();
+    button.classList.add(
+        "active"
+    );
+
+
+    if (
+        pageId ===
+        "reminderPage"
+    ) {
+
+        updateReminderMessage();
+
+    }
+
+}
+
+
+
+/*
+==========================================================
+SERVICE WORKER
+==========================================================
+*/
+
+
+if (
+    "serviceWorker"
+    in navigator
+) {
+
+
+    window.addEventListener(
+        "load",
+        () => {
+
+
+            navigator.serviceWorker
+                .register(
+                    "sw.js"
+                )
+                .catch(
+                    error => {
+
+                        console.log(
+                            "Service Worker error:",
+                            error
+                        );
+
+                    }
+                );
+
+        }
+    );
+
+}
+
+
+
+/*
+==========================================================
+START APP
+==========================================================
+*/
+
+
+populateStudents();
+
+populateMonths();
+
+updateDate();
+
+updateReminderMessage();
+
 
 </script>
+
 
 </body>
 </html>
