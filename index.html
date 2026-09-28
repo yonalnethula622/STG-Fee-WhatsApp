@@ -1,1 +1,463 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#176d73">
 
+    <title>STG Fee WhatsApp</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f3f7f7;
+            color: #173b3d;
+        }
+
+        header {
+            background: linear-gradient(135deg, #176d73, #239b91);
+            color: white;
+            padding: 22px 18px;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+        }
+
+        header h1 {
+            font-size: 21px;
+            margin-bottom: 5px;
+        }
+
+        header p {
+            font-size: 13px;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            padding: 18px;
+        }
+
+        .date-card {
+            background: white;
+            border-radius: 15px;
+            padding: 18px;
+            margin-bottom: 18px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+
+        .date-card .date {
+            font-size: 28px;
+            font-weight: bold;
+            color: #176d73;
+        }
+
+        .date-card .month {
+            margin-top: 4px;
+            color: #666;
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 18px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+        }
+
+        .card h2 {
+            font-size: 18px;
+            color: #176d73;
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            font-size: 13px;
+            font-weight: bold;
+            margin: 12px 0 6px;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #ccdada;
+            border-radius: 10px;
+            font-size: 15px;
+            outline: none;
+        }
+
+        input:focus,
+        select:focus {
+            border-color: #239b91;
+        }
+
+        button {
+            width: 100%;
+            border: none;
+            border-radius: 10px;
+            padding: 14px;
+            margin-top: 15px;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .whatsapp {
+            background: #25D366;
+            color: white;
+        }
+
+        .primary {
+            background: #176d73;
+            color: white;
+        }
+
+        .secondary {
+            background: #e8f2f2;
+            color: #176d73;
+        }
+
+        .reminder {
+            border-left: 5px solid #e4ad3e;
+        }
+
+        .status {
+            padding: 12px;
+            border-radius: 10px;
+            background: #fff8df;
+            color: #745d16;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .message-preview {
+            background: #f5f7f7;
+            border-radius: 10px;
+            padding: 13px;
+            margin-top: 12px;
+            font-size: 14px;
+            line-height: 1.5;
+            white-space: pre-line;
+        }
+
+        .small {
+            color: #777;
+            font-size: 12px;
+            margin-top: 8px;
+            line-height: 1.4;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            color: #777;
+            font-size: 12px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>ST. THERESA’S GEMS</h1>
+    <p>Monthly Fee WhatsApp</p>
+</header>
+
+<div class="container">
+
+    <!-- DATE -->
+    <div class="date-card">
+        <div class="date" id="todayDate">--</div>
+        <div class="month" id="todayMonth">--</div>
+    </div>
+
+    <!-- PAYMENT MESSAGE -->
+    <div class="card">
+        <h2>💳 Payment Successful</h2>
+
+        <label>Child Name</label>
+        <input type="text" id="childName" placeholder="Enter child's name">
+
+        <label>Parent WhatsApp Number</label>
+        <input type="tel" id="parentNumber" placeholder="Example: 94771234567">
+
+        <label>Fee Month</label>
+        <select id="paymentMonth"></select>
+
+        <div class="message-preview" id="paymentPreview"></div>
+
+        <button class="whatsapp" onclick="sendPaymentWhatsApp()">
+            💬 Send Payment Message
+        </button>
+    </div>
+
+    <!-- REMINDER -->
+    <div class="card reminder">
+        <h2>📅 Monthly Fee Reminder</h2>
+
+        <div class="status" id="reminderStatus"></div>
+
+        <label>Parent WhatsApp Number</label>
+        <input type="tel" id="reminderNumber" placeholder="Example: 94771234567">
+
+        <div class="message-preview" id="reminderPreview"></div>
+
+        <button class="whatsapp" onclick="sendReminderWhatsApp()">
+            💬 Send Fee Reminder
+        </button>
+    </div>
+
+</div>
+
+<footer>
+    ST. THERESA’S GEMS INTERNATIONAL PRESCHOOL
+</footer>
+
+<script>
+
+    const months = [
+        "January", "February", "March", "April",
+        "May", "June", "July", "August",
+        "September", "October", "November", "December"
+    ];
+
+    function updateDate() {
+
+        const now = new Date();
+
+        document.getElementById("todayDate").textContent =
+            now.getDate();
+
+        document.getElementById("todayMonth").textContent =
+            now.toLocaleDateString("en-US", {
+                weekday: "long",
+                month: "long",
+                year: "numeric"
+            });
+
+        updateReminder();
+    }
+
+
+    function populateMonths() {
+
+        const select = document.getElementById("paymentMonth");
+
+        const now = new Date();
+
+        months.forEach((month, index) => {
+
+            const option = document.createElement("option");
+
+            option.value = month;
+            option.textContent = month;
+
+            if (index === now.getMonth()) {
+                option.selected = true;
+            }
+
+            select.appendChild(option);
+
+        });
+
+        updatePaymentPreview();
+    }
+
+
+    function updatePaymentPreview() {
+
+        const child =
+            document.getElementById("childName").value ||
+            "[Child Name]";
+
+        const month =
+            document.getElementById("paymentMonth").value;
+
+        const message =
+`Payment received successfully for ${child} for the month of ${month}.
+
+Thank you.`;
+
+        document.getElementById("paymentPreview").textContent =
+            message;
+    }
+
+
+    function updateReminder() {
+
+        const now = new Date();
+
+        const day = now.getDate();
+
+        let reminderMonth;
+        let reminderYear = now.getFullYear();
+
+        /*
+            If the 20th has passed, reminder is for next month.
+        */
+
+        if (day > 20) {
+
+            let nextMonth = now.getMonth() + 1;
+
+            if (nextMonth > 11) {
+                nextMonth = 0;
+                reminderYear++;
+            }
+
+            reminderMonth = months[nextMonth];
+
+            document.getElementById("reminderStatus").textContent =
+                `The 20th has passed. Monthly fee reminder is now due for ${reminderMonth}.`;
+
+        } else {
+
+            reminderMonth = months[now.getMonth()];
+
+            document.getElementById("reminderStatus").textContent =
+                `The monthly reminder will become active after the 20th. Current fee month: ${reminderMonth}.`;
+        }
+
+
+        /*
+            IMPORTANT:
+            Child name is intentionally NOT included.
+        */
+
+        const message =
+`Dear Parent/Guardian,
+
+This is a reminder to kindly pay the monthly school fee for ${reminderMonth}.
+
+Thank you.`;
+
+        document.getElementById("reminderPreview").textContent =
+            message;
+    }
+
+
+    function cleanNumber(number) {
+
+        number = number.replace(/\D/g, "");
+
+        /*
+            Sri Lankan numbers:
+            0771234567 → 94771234567
+        */
+
+        if (number.startsWith("0")) {
+            number = "94" + number.substring(1);
+        }
+
+        return number;
+    }
+
+
+    function sendPaymentWhatsApp() {
+
+        const child =
+            document.getElementById("childName").value.trim();
+
+        const number =
+            cleanNumber(
+                document.getElementById("parentNumber").value
+            );
+
+        const month =
+            document.getElementById("paymentMonth").value;
+
+        if (!child) {
+            alert("Please enter the child's name.");
+            return;
+        }
+
+        if (!number) {
+            alert("Please enter the parent's WhatsApp number.");
+            return;
+        }
+
+        const message =
+`Payment received successfully for ${child} for the month of ${month}.
+
+Thank you.`;
+
+        const url =
+            "https://wa.me/" +
+            number +
+            "?text=" +
+            encodeURIComponent(message);
+
+        window.open(url, "_blank");
+    }
+
+
+    function sendReminderWhatsApp() {
+
+        const number =
+            cleanNumber(
+                document.getElementById("reminderNumber").value
+            );
+
+        if (!number) {
+            alert("Please enter the parent's WhatsApp number.");
+            return;
+        }
+
+        const now = new Date();
+
+        let monthIndex = now.getMonth();
+
+        if (now.getDate() > 20) {
+            monthIndex++;
+
+            if (monthIndex > 11) {
+                monthIndex = 0;
+            }
+        }
+
+        const reminderMonth = months[monthIndex];
+
+        const message =
+`Dear Parent/Guardian,
+
+This is a reminder to kindly pay the monthly school fee for ${reminderMonth}.
+
+Thank you.`;
+
+        const url =
+            "https://wa.me/" +
+            number +
+            "?text=" +
+            encodeURIComponent(message);
+
+        window.open(url, "_blank");
+    }
+
+
+    document
+        .getElementById("childName")
+        .addEventListener("input", updatePaymentPreview);
+
+    document
+        .getElementById("paymentMonth")
+        .addEventListener("change", updatePaymentPreview);
+
+
+    populateMonths();
+    updateDate();
+
+</script>
+
+</body>
+</html>
+```
