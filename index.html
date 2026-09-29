@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 
 <meta name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+      content="width=device-width, initial-scale=1.0">
 
 <title>STG Fee WhatsApp</title>
 
@@ -20,33 +20,30 @@
 
 * {
     box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: Arial, Helvetica, sans-serif;
 }
 
 body {
-    background: #f3f7f7;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f2f7f7;
     color: #173b3d;
-    min-height: 100vh;
 }
 
 header {
     background: linear-gradient(135deg, #176d73, #239b91);
     color: white;
-    padding: 18px 16px;
     text-align: center;
-    box-shadow: 0 3px 12px rgba(0,0,0,.15);
+    padding: 20px 15px;
 }
 
 header h1 {
-    font-size: 20px;
+    margin: 0;
+    font-size: 21px;
 }
 
 header p {
-    font-size: 12px;
-    margin-top: 5px;
-    opacity: .9;
+    margin: 5px 0 0;
+    font-size: 13px;
 }
 
 .container {
@@ -58,49 +55,24 @@ header p {
 
 .card {
     background: white;
-    border-radius: 17px;
     padding: 18px;
-    margin-bottom: 16px;
-    box-shadow: 0 3px 14px rgba(0,0,0,.07);
+    border-radius: 16px;
+    margin-bottom: 15px;
+    box-shadow: 0 3px 12px rgba(0,0,0,.07);
 }
 
 .card h2 {
     color: #176d73;
-    font-size: 18px;
-    margin-bottom: 15px;
-}
-
-.date-card {
-    text-align: center;
-}
-
-.date-number {
-    font-size: 38px;
-    font-weight: bold;
-    color: #176d73;
-}
-
-.date-text {
-    margin-top: 4px;
-    color: #777;
-    font-size: 14px;
-}
-
-.status {
-    padding: 13px;
-    border-radius: 11px;
-    background: #fff8df;
-    color: #715c19;
-    font-size: 14px;
-    line-height: 1.5;
+    margin-top: 0;
+    font-size: 19px;
 }
 
 label {
     display: block;
-    font-size: 13px;
-    font-weight: bold;
     margin-top: 13px;
     margin-bottom: 6px;
+    font-size: 13px;
+    font-weight: bold;
 }
 
 input,
@@ -109,26 +81,26 @@ select {
     padding: 13px;
     border: 1px solid #ccdada;
     border-radius: 10px;
-    background: white;
     font-size: 15px;
-    outline: none;
+    background: white;
 }
 
 input:focus,
 select:focus {
-    border-color: #239b91;
+    outline: none;
+    border-color: #176d73;
 }
 
 button {
     border: none;
-    border-radius: 11px;
+    border-radius: 10px;
     padding: 13px;
     font-size: 14px;
     font-weight: bold;
     cursor: pointer;
 }
 
-.full-btn {
+.full {
     width: 100%;
     margin-top: 14px;
 }
@@ -153,146 +125,143 @@ button {
     color: white;
 }
 
-.secondary {
-    background: #e9f2f2;
+.light {
+    background: #e8f2f2;
     color: #176d73;
-}
-
-.message {
-    background: #f4f7f7;
-    padding: 14px;
-    border-radius: 11px;
-    margin-top: 13px;
-    white-space: pre-line;
-    font-size: 14px;
-    line-height: 1.5;
-}
-
-.student-info {
-    background: #f5fafa;
-    border-radius: 12px;
-    padding: 14px;
-    margin-top: 12px;
-    display: none;
-    font-size: 14px;
-    line-height: 1.6;
-}
-
-.student-info strong {
-    color: #176d73;
-    font-size: 16px;
-}
-
-.search-box {
-    margin-bottom: 15px;
-}
-
-.student-item {
-    border: 1px solid #dce8e8;
-    border-radius: 13px;
-    padding: 14px;
-    margin-bottom: 10px;
-    background: #fbfdfd;
-}
-
-.student-name {
-    font-weight: bold;
-    color: #176d73;
-    font-size: 16px;
-}
-
-.student-details {
-    margin-top: 6px;
-    font-size: 13px;
-    color: #666;
-    line-height: 1.6;
-}
-
-.student-actions {
-    display: flex;
-    gap: 8px;
-    margin-top: 12px;
-}
-
-.student-actions button {
-    flex: 1;
 }
 
 .hidden {
     display: none !important;
 }
 
+/* HOME */
+
+.date-box {
+    text-align: center;
+}
+
+.date-number {
+    font-size: 40px;
+    font-weight: bold;
+    color: #176d73;
+}
+
+.date-text {
+    color: #777;
+    margin-top: 4px;
+}
+
+.status {
+    background: #fff8df;
+    color: #715c19;
+    padding: 14px;
+    border-radius: 10px;
+    line-height: 1.5;
+    font-size: 14px;
+}
+
+/* ADD STUDENT */
+
+.add-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.add-title h2 {
+    margin-bottom: 0;
+}
+
+.cancel-btn {
+    padding: 8px 12px;
+}
+
+/* STUDENT */
+
+.student {
+    border: 1px solid #d8e5e5;
+    border-radius: 12px;
+    padding: 14px;
+    margin-top: 10px;
+}
+
+.student-name {
+    color: #176d73;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.student-details {
+    color: #666;
+    font-size: 13px;
+    line-height: 1.6;
+    margin-top: 6px;
+}
+
+.student-buttons {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.student-buttons button {
+    flex: 1;
+}
+
+.message {
+    background: #f3f7f7;
+    border-radius: 10px;
+    padding: 14px;
+    margin-top: 13px;
+    white-space: pre-line;
+    line-height: 1.5;
+    font-size: 14px;
+}
+
+.search {
+    margin-bottom: 10px;
+}
+
+/* NAV */
+
 nav {
     position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
+
     background: white;
-    box-shadow: 0 -3px 15px rgba(0,0,0,.10);
+
     display: flex;
-    justify-content: space-around;
-    padding: 8px 4px;
+
+    box-shadow: 0 -3px 15px rgba(0,0,0,.12);
+
     z-index: 1000;
 }
 
 nav button {
-    width: 25%;
+    flex: 1;
     background: transparent;
     color: #176d73;
+    border-radius: 0;
     font-size: 11px;
-    padding: 7px 3px;
+    padding: 9px 3px;
 }
 
 nav button.active {
     background: #e8f2f2;
 }
 
-.install-box {
-    background: linear-gradient(135deg,#176d73,#239b91);
-    color: white;
-    border-radius: 16px;
-    padding: 17px;
-    margin-bottom: 16px;
-}
-
-.install-box h3 {
-    margin-bottom: 7px;
-}
-
-.install-box p {
-    font-size: 13px;
-    line-height: 1.5;
-}
-
-.form-title {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.form-title button {
-    width: auto;
-    margin: 0;
-}
-
 .empty {
     text-align: center;
     color: #777;
-    padding: 25px 10px;
-    font-size: 14px;
-}
-
-.small-note {
-    color: #777;
-    font-size: 12px;
-    line-height: 1.5;
-    margin-top: 8px;
+    padding: 20px;
 }
 
 footer {
     text-align: center;
-    color: #777;
     font-size: 11px;
+    color: #777;
     padding: 20px;
 }
 
@@ -301,9 +270,15 @@ footer {
 
 <body>
 
+
 <header>
+
     <h1>ST. THERESA’S GEMS</h1>
-    <p>Monthly Fee WhatsApp</p>
+
+    <p>
+        Monthly Fee WhatsApp
+    </p>
+
 </header>
 
 
@@ -314,35 +289,209 @@ footer {
 <!-- HOME -->
 <!-- ================================================= -->
 
-<section id="homePage">
+<section id="home">
 
-    <div class="card date-card">
+    <div class="card date-box">
 
-        <div class="date-number" id="todayNumber">--</div>
+        <div
+            id="dayNumber"
+            class="date-number">
+            --
+        </div>
 
-        <div class="date-text" id="todayText">--</div>
-
-    </div>
-
-
-    <div class="install-box">
-
-        <h3>📱 STG Fee App</h3>
-
-        <p>
-            Add this website to your phone Home Screen
-            to use it like an app.
-        </p>
+        <div
+            id="dateText"
+            class="date-text">
+            --
+        </div>
 
     </div>
 
 
     <div class="card">
 
-        <h2>📅 Monthly Fee Status</h2>
+        <h2>
+            📅 Monthly Fee Status
+        </h2>
 
-        <div class="status" id="feeStatus">
+        <div
+            id="feeStatus"
+            class="status">
+
             Loading...
+
+        </div>
+
+    </div>
+
+
+    <div class="card">
+
+        <h2>
+            👧 Students
+        </h2>
+
+        <div
+            id="homeStudentCount"
+            class="status">
+
+            Loading...
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================================================= -->
+<!-- STUDENTS -->
+<!-- ================================================= -->
+
+<section
+    id="students"
+    class="hidden">
+
+
+    <!-- ADD STUDENT -->
+
+    <div class="card">
+
+        <div class="add-title">
+
+            <h2 id="formTitle">
+                ➕ Add Student
+            </h2>
+
+            <button
+                id="cancelButton"
+                class="light cancel-btn hidden"
+                onclick="cancelEdit()">
+
+                Cancel
+
+            </button>
+
+        </div>
+
+
+        <label>
+            Student ID
+        </label>
+
+        <input
+            id="studentId"
+            type="text"
+            placeholder="STG-STU-0001"
+        >
+
+
+        <label>
+            Child Name
+        </label>
+
+        <input
+            id="childName"
+            type="text"
+            placeholder="Enter child's full name"
+        >
+
+
+        <label>
+            Class
+        </label>
+
+        <select id="className">
+
+            <option value="">
+                Select Class
+            </option>
+
+            <option>
+                Play Group
+            </option>
+
+            <option>
+                Nursery
+            </option>
+
+            <option>
+                LKG
+            </option>
+
+            <option>
+                UKG
+            </option>
+
+        </select>
+
+
+        <label>
+            Parent / Guardian Name
+        </label>
+
+        <input
+            id="parentName"
+            type="text"
+            placeholder="Enter parent name"
+        >
+
+
+        <label>
+            WhatsApp Number
+        </label>
+
+        <input
+            id="phone"
+            type="tel"
+            placeholder="94771234567"
+        >
+
+
+        <label>
+            Monthly Fee
+        </label>
+
+        <input
+            id="fee"
+            type="number"
+            placeholder="5000"
+        >
+
+
+        <button
+            id="saveButton"
+            class="primary full"
+            onclick="saveStudent()">
+
+            💾 SAVE STUDENT
+
+        </button>
+
+    </div>
+
+
+
+    <!-- SAVED STUDENTS -->
+
+    <div class="card">
+
+        <h2>
+            👧 Saved Students
+        </h2>
+
+
+        <input
+            id="search"
+            class="search"
+            type="search"
+            placeholder="🔎 Search student..."
+            oninput="showStudents()"
+        >
+
+
+        <div id="studentList">
         </div>
 
     </div>
@@ -355,60 +504,66 @@ footer {
 <!-- PAYMENT -->
 <!-- ================================================= -->
 
-<section id="paymentPage" class="hidden">
+<section
+    id="payment"
+    class="hidden">
 
     <div class="card">
 
-        <h2>💳 Payment Successful</h2>
+        <h2>
+            💳 Payment Successful
+        </h2>
 
-        <label>Select Student</label>
 
-        <select id="studentSelect"
-                onchange="studentSelected()">
+        <label>
+            Select Student
+        </label>
+
+        <select
+            id="paymentStudent"
+            onchange="paymentStudentChanged()">
 
             <option value="">
-                -- Select Student --
+                Select Student
             </option>
 
         </select>
 
 
-        <div id="studentInfo"
-             class="student-info">
-        </div>
+        <label>
+            Month
+        </label>
 
+        <select id="paymentMonth">
 
-        <label>Fee Month</label>
-
-        <select id="paymentMonth"
-                onchange="updatePaymentMessage()">
         </select>
 
 
-        <label>Payment Amount</label>
+        <label>
+            Amount
+        </label>
 
         <input
-            type="number"
             id="paymentAmount"
-            placeholder="Enter amount"
-            oninput="updatePaymentMessage()"
+            type="number"
+            placeholder="Amount"
         >
 
 
-        <div id="paymentMessage"
-             class="message">
+        <div
+            id="paymentMessage"
+            class="message">
 
-            Select a student to generate
-            the payment message.
+            Select a student.
 
         </div>
 
 
         <button
-            class="whatsapp full-btn"
-            onclick="sendPaymentWhatsApp()">
+            class="whatsapp full"
+            onclick="sendPayment()">
 
-            💬 Send Payment WhatsApp
+            💬 SEND PAYMENT MESSAGE
 
         </button>
 
@@ -422,188 +577,63 @@ footer {
 <!-- REMINDER -->
 <!-- ================================================= -->
 
-<section id="reminderPage" class="hidden">
+<section
+    id="reminder"
+    class="hidden">
 
     <div class="card">
 
-        <h2>📅 Monthly Fee Reminder</h2>
+        <h2>
+            📅 Monthly Fee Reminder
+        </h2>
 
 
-        <div id="reminderStatus"
-             class="status">
-
-            Loading...
+        <div
+            id="reminderStatus"
+            class="status">
 
         </div>
 
 
-        <label>Select Parent</label>
+        <label>
+            Select Parent
+        </label>
 
         <select id="reminderStudent">
 
             <option value="">
-                -- Select Parent --
+                Select Parent
             </option>
 
         </select>
 
 
-        <div id="reminderMessage"
-             class="message">
+        <div
+            id="reminderMessage"
+            class="message">
+
         </div>
 
 
         <button
-            class="whatsapp full-btn"
-            onclick="sendReminderWhatsApp()">
+            class="whatsapp full"
+            onclick="sendReminder()">
 
-            💬 Send Fee Reminder
+            💬 SEND REMINDER
 
         </button>
 
-        <p class="small-note">
-            The reminder message does not include
-            the child's name.
+        <p
+            style="
+            font-size:12px;
+            color:#777;
+            margin-top:10px;
+            ">
+
+            The child's name is not included
+            in the reminder.
+
         </p>
-
-    </div>
-
-</section>
-
-
-
-<!-- ================================================= -->
-<!-- STUDENTS -->
-<!-- ================================================= -->
-
-<section id="studentsPage" class="hidden">
-
-
-    <!-- ADD STUDENT FORM -->
-
-    <div class="card">
-
-        <div class="form-title">
-
-            <h2 id="studentFormTitle">
-                ➕ Add Student
-            </h2>
-
-            <button
-                id="cancelEditBtn"
-                class="secondary hidden"
-                onclick="cancelEdit()">
-
-                Cancel
-
-            </button>
-
-        </div>
-
-
-        <label>Student ID</label>
-
-        <input
-            type="text"
-            id="studentId"
-            placeholder="Example: STG-STU-0001"
-        >
-
-
-        <label>Child Name</label>
-
-        <input
-            type="text"
-            id="childName"
-            placeholder="Enter child's full name"
-        >
-
-
-        <label>Class</label>
-
-        <select id="childClass">
-
-            <option value="">
-                -- Select Class --
-            </option>
-
-            <option value="Play Group">
-                Play Group
-            </option>
-
-            <option value="Nursery">
-                Nursery
-            </option>
-
-            <option value="LKG">
-                LKG
-            </option>
-
-            <option value="UKG">
-                UKG
-            </option>
-
-        </select>
-
-
-        <label>Parent / Guardian Name</label>
-
-        <input
-            type="text"
-            id="parentName"
-            placeholder="Enter parent/guardian name"
-        >
-
-
-        <label>WhatsApp Number</label>
-
-        <input
-            type="tel"
-            id="whatsappNumber"
-            placeholder="Example: 94771234567"
-        >
-
-
-        <label>Monthly Fee</label>
-
-        <input
-            type="number"
-            id="monthlyFee"
-            placeholder="Example: 5000"
-        >
-
-
-        <button
-            id="saveStudentBtn"
-            class="primary full-btn"
-            onclick="saveStudent()">
-
-            💾 Save Student
-
-        </button>
-
-    </div>
-
-
-
-    <!-- SAVED STUDENTS -->
-
-    <div class="card">
-
-        <h2>👧 Saved Students</h2>
-
-
-        <input
-            id="studentSearch"
-            class="search-box"
-            type="search"
-            placeholder="🔎 Search student..."
-            oninput="displayStudents()"
-        >
-
-
-        <div id="studentList">
-        </div>
 
     </div>
 
@@ -613,22 +643,24 @@ footer {
 </div>
 
 
-
 <footer>
-    ST. THERESA’S GEMS INTERNATIONAL PRESCHOOL
+
+ST. THERESA’S GEMS INTERNATIONAL PRESCHOOL
+
 </footer>
 
 
 
 <!-- ================================================= -->
-<!-- BOTTOM NAVIGATION -->
+<!-- NAVIGATION -->
 <!-- ================================================= -->
 
 <nav>
 
     <button
+        id="navHome"
         class="active"
-        onclick="showPage('homePage',this)">
+        onclick="openPage('home',this)">
 
         🏠
         <br>
@@ -638,7 +670,19 @@ footer {
 
 
     <button
-        onclick="showPage('paymentPage',this)">
+        id="navStudents"
+        onclick="openPage('students',this)">
+
+        👧
+        <br>
+        Students
+
+    </button>
+
+
+    <button
+        id="navPayment"
+        onclick="openPage('payment',this)">
 
         💳
         <br>
@@ -648,21 +692,12 @@ footer {
 
 
     <button
-        onclick="showPage('reminderPage',this)">
+        id="navReminder"
+        onclick="openPage('reminder',this)">
 
         📅
         <br>
         Reminder
-
-    </button>
-
-
-    <button
-        onclick="showPage('studentsPage',this)">
-
-        👧
-        <br>
-        Students
 
     </button>
 
@@ -672,12 +707,23 @@ footer {
 
 <script>
 
-
 /* =====================================================
    STORAGE
 ===================================================== */
 
-const STORAGE_KEY = "STG_FEE_STUDENTS";
+const STORAGE_KEY =
+    "STG_FEE_STUDENTS";
+
+
+let students =
+    JSON.parse(
+        localStorage.getItem(
+            STORAGE_KEY
+        )
+    ) || [];
+
+
+let editingIndex = -1;
 
 
 /* =====================================================
@@ -703,27 +749,10 @@ const months = [
 
 
 /* =====================================================
-   LOAD STUDENTS
+   SAVE
 ===================================================== */
 
-let students =
-    JSON.parse(
-        localStorage.getItem(STORAGE_KEY)
-    ) || [];
-
-
-/* =====================================================
-   EDITING
-===================================================== */
-
-let editingIndex = -1;
-
-
-/* =====================================================
-   SAVE TO DEVICE
-===================================================== */
-
-function saveToStorage() {
+function saveData() {
 
     localStorage.setItem(
         STORAGE_KEY,
@@ -734,129 +763,387 @@ function saveToStorage() {
 
 
 /* =====================================================
-   DATE
+   PHONE NUMBER
 ===================================================== */
 
-function updateDate() {
+function cleanPhone(phone) {
 
-    const now = new Date();
-
-    document.getElementById(
-        "todayNumber"
-    ).textContent = now.getDate();
-
-    document.getElementById(
-        "todayText"
-    ).textContent =
-        now.toLocaleDateString(
-            "en-US",
-            {
-                weekday: "long",
-                month: "long",
-                year: "numeric"
-            }
+    phone =
+        phone.replace(
+            /\D/g,
+            ""
         );
 
-    updateFeeStatus();
 
-}
+    if (
+        phone.startsWith("0")
+    ) {
 
-
-/* =====================================================
-   FEE STATUS
-===================================================== */
-
-function updateFeeStatus() {
-
-    const now = new Date();
-
-    const day = now.getDate();
-
-    if (day > 20) {
-
-        let nextMonth =
-            now.getMonth() + 1;
-
-        if (nextMonth > 11) {
-            nextMonth = 0;
-        }
-
-        document.getElementById(
-            "feeStatus"
-        ).textContent =
-            `The 20th has passed. Monthly fee payment reminder is active for ${months[nextMonth]}.`;
-
-    } else {
-
-        document.getElementById(
-            "feeStatus"
-        ).textContent =
-            `The monthly fee reminder is not active yet. It becomes active after the 20th.`;
+        phone =
+            "94" +
+            phone.substring(1);
 
     }
 
+
+    if (
+        phone.startsWith("94")
+    ) {
+
+        return phone;
+
+    }
+
+
+    return phone;
+
 }
 
 
 /* =====================================================
-   POPULATE STUDENT SELECTS
+   ADD STUDENT
 ===================================================== */
 
-function populateStudentSelects() {
+function saveStudent() {
 
-    const paymentSelect =
+    const id =
         document.getElementById(
-            "studentSelect"
+            "studentId"
+        ).value.trim();
+
+
+    const name =
+        document.getElementById(
+            "childName"
+        ).value.trim();
+
+
+    const className =
+        document.getElementById(
+            "className"
+        ).value;
+
+
+    const parent =
+        document.getElementById(
+            "parentName"
+        ).value.trim();
+
+
+    const phone =
+        cleanPhone(
+            document.getElementById(
+                "phone"
+            ).value
         );
 
-    const reminderSelect =
+
+    const fee =
         document.getElementById(
-            "reminderStudent"
+            "fee"
+        ).value;
+
+
+    if (!id) {
+
+        alert(
+            "Please enter the Student ID."
         );
 
+        return;
 
-    paymentSelect.innerHTML =
-        `<option value="">-- Select Student --</option>`;
-
-    reminderSelect.innerHTML =
-        `<option value="">-- Select Parent --</option>`;
+    }
 
 
-    students.forEach(
-        (student,index) => {
+    if (!name) {
 
-            const option =
-                document.createElement(
-                    "option"
-                );
+        alert(
+            "Please enter the child's name."
+        );
 
-            option.value = index;
+        return;
 
-            option.textContent =
-                `${student.name} — ${student.className}`;
-
-            paymentSelect.appendChild(
-                option
-            );
+    }
 
 
-            const reminderOption =
-                document.createElement(
-                    "option"
-                );
+    if (!className) {
 
-            reminderOption.value =
-                index;
+        alert(
+            "Please select the class."
+        );
 
-            reminderOption.textContent =
-                `${student.name} — ${student.className}`;
+        return;
 
-            reminderSelect.appendChild(
-                reminderOption
-            );
+    }
 
-        }
+
+    if (!parent) {
+
+        alert(
+            "Please enter the parent/guardian name."
+        );
+
+        return;
+
+    }
+
+
+    if (!phone) {
+
+        alert(
+            "Please enter the WhatsApp number."
+        );
+
+        return;
+
+    }
+
+
+    if (!fee) {
+
+        alert(
+            "Please enter the monthly fee."
+        );
+
+        return;
+
+    }
+
+
+    const student = {
+
+        id: id,
+
+        name: name,
+
+        className: className,
+
+        parent: parent,
+
+        phone: phone,
+
+        fee: Number(fee)
+
+    };
+
+
+    if (
+        editingIndex === -1
+    ) {
+
+        students.push(
+            student
+        );
+
+        alert(
+            "Student added successfully!"
+        );
+
+    } else {
+
+        students[
+            editingIndex
+        ] = student;
+
+        alert(
+            "Student updated successfully!"
+        );
+
+    }
+
+
+    saveData();
+
+    clearForm();
+
+    showStudents();
+
+    updateSelects();
+
+    updateHome();
+
+}
+
+
+/* =====================================================
+   CLEAR FORM
+===================================================== */
+
+function clearForm() {
+
+    document.getElementById(
+        "studentId"
+    ).value = "";
+
+    document.getElementById(
+        "childName"
+    ).value = "";
+
+    document.getElementById(
+        "className"
+    ).value = "";
+
+    document.getElementById(
+        "parentName"
+    ).value = "";
+
+    document.getElementById(
+        "phone"
+    ).value = "";
+
+    document.getElementById(
+        "fee"
+    ).value = "";
+
+
+    editingIndex = -1;
+
+
+    document.getElementById(
+        "formTitle"
+    ).textContent =
+        "➕ Add Student";
+
+
+    document.getElementById(
+        "saveButton"
+    ).textContent =
+        "💾 SAVE STUDENT";
+
+
+    document.getElementById(
+        "cancelButton"
+    ).classList.add(
+        "hidden"
     );
+
+}
+
+
+/* =====================================================
+   EDIT
+===================================================== */
+
+function editStudent(index) {
+
+    const student =
+        students[index];
+
+
+    document.getElementById(
+        "studentId"
+    ).value =
+        student.id;
+
+
+    document.getElementById(
+        "childName"
+    ).value =
+        student.name;
+
+
+    document.getElementById(
+        "className"
+    ).value =
+        student.className;
+
+
+    document.getElementById(
+        "parentName"
+    ).value =
+        student.parent;
+
+
+    document.getElementById(
+        "phone"
+    ).value =
+        student.phone;
+
+
+    document.getElementById(
+        "fee"
+    ).value =
+        student.fee;
+
+
+    editingIndex =
+        index;
+
+
+    document.getElementById(
+        "formTitle"
+    ).textContent =
+        "✏️ Edit Student";
+
+
+    document.getElementById(
+        "saveButton"
+    ).textContent =
+        "💾 UPDATE STUDENT";
+
+
+    document.getElementById(
+        "cancelButton"
+    ).classList.remove(
+        "hidden"
+    );
+
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+}
+
+
+/* =====================================================
+   CANCEL
+===================================================== */
+
+function cancelEdit() {
+
+    clearForm();
+
+}
+
+
+/* =====================================================
+   DELETE
+===================================================== */
+
+function deleteStudent(index) {
+
+    const student =
+        students[index];
+
+
+    if (
+        !confirm(
+            "Delete " +
+            student.name +
+            "?"
+        )
+    ) {
+
+        return;
+
+    }
+
+
+    students.splice(
+        index,
+        1
+    );
+
+
+    saveData();
+
+    showStudents();
+
+    updateSelects();
+
+    updateHome();
 
 }
 
@@ -865,16 +1152,17 @@ function populateStudentSelects() {
    DISPLAY STUDENTS
 ===================================================== */
 
-function displayStudents() {
+function showStudents() {
 
     const list =
         document.getElementById(
             "studentList"
         );
 
+
     const search =
         document.getElementById(
-            "studentSearch"
+            "search"
         ).value
         .toLowerCase()
         .trim();
@@ -911,12 +1199,15 @@ function displayStudents() {
         );
 
 
-    if (filtered.length === 0) {
+    if (
+        filtered.length === 0
+    ) {
 
         list.innerHTML =
+
             `<div class="empty">
                 No students found.
-             </div>`;
+            </div>`;
 
         return;
 
@@ -926,20 +1217,23 @@ function displayStudents() {
     filtered.forEach(
         student => {
 
-            const actualIndex =
-                students.indexOf(student);
+            const index =
+                students.indexOf(
+                    student
+                );
 
 
-            const item =
+            const div =
                 document.createElement(
                     "div"
                 );
 
-            item.className =
-                "student-item";
+
+            div.className =
+                "student";
 
 
-            item.innerHTML = `
+            div.innerHTML = `
 
                 <div class="student-name">
                     ${escapeHTML(student.name)}
@@ -947,29 +1241,37 @@ function displayStudents() {
 
                 <div class="student-details">
 
-                    🆔 ${escapeHTML(student.id)}
+                    🆔 Student ID:
+                    ${escapeHTML(student.id)}
+
                     <br>
 
-                    🏫 ${escapeHTML(student.className)}
+                    🏫 Class:
+                    ${escapeHTML(student.className)}
+
                     <br>
 
-                    👨‍👩‍👧 ${escapeHTML(student.parent)}
+                    👨‍👩‍👧 Parent:
+                    ${escapeHTML(student.parent)}
+
                     <br>
 
-                    📱 ${escapeHTML(student.whatsapp)}
+                    📱 WhatsApp:
+                    ${escapeHTML(student.phone)}
+
                     <br>
 
                     💰 Monthly Fee:
-                    ${escapeHTML(String(student.fee))}
+                    ${student.fee}
 
                 </div>
 
 
-                <div class="student-actions">
+                <div class="student-buttons">
 
                     <button
-                        class="secondary"
-                        onclick="editStudent(${actualIndex})">
+                        class="light"
+                        onclick="editStudent(${index})">
 
                         ✏️ Edit
 
@@ -978,7 +1280,7 @@ function displayStudents() {
 
                     <button
                         class="danger"
-                        onclick="deleteStudent(${actualIndex})">
+                        onclick="deleteStudent(${index})">
 
                         🗑️ Delete
 
@@ -989,7 +1291,9 @@ function displayStudents() {
             `;
 
 
-            list.appendChild(item);
+            list.appendChild(
+                div
+            );
 
         }
     );
@@ -998,396 +1302,106 @@ function displayStudents() {
 
 
 /* =====================================================
-   ESCAPE HTML
+   HTML SAFETY
 ===================================================== */
 
-function escapeHTML(value) {
+function escapeHTML(text) {
 
-    return String(value)
-        .replace(/&/g,"&amp;")
-        .replace(/</g,"&lt;")
-        .replace(/>/g,"&gt;")
-        .replace(/"/g,"&quot;")
-        .replace(/'/g,"&#039;");
+    return String(text)
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+        .replace(
+            /</g,
+            "&lt;"
+        )
+        .replace(
+            />/g,
+            "&gt;"
+        )
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+        .replace(
+            /'/g,
+            "&#039;"
+        );
 
 }
 
 
 /* =====================================================
-   ADD / UPDATE STUDENT
+   UPDATE SELECT BOXES
 ===================================================== */
 
-function saveStudent() {
+function updateSelects() {
 
-    const id =
+    const payment =
         document.getElementById(
-            "studentId"
-        ).value.trim();
-
-    const name =
-        document.getElementById(
-            "childName"
-        ).value.trim();
-
-    const className =
-        document.getElementById(
-            "childClass"
-        ).value;
-
-    const parent =
-        document.getElementById(
-            "parentName"
-        ).value.trim();
-
-    let whatsapp =
-        document.getElementById(
-            "whatsappNumber"
-        ).value.trim();
-
-    const fee =
-        document.getElementById(
-            "monthlyFee"
-        ).value.trim();
-
-
-    if (!id) {
-
-        alert("Please enter the Student ID.");
-
-        return;
-
-    }
-
-
-    if (!name) {
-
-        alert("Please enter the child's name.");
-
-        return;
-
-    }
-
-
-    if (!className) {
-
-        alert("Please select the class.");
-
-        return;
-
-    }
-
-
-    if (!parent) {
-
-        alert("Please enter the parent/guardian name.");
-
-        return;
-
-    }
-
-
-    if (!whatsapp) {
-
-        alert("Please enter the WhatsApp number.");
-
-        return;
-
-    }
-
-
-    if (!fee) {
-
-        alert("Please enter the monthly fee.");
-
-        return;
-
-    }
-
-
-    whatsapp =
-        cleanPhoneNumber(
-            whatsapp
+            "paymentStudent"
         );
 
 
-    const student = {
-
-        id: id,
-
-        name: name,
-
-        className: className,
-
-        parent: parent,
-
-        whatsapp: whatsapp,
-
-        fee: Number(fee)
-
-    };
-
-
-    if (editingIndex === -1) {
-
-        students.push(student);
-
-        alert(
-            "Student saved successfully."
+    const reminder =
+        document.getElementById(
+            "reminderStudent"
         );
 
-    } else {
 
-        students[editingIndex] =
-            student;
-
-        alert(
-            "Student updated successfully."
-        );
-
-    }
+    payment.innerHTML =
+        `<option value="">
+            Select Student
+        </option>`;
 
 
-    saveToStorage();
-
-    clearStudentForm();
-
-    displayStudents();
-
-    populateStudentSelects();
-
-}
+    reminder.innerHTML =
+        `<option value="">
+            Select Parent
+        </option>`;
 
 
-/* =====================================================
-   EDIT STUDENT
-===================================================== */
+    students.forEach(
+        (student,index) => {
 
-function editStudent(index) {
+            const option =
+                document.createElement(
+                    "option"
+                );
 
-    const student =
-        students[index];
+            option.value =
+                index;
 
+            option.textContent =
+                student.name +
+                " — " +
+                student.className;
 
-    document.getElementById(
-        "studentId"
-    ).value =
-        student.id;
-
-
-    document.getElementById(
-        "childName"
-    ).value =
-        student.name;
-
-
-    document.getElementById(
-        "childClass"
-    ).value =
-        student.className;
+            payment.appendChild(
+                option
+            );
 
 
-    document.getElementById(
-        "parentName"
-    ).value =
-        student.parent;
+            const option2 =
+                document.createElement(
+                    "option"
+                );
 
+            option2.value =
+                index;
 
-    document.getElementById(
-        "whatsappNumber"
-    ).value =
-        student.whatsapp;
+            option2.textContent =
+                student.name +
+                " — " +
+                student.parent;
 
+            reminder.appendChild(
+                option2
+            );
 
-    document.getElementById(
-        "monthlyFee"
-    ).value =
-        student.fee;
-
-
-    editingIndex =
-        index;
-
-
-    document.getElementById(
-        "studentFormTitle"
-    ).textContent =
-        "✏️ Edit Student";
-
-
-    document.getElementById(
-        "saveStudentBtn"
-    ).textContent =
-        "💾 Update Student";
-
-
-    document.getElementById(
-        "cancelEditBtn"
-    ).classList.remove(
-        "hidden"
+        }
     );
-
-
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
-
-}
-
-
-/* =====================================================
-   CANCEL EDIT
-===================================================== */
-
-function cancelEdit() {
-
-    editingIndex = -1;
-
-    clearStudentForm();
-
-}
-
-
-/* =====================================================
-   CLEAR FORM
-===================================================== */
-
-function clearStudentForm() {
-
-    document.getElementById(
-        "studentId"
-    ).value = "";
-
-
-    document.getElementById(
-        "childName"
-    ).value = "";
-
-
-    document.getElementById(
-        "childClass"
-    ).value = "";
-
-
-    document.getElementById(
-        "parentName"
-    ).value = "";
-
-
-    document.getElementById(
-        "whatsappNumber"
-    ).value = "";
-
-
-    document.getElementById(
-        "monthlyFee"
-    ).value = "";
-
-
-    editingIndex = -1;
-
-
-    document.getElementById(
-        "studentFormTitle"
-    ).textContent =
-        "➕ Add Student";
-
-
-    document.getElementById(
-        "saveStudentBtn"
-    ).textContent =
-        "💾 Save Student";
-
-
-    document.getElementById(
-        "cancelEditBtn"
-    ).classList.add(
-        "hidden"
-    );
-
-}
-
-
-/* =====================================================
-   DELETE STUDENT
-===================================================== */
-
-function deleteStudent(index) {
-
-    const student =
-        students[index];
-
-
-    const confirmed =
-        confirm(
-            `Delete ${student.name}?\n\nThis cannot be undone.`
-        );
-
-
-    if (!confirmed) {
-        return;
-    }
-
-
-    students.splice(
-        index,
-        1
-    );
-
-
-    saveToStorage();
-
-    displayStudents();
-
-    populateStudentSelects();
-
-}
-
-
-/* =====================================================
-   PHONE NUMBER
-===================================================== */
-
-function cleanPhoneNumber(number) {
-
-    number =
-        number.replace(
-            /\D/g,
-            ""
-        );
-
-
-    /*
-       0771234567
-       becomes
-       94771234567
-    */
-
-    if (
-        number.startsWith("0")
-    ) {
-
-        number =
-            "94" +
-            number.substring(1);
-
-    }
-
-
-    /*
-       If user enters +94...
-    */
-
-    if (
-        number.startsWith("94")
-    ) {
-
-        return number;
-
-    }
-
-
-    return number;
 
 }
 
@@ -1396,7 +1410,7 @@ function cleanPhoneNumber(number) {
    PAYMENT MONTHS
 ===================================================== */
 
-function populateMonths() {
+function setupMonths() {
 
     const select =
         document.getElementById(
@@ -1448,26 +1462,26 @@ function populateMonths() {
    PAYMENT STUDENT
 ===================================================== */
 
-function studentSelected() {
+function paymentStudentChanged() {
 
     const index =
         document.getElementById(
-            "studentSelect"
+            "paymentStudent"
         ).value;
 
 
-    const info =
+    if (
+        index === ""
+    ) {
+
         document.getElementById(
-            "studentInfo"
-        );
+            "paymentAmount"
+        ).value = "";
 
-
-    if (index === "") {
-
-        info.style.display =
-            "none";
-
-        updatePaymentMessage();
+        document.getElementById(
+            "paymentMessage"
+        ).textContent =
+            "Select a student.";
 
         return;
 
@@ -1476,39 +1490,6 @@ function studentSelected() {
 
     const student =
         students[index];
-
-
-    info.style.display =
-        "block";
-
-
-    info.innerHTML = `
-
-        <strong>
-            ${escapeHTML(student.name)}
-        </strong>
-
-        <br>
-
-        Class:
-        ${escapeHTML(student.className)}
-
-        <br>
-
-        Parent:
-        ${escapeHTML(student.parent)}
-
-        <br>
-
-        WhatsApp:
-        ${escapeHTML(student.whatsapp)}
-
-        <br>
-
-        Monthly Fee:
-        ${escapeHTML(String(student.fee))}
-
-    `;
 
 
     document.getElementById(
@@ -1526,20 +1507,33 @@ function studentSelected() {
    PAYMENT MESSAGE
 ===================================================== */
 
+document.getElementById(
+    "paymentMonth"
+).addEventListener(
+    "change",
+    updatePaymentMessage
+);
+
+
+document.getElementById(
+    "paymentAmount"
+).addEventListener(
+    "input",
+    updatePaymentMessage
+);
+
+
 function updatePaymentMessage() {
 
     const index =
         document.getElementById(
-            "studentSelect"
+            "paymentStudent"
         ).value;
 
 
-    if (index === "") {
-
-        document.getElementById(
-            "paymentMessage"
-        ).textContent =
-            "Select a student to generate the payment message.";
+    if (
+        index === ""
+    ) {
 
         return;
 
@@ -1559,11 +1553,12 @@ function updatePaymentMessage() {
     const amount =
         document.getElementById(
             "paymentAmount"
-        ).value ||
-        student.fee;
+        ).value;
 
 
-    const message =
+    document.getElementById(
+        "paymentMessage"
+    ).textContent =
 
 `Payment received successfully.
 
@@ -1573,28 +1568,24 @@ Amount: ${amount}
 
 Thank you.`;
 
-
-    document.getElementById(
-        "paymentMessage"
-    ).textContent =
-        message;
-
 }
 
 
 /* =====================================================
-   SEND PAYMENT WHATSAPP
+   SEND PAYMENT
 ===================================================== */
 
-function sendPaymentWhatsApp() {
+function sendPayment() {
 
     const index =
         document.getElementById(
-            "studentSelect"
+            "paymentStudent"
         ).value;
 
 
-    if (index === "") {
+    if (
+        index === ""
+    ) {
 
         alert(
             "Please select a student."
@@ -1618,8 +1609,7 @@ function sendPaymentWhatsApp() {
     const amount =
         document.getElementById(
             "paymentAmount"
-        ).value ||
-        student.fee;
+        ).value;
 
 
     const message =
@@ -1635,7 +1625,7 @@ Thank you.`;
 
     const url =
         "https://wa.me/" +
-        student.whatsapp +
+        student.phone +
         "?text=" +
         encodeURIComponent(
             message
@@ -1660,45 +1650,37 @@ function getReminderMonth() {
         new Date();
 
 
-    let monthIndex =
+    let month =
         now.getMonth();
 
-
-    /*
-       After 20th:
-       reminder is for next month.
-    */
 
     if (
         now.getDate() > 20
     ) {
 
-        monthIndex++;
-
+        month++;
 
         if (
-            monthIndex > 11
+            month > 11
         ) {
 
-            monthIndex = 0;
+            month = 0;
 
         }
 
     }
 
 
-    return months[
-        monthIndex
-    ];
+    return months[month];
 
 }
 
 
 /* =====================================================
-   REMINDER MESSAGE
+   REMINDER
 ===================================================== */
 
-function updateReminderMessage() {
+function updateReminder() {
 
     const now =
         new Date();
@@ -1715,23 +1697,32 @@ function updateReminderMessage() {
         document.getElementById(
             "reminderStatus"
         ).textContent =
-            `The 20th has passed. The monthly fee reminder is active for ${month}.`;
+
+            "The 20th has passed. " +
+            "The reminder is active for " +
+            month +
+            ".";
 
     } else {
 
         document.getElementById(
             "reminderStatus"
         ).textContent =
-            `The reminder becomes active after the 20th.`;
+
+            "The reminder will become " +
+            "active after the 20th.";
 
     }
 
 
     /*
-       CHILD NAME IS NOT INCLUDED.
+       IMPORTANT:
+       No child's name here.
     */
 
-    const message =
+    document.getElementById(
+        "reminderMessage"
+    ).textContent =
 
 `Dear Parent/Guardian,
 
@@ -1739,20 +1730,14 @@ This is a reminder to kindly pay the monthly school fee for ${month}.
 
 Thank you.`;
 
-
-    document.getElementById(
-        "reminderMessage"
-    ).textContent =
-        message;
-
 }
 
 
 /* =====================================================
-   SEND REMINDER WHATSAPP
+   SEND REMINDER
 ===================================================== */
 
-function sendReminderWhatsApp() {
+function sendReminder() {
 
     const index =
         document.getElementById(
@@ -1760,7 +1745,9 @@ function sendReminderWhatsApp() {
         ).value;
 
 
-    if (index === "") {
+    if (
+        index === ""
+    ) {
 
         alert(
             "Please select a parent."
@@ -1780,7 +1767,7 @@ function sendReminderWhatsApp() {
 
 
     /*
-       NO CHILD NAME.
+       CHILD NAME IS NOT INCLUDED.
     */
 
     const message =
@@ -1794,7 +1781,7 @@ Thank you.`;
 
     const url =
         "https://wa.me/" +
-        student.whatsapp +
+        student.phone +
         "?text=" +
         encodeURIComponent(
             message
@@ -1810,57 +1797,126 @@ Thank you.`;
 
 
 /* =====================================================
-   PAGE NAVIGATION
+   HOME
 ===================================================== */
 
-function showPage(
-    pageId,
+function updateHome() {
+
+    const now =
+        new Date();
+
+
+    document.getElementById(
+        "dayNumber"
+    ).textContent =
+        now.getDate();
+
+
+    document.getElementById(
+        "dateText"
+    ).textContent =
+        now.toLocaleDateString(
+            "en-US",
+            {
+                weekday: "long",
+                month: "long",
+                year: "numeric"
+            }
+        );
+
+
+    document.getElementById(
+        "homeStudentCount"
+    ).textContent =
+
+        students.length === 1
+
+        ?
+
+        "1 student is saved."
+
+        :
+
+        students.length +
+        " students are saved.";
+
+
+    if (
+        now.getDate() > 20
+    ) {
+
+        document.getElementById(
+            "feeStatus"
+        ).textContent =
+
+            "The 20th has passed. " +
+            "Monthly fee reminders are now active.";
+
+    } else {
+
+        document.getElementById(
+            "feeStatus"
+        ).textContent =
+
+            "Monthly fee reminders become active after the 20th.";
+
+    }
+
+}
+
+
+/* =====================================================
+   PAGE SWITCHING
+===================================================== */
+
+function openPage(
+    page,
     button
 ) {
 
-    const pages = [
+    document.getElementById(
+        "home"
+    ).classList.add(
+        "hidden"
+    );
 
-        "homePage",
-        "paymentPage",
-        "reminderPage",
-        "studentsPage"
+    document.getElementById(
+        "students"
+    ).classList.add(
+        "hidden"
+    );
 
-    ];
+    document.getElementById(
+        "payment"
+    ).classList.add(
+        "hidden"
+    );
 
-
-    pages.forEach(
-        id => {
-
-            document
-                .getElementById(id)
-                .classList.add(
-                    "hidden"
-                );
-
-        }
+    document.getElementById(
+        "reminder"
+    ).classList.add(
+        "hidden"
     );
 
 
-    document
-        .getElementById(pageId)
-        .classList.remove(
-            "hidden"
-        );
+    document.getElementById(
+        page
+    ).classList.remove(
+        "hidden"
+    );
 
 
-    document
-        .querySelectorAll(
-            "nav button"
-        )
-        .forEach(
-            btn => {
+    document.querySelectorAll(
+        "nav button"
+    ).forEach(
+        btn => {
 
-                btn.classList.remove(
-                    "active"
-                );
+            btn.classList.remove(
+                "active"
+            );
 
-            }
-        );
+        }
+    );
 
 
     button.classList.add(
@@ -1869,21 +1925,19 @@ function showPage(
 
 
     if (
-        pageId ===
-        "studentsPage"
+        page === "students"
     ) {
 
-        displayStudents();
+        showStudents();
 
     }
 
 
     if (
-        pageId ===
-        "reminderPage"
+        page === "reminder"
     ) {
 
-        updateReminderMessage();
+        updateReminder();
 
     }
 
@@ -1891,7 +1945,7 @@ function showPage(
 
 
 /* =====================================================
-   PWA SERVICE WORKER
+   SERVICE WORKER
 ===================================================== */
 
 if (
@@ -1901,17 +1955,17 @@ if (
 
     window.addEventListener(
         "load",
-        () => {
+        function() {
 
             navigator.serviceWorker
                 .register(
                     "sw.js"
                 )
                 .catch(
-                    error => {
+                    function(error) {
 
                         console.log(
-                            "Service Worker error:",
+                            "Service worker error:",
                             error
                         );
 
@@ -1925,18 +1979,18 @@ if (
 
 
 /* =====================================================
-   START APP
+   START
 ===================================================== */
 
-populateMonths();
+setupMonths();
 
-populateStudentSelects();
+updateSelects();
 
-displayStudents();
+showStudents();
 
-updateDate();
+updateHome();
 
-updateReminderMessage();
+updateReminder();
 
 </script>
 
