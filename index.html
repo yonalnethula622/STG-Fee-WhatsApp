@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport"
+   content="width=device-width, initial-scale=1.0">
 
 <title>STG Fee WhatsApp</title>
 
@@ -11,335 +15,836 @@
 <link rel="apple-touch-icon" href="icon.png">
 
 <meta name="theme-color" content="#176d73">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="default">
-<meta name="apple-mobile-web-app-title" content="STG Fees">
+
+<meta name="apple-mobile-web-app-capable"
+   content="yes">
+
+<meta name="apple-mobile-web-app-status-bar-style"
+   content="default">
+
+<meta name="apple-mobile-web-app-title"
+   content="STG Fees">
 
 <style>
-*{box-sizing:border-box}
 
-body{
-    margin:0;
-    font-family:Arial,sans-serif;
-    background:#f2f7f7;
-    color:#173b3d
+/* =====================================================
+   GENERAL
+===================================================== */
+
+* {
+    box-sizing: border-box;
 }
 
-header{
-    background:linear-gradient(135deg,#176d73,#239b91);
-    color:white;
-    text-align:center;
-    padding:20px 15px
+body {
+
+    margin: 0;
+
+    font-family:
+        Arial,
+        sans-serif;
+
+    background:
+        #f2f7f7;
+
+    color:
+        #173b3d;
 }
 
-header h1{margin:0;font-size:21px}
-header p{margin:5px 0 0;font-size:13px}
 
-.container{
-    max-width:650px;
-    margin:auto;
-    padding:15px;
-    padding-bottom:100px
+/* =====================================================
+   LOGIN
+===================================================== */
+
+#loginScreen {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #176d73,
+            #239b91
+        );
+
 }
 
-.card{
-    background:white;
-    padding:18px;
-    border-radius:16px;
-    margin-bottom:15px;
-    box-shadow:0 3px 12px rgba(0,0,0,.07)
+
+.login-card {
+
+    width: 100%;
+
+    max-width: 420px;
+
+    background: white;
+
+    padding: 25px;
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 10px 35px
+        rgba(0,0,0,.20);
+
+    text-align: center;
+
 }
 
-.card h2{
-    color:#176d73;
-    margin-top:0;
-    font-size:19px
+
+.login-card h1 {
+
+    margin: 0;
+
+    color:
+        #176d73;
+
+    font-size:
+        24px;
+
 }
 
-label{
-    display:block;
-    margin-top:13px;
-    margin-bottom:6px;
-    font-size:13px;
-    font-weight:bold
+
+.login-card p {
+
+    color:
+        #777;
+
+    font-size:
+        13px;
+
+    margin:
+        7px 0 20px;
+
 }
 
-input,select{
-    width:100%;
-    padding:13px;
-    border:1px solid #ccdada;
-    border-radius:10px;
-    font-size:15px;
-    background:white
+
+.login-card input {
+
+    margin-top:
+        10px;
+
 }
 
-input:focus,select:focus{
-    outline:none;
-    border-color:#176d73
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+header {
+
+    background:
+        linear-gradient(
+            135deg,
+            #176d73,
+            #239b91
+        );
+
+    color:
+        white;
+
+    text-align:
+        center;
+
+    padding:
+        20px 15px;
+
 }
 
-button{
-    border:none;
-    border-radius:10px;
-    padding:13px;
-    font-size:14px;
-    font-weight:bold;
-    cursor:pointer
+
+header h1 {
+
+    margin:
+        0;
+
+    font-size:
+        21px;
+
 }
 
-.full{width:100%;margin-top:14px}
-.primary{background:#176d73;color:white}
-.whatsapp{background:#25D366;color:white}
-.gold{background:#e4ad3e;color:white}
-.danger{background:#d9534f;color:white}
-.light{background:#e8f2f2;color:#176d73}
-.hidden{display:none!important}
 
-.date-box{text-align:center}
-.date-number{
-    font-size:40px;
-    font-weight:bold;
-    color:#176d73
+header p {
+
+    margin:
+        5px 0 0;
+
+    font-size:
+        13px;
+
 }
 
-.date-text{color:#777;margin-top:4px}
 
-.status{
-    background:#fff8df;
-    color:#715c19;
-    padding:14px;
-    border-radius:10px;
-    line-height:1.5;
-    font-size:14px
+/* =====================================================
+   CONTAINER
+===================================================== */
+
+.container {
+
+    max-width:
+        650px;
+
+    margin:
+        auto;
+
+    padding:
+        15px;
+
+    padding-bottom:
+        100px;
+
 }
 
-.add-title{
-    display:flex;
-    justify-content:space-between;
-    align-items:center
+
+/* =====================================================
+   CARDS
+===================================================== */
+
+.card {
+
+    background:
+        white;
+
+    padding:
+        18px;
+
+    border-radius:
+        16px;
+
+    margin-bottom:
+        15px;
+
+    box-shadow:
+        0 3px 12px
+        rgba(0,0,0,.07);
+
 }
 
-.add-title h2{margin-bottom:0}
-.cancel-btn{padding:8px 12px}
 
-.student{
-    border:1px solid #d8e5e5;
-    border-radius:12px;
-    padding:14px;
-    margin-top:10px
+.card h2 {
+
+    color:
+        #176d73;
+
+    margin-top:
+        0;
+
+    font-size:
+        19px;
+
 }
 
-.student-name{
-    color:#176d73;
-    font-size:17px;
-    font-weight:bold
+
+/* =====================================================
+   FORM
+===================================================== */
+
+label {
+
+    display:
+        block;
+
+    margin-top:
+        13px;
+
+    margin-bottom:
+        6px;
+
+    font-size:
+        13px;
+
+    font-weight:
+        bold;
+
 }
 
-.student-details{
-    color:#666;
-    font-size:13px;
-    line-height:1.6;
-    margin-top:6px
+
+input,
+select {
+
+    width:
+        100%;
+
+    padding:
+        13px;
+
+    border:
+        1px solid
+        #ccdada;
+
+    border-radius:
+        10px;
+
+    font-size:
+        15px;
+
+    background:
+        white;
+
 }
 
-.student-buttons{
-    display:flex;
-    gap:8px;
-    margin-top:12px
+
+input:focus,
+select:focus {
+
+    outline:
+        none;
+
+    border-color:
+        #176d73;
+
 }
 
-.student-buttons button{flex:1}
 
-.message{
-    background:#f3f7f7;
-    border-radius:10px;
-    padding:14px;
-    margin-top:13px;
-    white-space:pre-line;
-    line-height:1.5;
-    font-size:14px
+/* =====================================================
+   BUTTONS
+===================================================== */
+
+button {
+
+    border:
+        none;
+
+    border-radius:
+        10px;
+
+    padding:
+        13px;
+
+    font-size:
+        14px;
+
+    font-weight:
+        bold;
+
+    cursor:
+        pointer;
+
 }
 
-.search{margin-bottom:10px}
 
-nav{
-    position:fixed;
-    bottom:0;
-    left:0;
-    right:0;
-    background:white;
-    display:flex;
-    box-shadow:0 -3px 15px rgba(0,0,0,.12);
-    z-index:1000
+button:disabled {
+
+    opacity:
+        .6;
+
+    cursor:
+        not-allowed;
+
 }
 
-nav button{
-    flex:1;
-    background:transparent;
-    color:#176d73;
-    border-radius:0;
-    font-size:11px;
-    padding:9px 3px
+
+.full {
+
+    width:
+        100%;
+
+    margin-top:
+        14px;
+
 }
 
-nav button.active{background:#e8f2f2}
 
-.empty{
-    text-align:center;
-    color:#777;
-    padding:20px
+.primary {
+
+    background:
+        #176d73;
+
+    color:
+        white;
+
 }
 
-footer{
-    text-align:center;
-    font-size:11px;
-    color:#777;
-    padding:20px
+
+.whatsapp {
+
+    background:
+        #25D366;
+
+    color:
+        white;
+
 }
+
+
+.gold {
+
+    background:
+        #e4ad3e;
+
+    color:
+        white;
+
+}
+
+
+.danger {
+
+    background:
+        #d9534f;
+
+    color:
+        white;
+
+}
+
+
+.light {
+
+    background:
+        #e8f2f2;
+
+    color:
+        #176d73;
+
+}
+
+
+/* =====================================================
+   HIDDEN
+===================================================== */
+
+.hidden {
+
+    display:
+        none !important;
+
+}
+
+
+/* =====================================================
+   HOME
+===================================================== */
+
+.date-box {
+
+    text-align:
+        center;
+
+}
+
+
+.date-number {
+
+    font-size:
+        40px;
+
+    font-weight:
+        bold;
+
+    color:
+        #176d73;
+
+}
+
+
+.date-text {
+
+    color:
+        #777;
+
+    margin-top:
+        4px;
+
+}
+
+
+.status {
+
+    background:
+        #fff8df;
+
+    color:
+        #715c19;
+
+    padding:
+        14px;
+
+    border-radius:
+        10px;
+
+    line-height:
+        1.5;
+
+    font-size:
+        14px;
+
+}
+
+
+/* =====================================================
+   STUDENT
+===================================================== */
+
+.student {
+
+    border:
+        1px solid
+        #d8e5e5;
+
+    border-radius:
+        12px;
+
+    padding:
+        14px;
+
+    margin-top:
+        10px;
+
+}
+
+
+.student-name {
+
+    color:
+        #176d73;
+
+    font-size:
+        17px;
+
+    font-weight:
+        bold;
+
+}
+
+
+.student-details {
+
+    color:
+        #666;
+
+    font-size:
+        13px;
+
+    line-height:
+        1.6;
+
+    margin-top:
+        6px;
+
+}
+
+
+.student-buttons {
+
+    display:
+        flex;
+
+    gap:
+        8px;
+
+    margin-top:
+        12px;
+
+}
+
+
+.student-buttons button {
+
+    flex:
+        1;
+
+}
+
+
+.message {
+
+    background:
+        #f3f7f7;
+
+    border-radius:
+        10px;
+
+    padding:
+        14px;
+
+    margin-top:
+        13px;
+
+    white-space:
+        pre-line;
+
+    line-height:
+        1.5;
+
+    font-size:
+        14px;
+
+}
+
+
+.search {
+
+    margin-bottom:
+        10px;
+
+}
+
+
+.empty {
+
+    text-align:
+        center;
+
+    color:
+        #777;
+
+    padding:
+        20px;
+
+}
+
+
+/* =====================================================
+   NAV
+===================================================== */
+
+nav {
+
+    position:
+        fixed;
+
+    bottom:
+        0;
+
+    left:
+        0;
+
+    right:
+        0;
+
+    background:
+        white;
+
+    display:
+        flex;
+
+    box-shadow:
+        0 -3px 15px
+        rgba(0,0,0,.12);
+
+    z-index:
+        1000;
+
+}
+
+
+nav button {
+
+    flex:
+        1;
+
+    background:
+        transparent;
+
+    color:
+        #176d73;
+
+    border-radius:
+        0;
+
+    font-size:
+        11px;
+
+    padding:
+        9px 3px;
+
+}
+
+
+nav button.active {
+
+    background:
+        #e8f2f2;
+
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer {
+
+    text-align:
+        center;
+
+    font-size:
+        11px;
+
+    color:
+        #777;
+
+    padding:
+        20px;
+
+}
+
+
 </style>
 
 </head>
 
 <body>
 
+<!-- =====================================================
+     LOGIN SCREEN
+===================================================== -->
+
+<div id="loginScreen">
+
+```
+<div class="login-card">
+
+    <h1>
+        ST. THERESA’S GEMS
+    </h1>
+
+    <p>
+        Monthly Fee Management
+    </p>
+
+
+    <input
+        id="loginEmail"
+        type="email"
+        placeholder="Email"
+        autocomplete="username">
+
+
+    <input
+        id="loginPassword"
+        type="password"
+        placeholder="Password"
+        autocomplete="current-password">
+
+
+    <div
+        id="loginError"
+        style="
+            color:#d9534f;
+            font-size:13px;
+            margin-top:12px;
+        ">
+    </div>
+
+
+    <button
+        id="loginButton"
+        class="primary full"
+        onclick="loginToSystem()">
+
+        LOGIN
+
+    </button>
+
+</div>
+```
+
+</div>
+
+<!-- =====================================================
+     MAIN APP
+===================================================== -->
+
+<div
+    id="mainApp"
+    class="hidden">
+
 <header>
-    <h1>ST. THERESA’S GEMS</h1>
-    <p>Monthly Fee WhatsApp</p>
+
+```
+<h1>
+    ST. THERESA’S GEMS
+</h1>
+
+<p>
+    Monthly Fee WhatsApp
+</p>
+```
+
 </header>
 
 <div class="container">
 
-<!-- HOME -->
+<!-- =====================================================
+     HOME
+===================================================== -->
 
 <section id="home">
 
 ```
 <div class="card date-box">
-    <div id="dayNumber" class="date-number">--</div>
-    <div id="dateText" class="date-text">--</div>
-</div>
 
-<div class="card">
-    <h2>📅 Monthly Fee Status</h2>
-    <div id="feeStatus" class="status">Loading...</div>
-</div>
+    <div
+        id="dayNumber"
+        class="date-number">
 
-<div class="card">
-    <h2>👧 Students</h2>
-    <div id="homeStudentCount" class="status">Loading...</div>
-</div>
-```
+        --
 
-</section>
-
-<!-- STUDENTS -->
-
-<section id="students" class="hidden">
-
-```
-<div class="card">
-
-    <div class="add-title">
-        <h2 id="formTitle">➕ Add Student</h2>
-
-        <button
-            id="cancelButton"
-            class="light cancel-btn hidden"
-            onclick="cancelEdit()">
-            Cancel
-        </button>
     </div>
 
-    <label>Student ID</label>
-    <input id="studentId" type="text" placeholder="STG-STU-0001">
 
-    <label>Child Name</label>
-    <input id="childName" type="text" placeholder="Enter child's full name">
+    <div
+        id="dateText"
+        class="date-text">
 
-    <label>Class</label>
-    <select id="className">
-        <option value="">Select Class</option>
-        <option>Play Group</option>
-        <option>Nursery</option>
-        <option>LKG</option>
-        <option>UKG</option>
-    </select>
+        --
 
-    <label>Parent / Guardian Name</label>
-    <input id="parentName" type="text" placeholder="Enter parent name">
-
-    <label>WhatsApp Number</label>
-    <input id="phone" type="tel" placeholder="94771234567">
-
-    <label>Monthly Fee</label>
-    <input id="fee" type="number" placeholder="5000">
-
-    <button
-        id="saveButton"
-        class="primary full"
-        onclick="saveStudent()">
-        💾 SAVE STUDENT
-    </button>
-
-</div>
-
-
-<div class="card">
-
-    <h2>👧 Saved Students</h2>
-
-    <input
-        id="search"
-        class="search"
-        type="search"
-        placeholder="🔎 Search student..."
-        oninput="showStudents()">
-
-    <div id="studentList"></div>
-
-</div>
-```
-
-</section>
-
-<!-- PAYMENT -->
-
-<section id="payment" class="hidden">
-
-```
-<div class="card">
-
-    <h2>💳 Payment Successful</h2>
-
-    <label>Select Student</label>
-
-    <select
-        id="paymentStudent"
-        onchange="paymentStudentChanged()">
-
-        <option value="">Select Student</option>
-
-    </select>
-
-    <label>Month</label>
-
-    <select id="paymentMonth"></select>
-
-    <label>Amount</label>
-
-    <input
-        id="paymentAmount"
-        type="number"
-        placeholder="Amount">
-
-    <div id="paymentMessage" class="message">
-        Select a student.
     </div>
 
+</div>
+
+
+<div class="card">
+
+    <h2>
+        📅 Monthly Fee Status
+    </h2>
+
+
+    <div
+        id="feeStatus"
+        class="status">
+
+        Loading...
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <h2>
+        👧 Students
+    </h2>
+
+
+    <div
+        id="homeStudentCount"
+        class="status">
+
+        Loading...
+
+    </div>
+
+</div>
+
+
+<div class="card">
+
     <button
-        class="whatsapp full"
-        onclick="sendPayment()">
-        💬 SEND PAYMENT MESSAGE
+        class="danger full"
+        onclick="logout()">
+
+        🚪 LOGOUT
+
     </button>
 
 </div>
@@ -347,47 +852,254 @@ footer{
 
 </section>
 
-<!-- REMINDER -->
+<!-- =====================================================
+     STUDENTS
+===================================================== -->
 
-<section id="reminder" class="hidden">
+<section
+    id="students"
+    class="hidden">
 
-```
+<!-- FIND STUDENT -->
+
 <div class="card">
 
-    <h2>📅 Monthly Fee Reminder</h2>
+```
+<h2>
+    ➕ Add Student
+</h2>
 
-    <div id="reminderStatus" class="status"></div>
 
-    <label>Select Parent</label>
+<p
+    style="
+        font-size:13px;
+        color:#777;
+        line-height:1.5;
+    ">
 
-    <select id="reminderStudent">
-        <option value="">Select Parent</option>
-    </select>
+    Enter the Student ID from the
+    Attendance system. The child's
+    details will be found automatically.
 
-    <div id="reminderMessage" class="message"></div>
+</p>
 
-    <button
-        class="whatsapp full"
-        onclick="sendReminder()">
-        💬 SEND REMINDER
-    </button>
 
-    <p style="font-size:12px;color:#777;margin-top:10px;">
-        The child's name is not included in the reminder.
-    </p>
+<label>
+    Student ID
+</label>
+
+
+<input
+    id="findStudentId"
+    type="text"
+    placeholder="STG-STU-0001">
+
+
+<button
+    class="primary full"
+    onclick="findStudent()">
+
+    🔎 FIND STUDENT
+
+</button>
+
+
+<div
+    id="studentSearchResult"
+    style="
+        margin-top:15px;
+    ">
+</div>
+```
+
+</div>
+
+<!-- SAVED STUDENTS -->
+
+<div class="card">
+
+```
+<h2>
+    👧 Saved Students
+</h2>
+
+
+<input
+    id="search"
+    class="search"
+    type="search"
+    placeholder="🔎 Search student..."
+    oninput="showStudents()">
+
+
+<div
+    id="studentList">
 
 </div>
 ```
+
+</div>
+
+</section>
+
+<!-- =====================================================
+     PAYMENT
+===================================================== -->
+
+<section
+    id="payment"
+    class="hidden">
+
+<div class="card">
+
+```
+<h2>
+    💳 Payment Successful
+</h2>
+
+
+<label>
+    Select Student
+</label>
+
+
+<select
+    id="paymentStudent"
+    onchange="paymentStudentChanged()">
+
+    <option value="">
+        Select Student
+    </option>
+
+</select>
+
+
+<label>
+    Month
+</label>
+
+
+<select
+    id="paymentMonth">
+
+</select>
+
+
+<label>
+    Amount
+</label>
+
+
+<input
+    id="paymentAmount"
+    type="number"
+    placeholder="Amount">
+
+
+<div
+    id="paymentMessage"
+    class="message">
+
+    Select a student.
+
+</div>
+
+
+<button
+    class="whatsapp full"
+    onclick="sendPayment()">
+
+    💬 SEND PAYMENT MESSAGE
+
+</button>
+```
+
+</div>
+
+</section>
+
+<!-- =====================================================
+     REMINDER
+===================================================== -->
+
+<section
+    id="reminder"
+    class="hidden">
+
+<div class="card">
+
+```
+<h2>
+    📅 Monthly Fee Reminder
+</h2>
+
+
+<div
+    id="reminderStatus"
+    class="status">
+
+</div>
+
+
+<label>
+    Select Parent
+</label>
+
+
+<select
+    id="reminderStudent">
+
+    <option value="">
+        Select Parent
+    </option>
+
+</select>
+
+
+<div
+    id="reminderMessage"
+    class="message">
+
+</div>
+
+
+<button
+    class="whatsapp full"
+    onclick="sendReminder()">
+
+    💬 SEND REMINDER
+
+</button>
+
+
+<p
+    style="
+        font-size:12px;
+        color:#777;
+        margin-top:10px;
+    ">
+
+    The child's name is not included
+    in the reminder.
+
+</p>
+```
+
+</div>
 
 </section>
 
 </div>
 
 <footer>
+
 ST. THERESA’S GEMS INTERNATIONAL PRESCHOOL
+
 </footer>
 
-<!-- NAVIGATION -->
+<!-- =====================================================
+     NAVIGATION
+===================================================== -->
 
 <nav>
 
@@ -396,61 +1108,126 @@ ST. THERESA’S GEMS INTERNATIONAL PRESCHOOL
     id="navHome"
     class="active"
     onclick="openPage('home',this)">
-    🏠<br>Home
+
+    🏠
+    <br>
+    Home
+
 </button>
+
 
 <button
     id="navStudents"
     onclick="openPage('students',this)">
-    👧<br>Students
+
+    👧
+    <br>
+    Students
+
 </button>
+
 
 <button
     id="navPayment"
     onclick="openPage('payment',this)">
-    💳<br>Payment
+
+    💳
+    <br>
+    Payment
+
 </button>
+
 
 <button
     id="navReminder"
     onclick="openPage('reminder',this)">
-    📅<br>Reminder
+
+    📅
+    <br>
+    Reminder
+
 </button>
 ```
 
 </nav>
 
+</div>
+
+<!-- =====================================================
+     FIREBASE
+===================================================== -->
+
 <script type="module">
 
+
 /* =====================================================
-   FIREBASE
+   FIREBASE IMPORTS
 ===================================================== */
 
-import { initializeApp }
-from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
+import {
+    initializeApp
+}
+from
+"https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
+
+
+import {
+    getAuth,
+    signInWithEmailAndPassword,
+    signOut,
+    setPersistence,
+    browserLocalPersistence
+}
+from
+"https://www.gstatic.com/firebasejs/12.18.0/firebase-auth.js";
+
 
 import {
     getFirestore,
     collection,
     getDocs,
+    getDoc,
     doc,
     setDoc,
-    updateDoc,
-    deleteDoc,
     addDoc,
     serverTimestamp
 }
-from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
-
-import {
-    getAuth,
-    signInAnonymously,
-    onAuthStateChanged
-}
-from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
+from
+"https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
 
 
-const firebaseConfig = {
+/* =====================================================
+   ATTENDANCE FIREBASE
+===================================================== */
+
+const attendanceConfig = {
+
+    apiKey:
+        "AIzaSyAu8iTPyoCjcwmmkHVcjPhB35OSVslzwIo",
+
+    authDomain:
+        "stg-attendance-system.firebaseapp.com",
+
+    projectId:
+        "stg-attendance-system",
+
+    storageBucket:
+        "stg-attendance-system.firebasestorage.app",
+
+    messagingSenderId:
+        "1066181213971",
+
+    appId:
+        "1:1066181213971:web:79855fedf66c38872164e6"
+
+};
+
+
+/* =====================================================
+   STG FEES FIREBASE
+===================================================== */
+
+const feesConfig = {
 
     apiKey:
         "AIzaSyBB9UX6xNDP7np27PmCg75aHzGuj9iJGLk",
@@ -473,16 +1250,46 @@ const firebaseConfig = {
 };
 
 
-const app =
-    initializeApp(firebaseConfig);
+/* =====================================================
+   INITIALIZE APPS
+===================================================== */
+
+const attendanceApp =
+    initializeApp(
+        attendanceConfig,
+        "attendanceApp"
+    );
 
 
-const db =
-    getFirestore(app);
+const feesApp =
+    initializeApp(
+        feesConfig,
+        "feesApp"
+    );
 
 
-const auth =
-    getAuth(app);
+const attendanceAuth =
+    getAuth(
+        attendanceApp
+    );
+
+
+const feesAuth =
+    getAuth(
+        feesApp
+    );
+
+
+const attendanceDB =
+    getFirestore(
+        attendanceApp
+    );
+
+
+const feesDB =
+    getFirestore(
+        feesApp
+    );
 
 
 /* =====================================================
@@ -491,48 +1298,7 @@ const auth =
 
 let students = [];
 
-let editingId = null;
-
-let firebaseReady = false;
-
-
-/* =====================================================
-   AUTHENTICATION
-===================================================== */
-
-signInAnonymously(auth)
-    .catch(error => {
-
-        console.error(
-            "Firebase authentication error:",
-            error
-        );
-
-        alert(
-            "Firebase login failed. Please enable Anonymous Authentication in Firebase."
-        );
-
-    });
-
-
-onAuthStateChanged(
-    auth,
-    async user => {
-
-        if (!user) {
-            return;
-        }
-
-        firebaseReady = true;
-
-        console.log(
-            "Firebase connected."
-        );
-
-        await loadStudents();
-
-    }
-);
+let foundAttendanceStudent = null;
 
 
 /* =====================================================
@@ -558,67 +1324,270 @@ const months = [
 
 
 /* =====================================================
-   LOAD STUDENTS FROM FIRESTORE
+   LOGIN
 ===================================================== */
 
-async function loadStudents() {
+window.loginToSystem =
+async function() {
+
+
+    const email =
+        document.getElementById(
+            "loginEmail"
+        ).value.trim();
+
+
+    const password =
+        document.getElementById(
+            "loginPassword"
+        ).value;
+
+
+    const errorBox =
+        document.getElementById(
+            "loginError"
+        );
+
+
+    const button =
+        document.getElementById(
+            "loginButton"
+        );
+
+
+    errorBox.textContent =
+        "";
+
+
+    if (!email || !password) {
+
+        errorBox.textContent =
+            "Please enter your email and password.";
+
+        return;
+
+    }
+
+
+    button.disabled =
+        true;
+
+
+    button.textContent =
+        "LOGGING IN...";
+
 
     try {
 
-        const snapshot =
-            await getDocs(
-                collection(
-                    db,
-                    "feeStudents"
-                )
-            );
+
+        /* =============================================
+           FEES LOGIN
+        ============================================= */
+
+        await setPersistence(
+            feesAuth,
+            browserLocalPersistence
+        );
 
 
-        students =
-            snapshot.docs.map(
-                item => ({
-
-                    firestoreId:
-                        item.id,
-
-                    ...item.data()
-
-                })
-            );
+        await signInWithEmailAndPassword(
+            feesAuth,
+            email,
+            password
+        );
 
 
-        showStudents();
+        /* =============================================
+           ATTENDANCE LOGIN
+        ============================================= */
+
+        await setPersistence(
+            attendanceAuth,
+            browserLocalPersistence
+        );
+
+
+        await signInWithEmailAndPassword(
+            attendanceAuth,
+            email,
+            password
+        );
+
+
+        /* =============================================
+           OPEN APP
+        ============================================= */
+
+        document.getElementById(
+            "loginScreen"
+        ).classList.add(
+            "hidden"
+        );
+
+
+        document.getElementById(
+            "mainApp"
+        ).classList.remove(
+            "hidden"
+        );
+
+
+        await loadStudents();
+
 
         updateSelects();
 
         updateHome();
+
+        updateReminder();
+
 
     }
 
     catch(error) {
 
         console.error(
-            "Load students error:",
+            "Firebase login error:",
             error
         );
 
-        alert(
-            "Could not load students from Firebase."
+
+        errorBox.textContent =
+
+            "Login failed. The Email/Password account must exist in both Firebase projects.";
+
+        await signOut(
+            feesAuth
+        );
+
+        await signOut(
+            attendanceAuth
         );
 
     }
+
+
+    button.disabled =
+        false;
+
+
+    button.textContent =
+        "LOGIN";
+
+};
+
+
+/* =====================================================
+   LOGOUT
+===================================================== */
+
+window.logout =
+async function() {
+
+
+    try {
+
+        await signOut(
+            feesAuth
+        );
+
+    }
+
+    catch(error) {
+
+        console.log(error);
+
+    }
+
+
+    try {
+
+        await signOut(
+            attendanceAuth
+        );
+
+    }
+
+    catch(error) {
+
+        console.log(error);
+
+    }
+
+
+    document.getElementById(
+        "mainApp"
+    ).classList.add(
+        "hidden"
+    );
+
+
+    document.getElementById(
+        "loginScreen"
+    ).classList.remove(
+        "hidden"
+    );
+
+
+    document.getElementById(
+        "loginPassword"
+    ).value =
+        "";
+
+
+};
+
+
+/* =====================================================
+   LOAD FEES STUDENTS
+===================================================== */
+
+async function loadStudents() {
+
+
+    const snapshot =
+        await getDocs(
+            collection(
+                feesDB,
+                "feeStudents"
+            )
+        );
+
+
+    students =
+        snapshot.docs.map(
+            item => ({
+
+                firestoreId:
+                    item.id,
+
+                ...item.data()
+
+            })
+        );
+
+
+    showStudents();
+
+
+    updateSelects();
+
 
 }
 
 
 /* =====================================================
-   PHONE
+   CLEAN PHONE
 ===================================================== */
 
 function cleanPhone(phone) {
 
+
     phone =
-        phone.replace(
+        String(
+            phone || ""
+        )
+        .replace(
             /\D/g,
             ""
         );
@@ -641,382 +1610,364 @@ function cleanPhone(phone) {
 
 
 /* =====================================================
-   SAVE STUDENT
+   FIND STUDENT FROM ATTENDANCE
 ===================================================== */
 
-window.saveStudent =
+window.findStudent =
 async function() {
 
-    if (!firebaseReady) {
 
-        alert(
-            "Firebase is still connecting. Please wait."
-        );
-
-        return;
-
-    }
-
-
-    const id =
+    const studentId =
         document.getElementById(
-            "studentId"
+            "findStudentId"
         ).value.trim();
 
 
-    const name =
+    const result =
         document.getElementById(
-            "childName"
-        ).value.trim();
-
-
-    const className =
-        document.getElementById(
-            "className"
-        ).value;
-
-
-    const parent =
-        document.getElementById(
-            "parentName"
-        ).value.trim();
-
-
-    const phone =
-        cleanPhone(
-            document.getElementById(
-                "phone"
-            ).value
+            "studentSearchResult"
         );
 
 
-    const fee =
-        document.getElementById(
-            "fee"
-        ).value;
+    if (!studentId) {
 
+        result.innerHTML =
 
-    if (!id) {
-        alert("Please enter the Student ID.");
+            `<div class="status">
+                Please enter the Student ID.
+            </div>`;
+
         return;
-    }
 
-    if (!name) {
-        alert("Please enter the child's name.");
-        return;
-    }
-
-    if (!className) {
-        alert("Please select the class.");
-        return;
-    }
-
-    if (!parent) {
-        alert("Please enter the parent/guardian name.");
-        return;
-    }
-
-    if (!phone) {
-        alert("Please enter the WhatsApp number.");
-        return;
-    }
-
-    if (!fee) {
-        alert("Please enter the monthly fee.");
-        return;
     }
 
 
-    const student = {
+    if (
+        !attendanceAuth.currentUser
+    ) {
 
-        id: id,
+        result.innerHTML =
 
-        name: name,
+            `<div class="status">
+                Please login first.
+            </div>`;
 
-        className: className,
+        return;
 
-        parent: parent,
+    }
 
-        phone: phone,
 
-        fee: Number(fee),
+    result.innerHTML =
 
-        updatedAt:
-            serverTimestamp()
-
-    };
+        `<div class="status">
+            🔎 Searching Attendance database...
+        </div>`;
 
 
     try {
 
+
         /*
-         * Student ID becomes the Firestore document ID.
-         * Example:
-         * feeStudents/STG-STU-0001
+         * Attendance uses Student ID
+         * as the Firestore document ID.
          */
 
-        await setDoc(
+        const studentRef =
             doc(
-                db,
-                "feeStudents",
-                id
-            ),
-            student,
-            {
-                merge: true
-            }
-        );
-
-
-        if (editingId === null) {
-
-            alert(
-                "Student saved successfully to Firebase!"
+                attendanceDB,
+                "students",
+                studentId
             );
 
-        } else {
 
-            alert(
-                "Student updated successfully!"
+        const studentSnapshot =
+            await getDoc(
+                studentRef
             );
+
+
+        if (
+            !studentSnapshot.exists()
+        ) {
+
+            result.innerHTML =
+
+                `<div class="status">
+                    ❌ Student not found.
+                    <br><br>
+                    Please check the Student ID.
+                </div>`;
+
+            return;
 
         }
 
 
-        clearForm();
+        const data =
+            studentSnapshot.data();
 
-        await loadStudents();
+
+        foundAttendanceStudent = {
+
+            id:
+                studentId,
+
+            name:
+                data.name || "",
+
+            className:
+                data.class || "",
+
+            parent:
+                data.parent || "",
+
+            phone:
+                data.phone || ""
+
+        };
+
+
+        result.innerHTML = `
+
+            <div class="student">
+
+                <div class="student-name">
+
+                    ✓ Student Found
+
+                </div>
+
+
+                <div class="student-details">
+
+                    🆔 Student ID:
+                    ${escapeHTML(studentId)}
+
+                    <br>
+
+                    👧 Child:
+                    ${escapeHTML(
+                        data.name || "—"
+                    )}
+
+                    <br>
+
+                    🏫 Class:
+                    ${escapeHTML(
+                        data.class || "—"
+                    )}
+
+                    <br>
+
+                    👨‍👩‍👧 Parent:
+                    ${escapeHTML(
+                        data.parent || "—"
+                    )}
+
+                    <br>
+
+                    📱 WhatsApp:
+                    ${escapeHTML(
+                        data.phone || "—"
+                    )}
+
+                </div>
+
+
+                <label>
+                    Monthly Fee
+                </label>
+
+
+                <input
+                    id="foundStudentFee"
+                    type="number"
+                    placeholder="Enter monthly fee">
+
+
+                <button
+                    class="primary full"
+                    onclick="confirmStudent()">
+
+                    ✓ CONFIRM & SAVE STUDENT
+
+                </button>
+
+            </div>
+
+        `;
+
 
     }
 
     catch(error) {
+
+
+        console.error(
+            "Student search error:",
+            error
+        );
+
+
+        result.innerHTML =
+
+            `<div class="status">
+
+                ❌ Could not search the
+                Attendance database.
+
+                <br><br>
+
+                ${escapeHTML(
+                    error.message
+                )}
+
+            </div>`;
+
+    }
+
+};
+
+
+/* =====================================================
+   CONFIRM & SAVE STUDENT
+===================================================== */
+
+window.confirmStudent =
+async function() {
+
+
+    if (
+        !foundAttendanceStudent
+    ) {
+
+        alert(
+            "Please find a student first."
+        );
+
+        return;
+
+    }
+
+
+    const fee =
+        Number(
+            document.getElementById(
+                "foundStudentFee"
+            ).value
+        );
+
+
+    if (
+        !fee ||
+        fee <= 0
+    ) {
+
+        alert(
+            "Please enter the monthly fee."
+        );
+
+        return;
+
+    }
+
+
+    const student =
+        foundAttendanceStudent;
+
+
+    try {
+
+
+        await setDoc(
+
+            doc(
+                feesDB,
+                "feeStudents",
+                student.id
+            ),
+
+            {
+
+                id:
+                    student.id,
+
+                name:
+                    student.name,
+
+                className:
+                    student.className,
+
+                parent:
+                    student.parent,
+
+                phone:
+                    cleanPhone(
+                        student.phone
+                    ),
+
+                fee:
+                    fee,
+
+                source:
+                    "attendance",
+
+                updatedAt:
+                    serverTimestamp()
+
+            },
+
+            {
+                merge:
+                    true
+            }
+
+        );
+
+
+        alert(
+            "Student saved successfully!"
+        );
+
+
+        document.getElementById(
+            "findStudentId"
+        ).value =
+            "";
+
+
+        document.getElementById(
+            "studentSearchResult"
+        ).innerHTML =
+            "";
+
+
+        foundAttendanceStudent =
+            null;
+
+
+        await loadStudents();
+
+
+        updateSelects();
+
+
+        updateHome();
+
+
+    }
+
+    catch(error) {
+
 
         console.error(
             "Save student error:",
             error
         );
 
-        alert(
-            "Could not save student to Firebase."
-        );
-
-    }
-
-};
-
-
-/* =====================================================
-   CLEAR FORM
-===================================================== */
-
-function clearForm() {
-
-    document.getElementById(
-        "studentId"
-    ).value = "";
-
-    document.getElementById(
-        "childName"
-    ).value = "";
-
-    document.getElementById(
-        "className"
-    ).value = "";
-
-    document.getElementById(
-        "parentName"
-    ).value = "";
-
-    document.getElementById(
-        "phone"
-    ).value = "";
-
-    document.getElementById(
-        "fee"
-    ).value = "";
-
-
-    editingId = null;
-
-
-    document.getElementById(
-        "formTitle"
-    ).textContent =
-        "➕ Add Student";
-
-
-    document.getElementById(
-        "saveButton"
-    ).textContent =
-        "💾 SAVE STUDENT";
-
-
-    document.getElementById(
-        "cancelButton"
-    ).classList.add(
-        "hidden"
-    );
-
-}
-
-
-/* =====================================================
-   EDIT STUDENT
-===================================================== */
-
-window.editStudent =
-function(id) {
-
-    const student =
-        students.find(
-            item =>
-                item.firestoreId === id
-        );
-
-
-    if (!student) {
-        return;
-    }
-
-
-    document.getElementById(
-        "studentId"
-    ).value =
-        student.id;
-
-
-    document.getElementById(
-        "childName"
-    ).value =
-        student.name;
-
-
-    document.getElementById(
-        "className"
-    ).value =
-        student.className;
-
-
-    document.getElementById(
-        "parentName"
-    ).value =
-        student.parent;
-
-
-    document.getElementById(
-        "phone"
-    ).value =
-        student.phone;
-
-
-    document.getElementById(
-        "fee"
-    ).value =
-        student.fee;
-
-
-    editingId =
-        student.firestoreId;
-
-
-    document.getElementById(
-        "formTitle"
-    ).textContent =
-        "✏️ Edit Student";
-
-
-    document.getElementById(
-        "saveButton"
-    ).textContent =
-        "💾 UPDATE STUDENT";
-
-
-    document.getElementById(
-        "cancelButton"
-    ).classList.remove(
-        "hidden"
-    );
-
-
-    window.scrollTo({
-        top:0,
-        behavior:"smooth"
-    });
-
-};
-
-
-/* =====================================================
-   CANCEL
-===================================================== */
-
-window.cancelEdit =
-function() {
-
-    clearForm();
-
-};
-
-
-/* =====================================================
-   DELETE STUDENT
-===================================================== */
-
-window.deleteStudent =
-async function(id) {
-
-    const student =
-        students.find(
-            item =>
-                item.firestoreId === id
-        );
-
-
-    if (!student) {
-        return;
-    }
-
-
-    if (
-        !confirm(
-            "Delete " +
-            student.name +
-            "?"
-        )
-    ) {
-        return;
-    }
-
-
-    try {
-
-        await deleteDoc(
-            doc(
-                db,
-                "feeStudents",
-                id
-            )
-        );
-
 
         alert(
-            "Student deleted."
-        );
-
-
-        await loadStudents();
-
-    }
-
-    catch(error) {
-
-        console.error(
-            "Delete error:",
-            error
-        );
-
-        alert(
-            "Could not delete student."
+            "Could not save the student to the Fees database."
         );
 
     }
@@ -1030,6 +1981,7 @@ async function(id) {
 
 window.showStudents =
 function() {
+
 
     const list =
         document.getElementById(
@@ -1045,34 +1997,44 @@ function() {
         .trim();
 
 
-    list.innerHTML = "";
+    list.innerHTML =
+        "";
 
 
     const filtered =
         students.filter(
             student =>
 
-                student.name
-                    .toLowerCase()
-                    .includes(search)
+                String(
+                    student.name || ""
+                )
+                .toLowerCase()
+                .includes(search)
 
                 ||
 
-                student.id
-                    .toLowerCase()
-                    .includes(search)
+                String(
+                    student.id || ""
+                )
+                .toLowerCase()
+                .includes(search)
 
                 ||
 
-                student.className
-                    .toLowerCase()
-                    .includes(search)
+                String(
+                    student.className || ""
+                )
+                .toLowerCase()
+                .includes(search)
 
                 ||
 
-                student.parent
-                    .toLowerCase()
-                    .includes(search)
+                String(
+                    student.parent || ""
+                )
+                .toLowerCase()
+                .includes(search)
+
         );
 
 
@@ -1081,6 +2043,7 @@ function() {
     ) {
 
         list.innerHTML =
+
             `<div class="empty">
                 No students found.
             </div>`;
@@ -1092,6 +2055,7 @@ function() {
 
     filtered.forEach(
         student => {
+
 
             const div =
                 document.createElement(
@@ -1106,49 +2070,46 @@ function() {
             div.innerHTML = `
 
                 <div class="student-name">
-                    ${escapeHTML(student.name)}
+
+                    ${escapeHTML(
+                        student.name
+                    )}
+
                 </div>
+
 
                 <div class="student-details">
 
                     🆔 Student ID:
-                    ${escapeHTML(student.id)}
+                    ${escapeHTML(
+                        student.id
+                    )}
 
                     <br>
 
                     🏫 Class:
-                    ${escapeHTML(student.className)}
+                    ${escapeHTML(
+                        student.className
+                    )}
 
                     <br>
 
                     👨‍👩‍👧 Parent:
-                    ${escapeHTML(student.parent)}
+                    ${escapeHTML(
+                        student.parent
+                    )}
 
                     <br>
 
                     📱 WhatsApp:
-                    ${escapeHTML(student.phone)}
+                    ${escapeHTML(
+                        student.phone
+                    )}
 
                     <br>
 
                     💰 Monthly Fee:
                     ${student.fee}
-
-                </div>
-
-                <div class="student-buttons">
-
-                    <button
-                        class="light"
-                        onclick="editStudent('${escapeHTML(student.firestoreId)}')">
-                        ✏️ Edit
-                    </button>
-
-                    <button
-                        class="danger"
-                        onclick="deleteStudent('${escapeHTML(student.firestoreId)}')">
-                        🗑️ Delete
-                    </button>
 
                 </div>
 
@@ -1171,21 +2132,45 @@ function() {
 
 function escapeHTML(text) {
 
-    return String(text)
-        .replace(/&/g,"&amp;")
-        .replace(/</g,"&lt;")
-        .replace(/>/g,"&gt;")
-        .replace(/"/g,"&quot;")
-        .replace(/'/g,"&#039;");
+
+    return String(
+        text ?? ""
+    )
+
+    .replace(
+        /&/g,
+        "&amp;"
+    )
+
+    .replace(
+        /</g,
+        "&lt;"
+    )
+
+    .replace(
+        />/g,
+        "&gt;"
+    )
+
+    .replace(
+        /"/g,
+        "&quot;"
+    )
+
+    .replace(
+        /'/g,
+        "&#039;"
+    );
 
 }
 
 
 /* =====================================================
-   SELECT BOXES
+   UPDATE SELECT BOXES
 ===================================================== */
 
 function updateSelects() {
+
 
     const payment =
         document.getElementById(
@@ -1199,13 +2184,25 @@ function updateSelects() {
         );
 
 
+    if (
+        !payment ||
+        !reminder
+    ) {
+
+        return;
+
+    }
+
+
     payment.innerHTML =
+
         `<option value="">
             Select Student
         </option>`;
 
 
     reminder.innerHTML =
+
         `<option value="">
             Select Parent
         </option>`;
@@ -1214,39 +2211,48 @@ function updateSelects() {
     students.forEach(
         student => {
 
-            const option =
+
+            const paymentOption =
                 document.createElement(
                     "option"
                 );
 
-            option.value =
-                student.firestoreId;
 
-            option.textContent =
+            paymentOption.value =
+                student.id;
+
+
+            paymentOption.textContent =
+
                 student.name +
                 " — " +
                 student.className;
 
+
             payment.appendChild(
-                option
+                paymentOption
             );
 
 
-            const option2 =
+            const reminderOption =
                 document.createElement(
                     "option"
                 );
 
-            option2.value =
-                student.firestoreId;
 
-            option2.textContent =
+            reminderOption.value =
+                student.id;
+
+
+            reminderOption.textContent =
+
                 student.name +
                 " — " +
                 student.parent;
 
+
             reminder.appendChild(
-                option2
+                reminderOption
             );
 
         }
@@ -1256,10 +2262,11 @@ function updateSelects() {
 
 
 /* =====================================================
-   MONTHS
+   PAYMENT MONTHS
 ===================================================== */
 
 function setupMonths() {
+
 
     const select =
         document.getElementById(
@@ -1274,13 +2281,16 @@ function setupMonths() {
     months.forEach(
         (month,index) => {
 
+
             const option =
                 document.createElement(
                     "option"
                 );
 
+
             option.value =
                 month;
+
 
             option.textContent =
                 month;
@@ -1314,6 +2324,7 @@ function setupMonths() {
 window.paymentStudentChanged =
 function() {
 
+
     const id =
         document.getElementById(
             "paymentStudent"
@@ -1324,12 +2335,15 @@ function() {
 
         document.getElementById(
             "paymentAmount"
-        ).value = "";
+        ).value =
+            "";
+
 
         document.getElementById(
             "paymentMessage"
         ).textContent =
             "Select a student.";
+
 
         return;
 
@@ -1339,12 +2353,14 @@ function() {
     const student =
         students.find(
             item =>
-                item.firestoreId === id
+                item.id === id
         );
 
 
     if (!student) {
+
         return;
+
     }
 
 
@@ -1363,23 +2379,8 @@ function() {
    PAYMENT MESSAGE
 ===================================================== */
 
-document.getElementById(
-    "paymentMonth"
-).addEventListener(
-    "change",
-    updatePaymentMessage
-);
-
-
-document.getElementById(
-    "paymentAmount"
-).addEventListener(
-    "input",
-    updatePaymentMessage
-);
-
-
 function updatePaymentMessage() {
+
 
     const id =
         document.getElementById(
@@ -1388,19 +2389,23 @@ function updatePaymentMessage() {
 
 
     if (!id) {
+
         return;
+
     }
 
 
     const student =
         students.find(
             item =>
-                item.firestoreId === id
+                item.id === id
         );
 
 
     if (!student) {
+
         return;
+
     }
 
 
@@ -1431,20 +2436,43 @@ Thank you.`;
 }
 
 
+document.getElementById(
+    "paymentMonth"
+).addEventListener(
+    "change",
+    updatePaymentMessage
+);
+
+
+document.getElementById(
+    "paymentAmount"
+).addEventListener(
+    "input",
+    updatePaymentMessage
+);
+
+
 /* =====================================================
    PAYMENT DATE
-   WhatsApp = date only
 ===================================================== */
 
 function getPaymentDate() {
+
 
     return new Date()
         .toLocaleDateString(
             "en-GB",
             {
-                day:"2-digit",
-                month:"2-digit",
-                year:"numeric"
+
+                day:
+                    "2-digit",
+
+                month:
+                    "2-digit",
+
+                year:
+                    "numeric"
+
             }
         );
 
@@ -1453,11 +2481,12 @@ function getPaymentDate() {
 
 /* =====================================================
    SEND PAYMENT
-   SAVE TO FIRESTORE FIRST
+   SAVE FIRST
 ===================================================== */
 
 window.sendPayment =
 async function() {
+
 
     const id =
         document.getElementById(
@@ -1479,12 +2508,14 @@ async function() {
     const student =
         students.find(
             item =>
-                item.firestoreId === id
+                item.id === id
         );
 
 
     if (!student) {
+
         return;
+
     }
 
 
@@ -1502,7 +2533,10 @@ async function() {
         );
 
 
-    if (!amount || amount <= 0) {
+    if (
+        !amount ||
+        amount <= 0
+    ) {
 
         alert(
             "Please enter a valid amount."
@@ -1513,7 +2547,7 @@ async function() {
     }
 
 
-    const paymentDate =
+    const date =
         getPaymentDate();
 
 
@@ -1524,25 +2558,25 @@ async function() {
 Child: ${student.name}
 Month: ${month}
 Amount: ${amount}
-Date: ${paymentDate}
+Date: ${date}
 
 Thank you.`;
 
 
     try {
 
+
         /*
-         * SAVE PAYMENT TO FIRESTORE
-         *
-         * Collection:
-         * payments
+         * SAVE PAYMENT
          */
 
         await addDoc(
+
             collection(
-                db,
+                feesDB,
                 "payments"
             ),
+
             {
 
                 studentId:
@@ -1567,24 +2601,28 @@ Thank you.`;
                     amount,
 
                 paymentDate:
-                    paymentDate,
+                    date,
 
                 createdAt:
                     serverTimestamp()
 
             }
+
         );
 
 
         /*
-         * Only open WhatsApp after
-         * Firestore successfully saves.
+         * OPEN WHATSAPP
          */
 
         const url =
+
             "https://wa.me/" +
+
             student.phone +
+
             "?text=" +
+
             encodeURIComponent(
                 message
             );
@@ -1600,14 +2638,17 @@ Thank you.`;
             "Payment saved successfully and WhatsApp message is ready."
         );
 
+
     }
 
     catch(error) {
 
+
         console.error(
-            "Payment save error:",
+            "Payment error:",
             error
         );
+
 
         alert(
             "Payment was NOT saved. WhatsApp was not opened."
@@ -1623,6 +2664,7 @@ Thank you.`;
 ===================================================== */
 
 function getReminderMonth() {
+
 
     const now =
         new Date();
@@ -1643,7 +2685,8 @@ function getReminderMonth() {
             month > 11
         ) {
 
-            month = 0;
+            month =
+                0;
 
         }
 
@@ -1656,10 +2699,11 @@ function getReminderMonth() {
 
 
 /* =====================================================
-   REMINDER
+   UPDATE REMINDER
 ===================================================== */
 
 function updateReminder() {
+
 
     const now =
         new Date();
@@ -1682,7 +2726,9 @@ function updateReminder() {
             month +
             ".";
 
-    } else {
+    }
+
+    else {
 
         document.getElementById(
             "reminderStatus"
@@ -1714,6 +2760,7 @@ Thank you.`;
 window.sendReminder =
 function() {
 
+
     const id =
         document.getElementById(
             "reminderStudent"
@@ -1734,12 +2781,14 @@ function() {
     const student =
         students.find(
             item =>
-                item.firestoreId === id
+                item.id === id
         );
 
 
     if (!student) {
+
         return;
+
     }
 
 
@@ -1757,9 +2806,13 @@ Thank you.`;
 
 
     const url =
+
         "https://wa.me/" +
+
         student.phone +
+
         "?text=" +
+
         encodeURIComponent(
             message
         );
@@ -1779,6 +2832,7 @@ Thank you.`;
 
 function updateHome() {
 
+
     const now =
         new Date();
 
@@ -1792,12 +2846,20 @@ function updateHome() {
     document.getElementById(
         "dateText"
     ).textContent =
+
         now.toLocaleDateString(
             "en-US",
             {
-                weekday:"long",
-                month:"long",
-                year:"numeric"
+
+                weekday:
+                    "long",
+
+                month:
+                    "long",
+
+                year:
+                    "numeric"
+
             }
         );
 
@@ -1829,7 +2891,9 @@ function updateHome() {
             "The 20th has passed. " +
             "Monthly fee reminders are now active.";
 
-    } else {
+    }
+
+    else {
 
         document.getElementById(
             "feeStatus"
@@ -1847,50 +2911,82 @@ function updateHome() {
 ===================================================== */
 
 window.openPage =
-function(page,button) {
+function(
+    page,
+    button
+) {
+
 
     document.getElementById(
         "home"
-    ).classList.add("hidden");
+    ).classList.add(
+        "hidden"
+    );
+
 
     document.getElementById(
         "students"
-    ).classList.add("hidden");
+    ).classList.add(
+        "hidden"
+    );
+
 
     document.getElementById(
         "payment"
-    ).classList.add("hidden");
+    ).classList.add(
+        "hidden"
+    );
+
 
     document.getElementById(
         "reminder"
-    ).classList.add("hidden");
+    ).classList.add(
+        "hidden"
+    );
 
 
     document.getElementById(
         page
-    ).classList.remove("hidden");
+    ).classList.remove(
+        "hidden"
+    );
 
 
     document.querySelectorAll(
         "nav button"
     ).forEach(
-        btn =>
+        btn => {
+
             btn.classList.remove(
                 "active"
-            )
+            );
+
+        }
     );
 
 
-    button.classList.add("active");
+    button.classList.add(
+        "active"
+    );
 
 
-    if (page === "students") {
+    if (
+        page ===
+        "students"
+    ) {
+
         showStudents();
+
     }
 
 
-    if (page === "reminder") {
+    if (
+        page ===
+        "reminder"
+    ) {
+
         updateReminder();
+
     }
 
 };
@@ -1900,14 +2996,19 @@ function(page,button) {
    SERVICE WORKER
 ===================================================== */
 
-if ("serviceWorker" in navigator) {
+if (
+    "serviceWorker"
+    in navigator
+) {
 
     window.addEventListener(
         "load",
         function() {
 
             navigator.serviceWorker
-                .register("sw.js")
+                .register(
+                    "sw.js"
+                )
                 .catch(
                     function(error) {
 
@@ -1935,7 +3036,9 @@ updateHome();
 
 updateReminder();
 
+
 </script>
 
 </body>
+
 </html>
