@@ -1404,10 +1404,23 @@ function cleanPhone(phone) {
 window.findStudent =
 async function() {
 
-    const studentId =
-        document.getElementById(
-            "findStudentId"
-        ).value.trim();
+   const lastFour =
+    document.getElementById(
+        "findStudentId"
+    ).value.trim();
+
+if (!/^\d{4}$/.test(lastFour)) {
+
+    alert(
+        "Please enter the last 4 digits of the Student ID.\nExample: 0001"
+    );
+
+    return;
+}
+
+const studentId =
+    "STG-STU-" +
+    lastFour;
 
 
     const area =
