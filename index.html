@@ -2486,40 +2486,26 @@ document
    SEND PAYMENT
 ===================================================== */
 
-window.sendPayment =
-async function() {
+window.sendPayment = async function() {
 
     const studentSelect =
-        document.getElementById(
-            "paymentStudent"
-        );
-
+        document.getElementById("paymentStudent");
 
     const monthSelect =
-        document.getElementById(
-            "paymentMonth"
-        );
-
+        document.getElementById("paymentMonth");
 
     const amountInput =
-        document.getElementById(
-            "paymentAmount"
-        );
-
+        document.getElementById("paymentAmount");
 
     const messageBox =
-        document.getElementById(
-            "paymentMessage"
-        );
+        document.getElementById("paymentMessage");
 
 
     const studentIndex =
         studentSelect.value;
 
-
     const month =
         monthSelect.value;
-
 
     const amount =
         amountInput.value.trim();
@@ -2529,40 +2515,23 @@ async function() {
        CHECK INPUTS
     ============================== */
 
-    if (
-        studentIndex === ""
-    ) {
+    if (studentIndex === "") {
 
-        alert(
-            "Please select a student."
-        );
-
+        alert("Please select a student.");
         return;
 
     }
 
+    if (month === "") {
 
-    if (
-        month === ""
-    ) {
-
-        alert(
-            "Please select a month."
-        );
-
+        alert("Please select a month.");
         return;
 
     }
 
+    if (amount === "") {
 
-    if (
-        amount === ""
-    ) {
-
-        alert(
-            "Please enter the payment amount."
-        );
-
+        alert("Please enter the payment amount.");
         return;
 
     }
@@ -2573,58 +2542,60 @@ async function() {
     ============================== */
 
     const student =
-        students[
-            Number(studentIndex)
-        ];
+        students[Number(studentIndex)];
 
 
     if (!student) {
 
-        alert(
-            "Student could not be found."
-        );
-
+        alert("Student could not be found.");
         return;
 
     }
 
 
     /* ==============================
-       GET WHATSAPP NUMBER
+       CLEAN WHATSAPP NUMBER
     ============================== */
 
     let phone =
-        String(
-            student.phone || ""
-        );
-
-
-    phone =
-        phone.replace(
-            /\D/g,
-            ""
-        );
+        String(student.phone || "")
+        .replace(/\D/g, "");
 
 
     /*
-       0764120923
-       →
-       94764120923
+       Sri Lankan formats:
+
+       0761234567
+       ↓
+       94761234567
+
+       94761234567
+       ↓
+       stays the same
     */
 
-    if (
-        phone.startsWith("0")
-    ) {
+    if (phone.startsWith("0")) {
 
         phone =
-            "94" +
-            phone.substring(1);
+            "94" + phone.substring(1);
+
+    }
+
+    /*
+       If number was saved as
+       0094761234567
+    */
+
+    if (phone.startsWith("0094")) {
+
+        phone =
+            phone.substring(2);
 
     }
 
 
     /* ==============================
-       CHECK PHONE
+       CHECK NUMBER
     ============================== */
 
     if (
@@ -2633,16 +2604,9 @@ async function() {
     ) {
 
         alert(
-
             "The student's WhatsApp number is invalid.\n\n" +
-
             "Saved number: " +
-
-            (
-                student.phone ||
-                "No number"
-            )
-
+            (student.phone || "No number")
         );
 
         return;
@@ -2658,22 +2622,15 @@ async function() {
         new Date().toLocaleDateString(
             "en-GB",
             {
-
-                day:
-                    "2-digit",
-
-                month:
-                    "long",
-
-                year:
-                    "numeric"
-
+                day: "2-digit",
+                month: "long",
+                year: "numeric"
             }
         );
 
 
     /* ==============================
-       PAYMENT MESSAGE
+       MESSAGE
     ============================== */
 
     const message =
@@ -2695,20 +2652,64 @@ ST. THERESA'S GEMS INTERNATIONAL PRESCHOOL`;
 
 
     /* ==============================
-       SAVE PAYMENT
+       SHOW MESSAGE
+    ============================== */
+
+    if (messageBox) {
+
+        messageBox.textContent = message;
+
+    }
+
+
+    /* =================================================
+       IMPORTANT:
+       OPEN WHATSAPP BEFORE FIREBASE AWAIT
+       SO THE BROWSER DOES NOT BLOCK THE POPUP
+    ================================================= */
+
+    const whatsappURL =
+        "https://wa.me/" +
+        phone +
+        "?text=" +
+        encodeURIComponent(message);
+
+
+    const whatsappWindow =
+        window.open(
+            whatsappURL,
+            "_blank"
+        );
+
+
+    /* ==============================
+       CHECK POPUP BLOCK
+    ============================== */
+
+    if (!whatsappWindow) {
+
+        alert(
+            "WhatsApp could not be opened because the browser blocked the new window.\n\n" +
+            "Please allow pop-ups for this site and try again."
+        );
+
+        return;
+
+    }
+
+
+    /* ==============================
+       SAVE PAYMENT TO FIREBASE
     ============================== */
 
     try {
 
         await addDoc(
-
             collection(
                 feeDB,
                 "payments"
             ),
-
             {
-
                 studentId:
                     student.id,
 
@@ -2732,9 +2733,13 @@ ST. THERESA'S GEMS INTERNATIONAL PRESCHOOL`;
 
                 createdAt:
                     serverTimestamp()
-
             }
+        );
 
+
+        alert(
+            "Payment saved successfully.\n\n" +
+            "WhatsApp message is ready to send."
         );
 
     }
@@ -2747,61 +2752,19 @@ ST. THERESA'S GEMS INTERNATIONAL PRESCHOOL`;
         );
 
 
+        /*
+           WhatsApp has already opened,
+           but Firebase saving failed.
+        */
+
         alert(
-
-            "Payment could not be saved.\n\n" +
-
+            "WhatsApp was opened, but the payment could not be saved.\n\n" +
             error.message
-
         );
 
-        return;
-
     }
-
-
-    /* ==============================
-       SHOW MESSAGE
-    ============================== */
-
-    if (messageBox) {
-
-        messageBox.textContent =
-            message;
-
-    }
-
-
-    /* ==============================
-       OPEN WHATSAPP
-    ============================== */
-
-    const whatsappURL =
-        "https://wa.me/" +
-        phone +
-        "?text=" +
-        encodeURIComponent(
-            message
-        );
-
-
-    window.open(
-        whatsappURL,
-        "_blank"
-    );
-
-
-    /* ==============================
-       SUCCESS
-    ============================== */
-
-    alert(
-        "Payment saved successfully.\n\n" +
-        "WhatsApp message is ready to send."
-    );
 
 };
-
 
 /* =====================================================
    REMINDER MONTH
