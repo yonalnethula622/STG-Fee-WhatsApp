@@ -2636,83 +2636,195 @@ document
    SEND PAYMENT
 ===================================================== */
 
-window.sendPayment =
-async function() {
+```javascript
+window.sendPayment = async function() {
+
+    const studentSelect =
+        document.getElementById("paymentStudent");
+
+    const monthSelect =
+        document.getElementById("paymentMonth");
+
+    const amountInput =
+        document.getElementById("paymentAmount");
+
+    const messageBox =
+        document.getElementById("paymentMessage");
 
 
-    const index =
-        document
-        .getElementById(
-            "paymentStudent"
-        )
-        .value;
-
-
-    if (
-        index === ""
-    ) {
-
-
-        alert(
-            "Please select a student."
-        );
-
-
-        return;
-
-    }
-
-
-    const student =
-        students[index];
-
+    const studentId =
+        studentSelect.value;
 
     const month =
-        document
-        .getElementById(
-            "paymentMonth"
-        )
-        .value;
-
+        monthSelect.value;
 
     const amount =
-        document
-        .getElementById(
-            "paymentAmount"
-        )
-        .value;
+        amountInput.value.trim();
 
 
-    if (
-        !amount
-    ) {
+    /* ==============================
+       CHECK INPUTS
+    ============================== */
 
+    if (!studentId) {
 
-        alert(
-            "Please enter the payment amount."
-        );
-
+        alert("Please select a student.");
 
         return;
 
     }
 
 
+    if (!month) {
+
+        alert("Please select a month.");
+
+        return;
+
+    }
+
+
+    if (!amount) {
+
+        alert("Please enter the payment amount.");
+
+        return;
+
+    }
+
+
+    /* ==============================
+       FIND STUDENT
+    ============================== */
+
+    const student =
+        students.find(
+            item =>
+                String(item.id) ===
+                String(studentId)
+        );
+
+
+    if (!student) {
+
+        alert("Student could not be found.");
+
+        return;
+
+    }
+
+
+    /* ==============================
+       GET WHATSAPP NUMBER
+    ============================== */
+
+    let phone =
+        String(
+            student.phone || ""
+        );
+
+
+    /*
+       Remove:
+       +
+       spaces
+       -
+       brackets
+       other symbols
+    */
+
+    phone =
+        phone.replace(
+            /\D/g,
+            ""
+        );
+
+
+    /*
+       Convert Sri Lankan number:
+
+       0764120923
+       ↓
+       94764120923
+
+       +94764120923
+       ↓
+       94764120923
+    */
+
+    if (
+        phone.startsWith("0")
+    ) {
+
+        phone =
+            "94" +
+            phone.substring(1);
+
+    }
+
+
+    /* ==============================
+       CHECK PHONE NUMBER
+    ============================== */
+
+    if (
+        !phone.startsWith("94") ||
+        phone.length !== 11
+    ) {
+
+        alert(
+            "The student's WhatsApp number is invalid.\n\n" +
+            "Saved number: " +
+            (student.phone || "No number")
+        );
+
+        return;
+
+    }
+
+
+    /* ==============================
+       TODAY'S DATE
+    ============================== */
+
+    const date =
+        new Date().toLocaleDateString(
+            "en-GB",
+            {
+                day: "2-digit",
+                month: "long",
+                year: "numeric"
+            }
+        );
+
+
+    /* ==============================
+       PAYMENT MESSAGE
+    ============================== */
+
     const message =
+`ST. THERESA'S GEMS INTERNATIONAL PRESCHOOL
 
+Dear Parent,
 
-`Payment received successfully.
+This is to confirm that the school fee payment for ${student.name} has been received successfully.
 
-Child: ${student.name}
+Student: ${student.name}
+Class: ${student.class || "—"}
 Month: ${month}
-Amount: ${amount}
+Amount: Rs. ${amount}
+Date: ${date}
 
-Thank you.`;
+Thank you.
+
+ST. THERESA'S GEMS INTERNATIONAL PRESCHOOL`;
 
 
+    /* ==============================
+       SAVE PAYMENT TO FIRESTORE
+    ============================== */
 
     try {
-
 
         await addDoc(
 
@@ -2729,16 +2841,20 @@ Thank you.`;
                 studentName:
                     student.name,
 
+                class:
+                    student.class || "",
+
                 month:
                     month,
 
                 amount:
-                    Number(
-                        amount
-                    ),
+                    Number(amount),
 
                 phone:
-                    student.phone,
+                    student.phone || "",
+
+                paymentDate:
+                    date,
 
                 createdAt:
                     serverTimestamp()
@@ -2751,7 +2867,6 @@ Thank you.`;
 
     catch(error) {
 
-
         console.error(
             "Payment save error:",
             error
@@ -2759,7 +2874,8 @@ Thank you.`;
 
 
         alert(
-            "Payment could not be saved."
+            "Payment could not be saved.\n\n" +
+            "WhatsApp message was NOT opened."
         );
 
 
@@ -2768,9 +2884,25 @@ Thank you.`;
     }
 
 
-    const url =
+    /* ==============================
+       SHOW MESSAGE
+    ============================== */
+
+    if (messageBox) {
+
+        messageBox.textContent =
+            message;
+
+    }
+
+
+    /* ==============================
+       OPEN WHATSAPP
+    ============================== */
+
+    const whatsappURL =
         "https://wa.me/" +
-        student.phone +
+        phone +
         "?text=" +
         encodeURIComponent(
             message
@@ -2778,12 +2910,22 @@ Thank you.`;
 
 
     window.open(
-        url,
+        whatsappURL,
         "_blank"
     );
 
-};
 
+    /* ==============================
+       SUCCESS MESSAGE
+    ============================== */
+
+    alert(
+        "Payment saved successfully.\n\n" +
+        "WhatsApp message is ready to send."
+    );
+
+};
+```
 
 
 /* =====================================================
