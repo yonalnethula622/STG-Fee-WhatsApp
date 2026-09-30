@@ -15,17 +15,10 @@
 
 <meta name="theme-color" content="#176d73">
 
-<meta name="mobile-web-app-capable"
-      content="yes">
-
-<meta name="apple-mobile-web-app-capable"
-      content="yes">
-
-<meta name="apple-mobile-web-app-status-bar-style"
-      content="default">
-
-<meta name="apple-mobile-web-app-title"
-      content="STG Fees">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="STG Fees">
 
 
 <style>
@@ -42,9 +35,9 @@ body {
 }
 
 
-/* =========================
+/* =====================================================
    LOGIN
-========================= */
+===================================================== */
 
 #loginScreen {
 
@@ -151,9 +144,9 @@ body {
 }
 
 
-/* =========================
+/* =====================================================
    APP
-========================= */
+===================================================== */
 
 #app {
     display: none;
@@ -343,9 +336,9 @@ button {
 }
 
 
-/* =========================
+/* =====================================================
    HOME
-========================= */
+===================================================== */
 
 .date-box {
 
@@ -384,9 +377,9 @@ button {
 }
 
 
-/* =========================
+/* =====================================================
    STUDENTS
-========================= */
+===================================================== */
 
 .student {
 
@@ -469,19 +462,10 @@ button {
     padding: 20px;
 }
 
-.loading {
 
-    text-align: center;
-
-    padding: 20px;
-
-    color: #777;
-}
-
-
-/* =========================
-   PAYMENT
-========================= */
+/* =====================================================
+   PAYMENT / MESSAGE
+===================================================== */
 
 .message {
 
@@ -501,9 +485,9 @@ button {
 }
 
 
-/* =========================
+/* =====================================================
    NAV
-========================= */
+===================================================== */
 
 nav {
 
@@ -606,8 +590,8 @@ footer {
 
 
         <button onclick="login()">
-    🔐 LOGIN
-      </button>
+            🔐 LOGIN
+        </button>
 
 
         <div id="loginError"></div>
@@ -793,9 +777,7 @@ footer {
         >
 
 
-        <div id="studentList">
-
-        </div>
+        <div id="studentList"></div>
 
     </div>
 
@@ -840,9 +822,7 @@ footer {
         </label>
 
 
-        <select id="paymentMonth">
-
-        </select>
+        <select id="paymentMonth"></select>
 
 
         <label>
@@ -1225,49 +1205,33 @@ async function connectAttendance() {
 
 /* =====================================================
    LOGIN
+   FIXED
 ===================================================== */
 
 window.login = async function() {
 
     const email =
-        document.getElementById("loginEmail").value.trim();
+        document
+        .getElementById(
+            "loginEmail"
+        )
+        .value
+        .trim();
+
 
     const password =
-        document.getElementById("loginPassword").value;
+        document
+        .getElementById(
+            "loginPassword"
+        )
+        .value;
+
 
     const errorBox =
-        document.getElementById("loginError");
-
-    errorBox.textContent = "";
-
-    if (!email || !password) {
-
-        errorBox.textContent =
-            "Please enter your email and password.";
-
-        return;
-    }
-
-    try {
-
-        await signInWithEmailAndPassword(
-            feeAuth,
-            email,
-            password
+        document
+        .getElementById(
+            "loginError"
         );
-
-    }
-
-    catch(error) {
-
-        console.error("LOGIN ERROR:", error);
-
-        errorBox.textContent =
-            "Login failed: " + error.message;
-
-    }
-
-};
 
 
     errorBox.textContent = "";
@@ -1299,12 +1263,14 @@ window.login = async function() {
     catch(error) {
 
         console.error(
-            "Login error:",
+            "LOGIN ERROR:",
             error
         );
 
+
         errorBox.textContent =
-            "Login failed. Please check your email and password.";
+            "Login failed: " +
+            error.message;
 
     }
 
@@ -1394,9 +1360,22 @@ async function() {
     }
 
 
-    await signOut(
-        feeAuth
-    );
+    try {
+
+        await signOut(
+            feeAuth
+        );
+
+    }
+
+    catch(error) {
+
+        console.error(
+            "Logout error:",
+            error
+        );
+
+    }
 
 };
 
@@ -1942,6 +1921,7 @@ async function(index) {
     catch(error) {
 
         console.error(
+            "Delete student error:",
             error
         );
 
@@ -2191,9 +2171,7 @@ function updateSelects() {
     payment.innerHTML = `
 
         <option value="">
-
             Select Student
-
         </option>
 
     `;
@@ -2202,9 +2180,7 @@ function updateSelects() {
     reminder.innerHTML = `
 
         <option value="">
-
             Select Parent
-
         </option>
 
     `;
@@ -2401,7 +2377,7 @@ function() {
 
 
 /* =====================================================
-   PAYMENT MESSAGE
+   PAYMENT MESSAGE PREVIEW
 ===================================================== */
 
 function updatePaymentMessage() {
@@ -2503,104 +2479,122 @@ document
 window.sendPayment = async function() {
 
     const studentSelect =
-        document.getElementById("paymentStudent");
+        document.getElementById(
+            "paymentStudent"
+        );
+
 
     const monthSelect =
-        document.getElementById("paymentMonth");
+        document.getElementById(
+            "paymentMonth"
+        );
+
 
     const amountInput =
-        document.getElementById("paymentAmount");
+        document.getElementById(
+            "paymentAmount"
+        );
+
 
     const messageBox =
-        document.getElementById("paymentMessage");
+        document.getElementById(
+            "paymentMessage"
+        );
 
 
     const studentIndex =
         studentSelect.value;
 
+
     const month =
         monthSelect.value;
+
 
     const amount =
         amountInput.value.trim();
 
 
-    /* ==============================
+    /* =================================================
        CHECK INPUTS
-    ============================== */
+    ================================================= */
 
-    if (studentIndex === "") {
+    if (
+        studentIndex === ""
+    ) {
 
-        alert("Please select a student.");
-        return;
+        alert(
+            "Please select a student."
+        );
 
-    }
-
-    if (month === "") {
-
-        alert("Please select a month.");
-        return;
-
-    }
-
-    if (amount === "") {
-
-        alert("Please enter the payment amount.");
         return;
 
     }
 
 
-    /* ==============================
+    if (
+        month === ""
+    ) {
+
+        alert(
+            "Please select a month."
+        );
+
+        return;
+
+    }
+
+
+    if (
+        amount === ""
+    ) {
+
+        alert(
+            "Please enter the payment amount."
+        );
+
+        return;
+
+    }
+
+
+    /* =================================================
        GET STUDENT
-    ============================== */
+    ================================================= */
 
     const student =
-        students[Number(studentIndex)];
+        students[
+            Number(studentIndex)
+        ];
 
 
     if (!student) {
 
-        alert("Student could not be found.");
+        alert(
+            "Student could not be found."
+        );
+
         return;
 
     }
 
 
-    /* ==============================
+    /* =================================================
        CLEAN WHATSAPP NUMBER
-    ============================== */
+    ================================================= */
 
     let phone =
-        String(student.phone || "")
-        .replace(/\D/g, "");
+        String(
+            student.phone || ""
+        )
+        .replace(
+            /\D/g,
+            ""
+        );
 
 
-    /*
-       Sri Lankan formats:
-
-       0761234567
-       ↓
-       94761234567
-
-       94761234567
-       ↓
-       stays the same
-    */
-
-    if (phone.startsWith("0")) {
-
-        phone =
-            "94" + phone.substring(1);
-
-    }
-
-    /*
-       If number was saved as
-       0094761234567
-    */
-
-    if (phone.startsWith("0094")) {
+    if (
+        phone.startsWith("0094")
+    ) {
 
         phone =
             phone.substring(2);
@@ -2608,9 +2602,20 @@ window.sendPayment = async function() {
     }
 
 
-    /* ==============================
+    else if (
+        phone.startsWith("0")
+    ) {
+
+        phone =
+            "94" +
+            phone.substring(1);
+
+    }
+
+
+    /* =================================================
        CHECK NUMBER
-    ============================== */
+    ================================================= */
 
     if (
         !phone.startsWith("94") ||
@@ -2620,7 +2625,10 @@ window.sendPayment = async function() {
         alert(
             "The student's WhatsApp number is invalid.\n\n" +
             "Saved number: " +
-            (student.phone || "No number")
+            (
+                student.phone ||
+                "No number"
+            )
         );
 
         return;
@@ -2628,12 +2636,13 @@ window.sendPayment = async function() {
     }
 
 
-    /* ==============================
+    /* =================================================
        DATE
-    ============================== */
+    ================================================= */
 
     const date =
-        new Date().toLocaleDateString(
+        new Date()
+        .toLocaleDateString(
             "en-GB",
             {
                 day: "2-digit",
@@ -2643,9 +2652,9 @@ window.sendPayment = async function() {
         );
 
 
-    /* ==============================
-       MESSAGE
-    ============================== */
+    /* =================================================
+       PAYMENT MESSAGE
+    ================================================= */
 
     const message =
 `ST. THERESA'S GEMS INTERNATIONAL PRESCHOOL
@@ -2665,29 +2674,35 @@ Thank you.
 ST. THERESA'S GEMS INTERNATIONAL PRESCHOOL`;
 
 
-    /* ==============================
+    /* =================================================
        SHOW MESSAGE
-    ============================== */
+    ================================================= */
 
     if (messageBox) {
 
-        messageBox.textContent = message;
+        messageBox.textContent =
+            message;
 
     }
 
 
     /* =================================================
-       IMPORTANT:
-       OPEN WHATSAPP BEFORE FIREBASE AWAIT
-       SO THE BROWSER DOES NOT BLOCK THE POPUP
+       WHATSAPP LINK
     ================================================= */
 
     const whatsappURL =
         "https://wa.me/" +
         phone +
         "?text=" +
-        encodeURIComponent(message);
+        encodeURIComponent(
+            message
+        );
 
+
+    /*
+       Open WhatsApp immediately.
+       This is done BEFORE Firebase await.
+    */
 
     const whatsappWindow =
         window.open(
@@ -2695,10 +2710,6 @@ ST. THERESA'S GEMS INTERNATIONAL PRESCHOOL`;
             "_blank"
         );
 
-
-    /* ==============================
-       CHECK POPUP BLOCK
-    ============================== */
 
     if (!whatsappWindow) {
 
@@ -2712,18 +2723,21 @@ ST. THERESA'S GEMS INTERNATIONAL PRESCHOOL`;
     }
 
 
-    /* ==============================
+    /* =================================================
        SAVE PAYMENT TO FIREBASE
-    ============================== */
+    ================================================= */
 
     try {
 
         await addDoc(
+
             collection(
                 feeDB,
                 "payments"
             ),
+
             {
+
                 studentId:
                     student.id,
 
@@ -2747,7 +2761,9 @@ ST. THERESA'S GEMS INTERNATIONAL PRESCHOOL`;
 
                 createdAt:
                     serverTimestamp()
+
             }
+
         );
 
 
@@ -2766,11 +2782,6 @@ ST. THERESA'S GEMS INTERNATIONAL PRESCHOOL`;
         );
 
 
-        /*
-           WhatsApp has already opened,
-           but Firebase saving failed.
-        */
-
         alert(
             "WhatsApp was opened, but the payment could not be saved.\n\n" +
             error.message
@@ -2779,6 +2790,7 @@ ST. THERESA'S GEMS INTERNATIONAL PRESCHOOL`;
     }
 
 };
+
 
 /* =====================================================
    REMINDER MONTH
@@ -2863,18 +2875,23 @@ function updateReminder() {
     }
 
 
+    /*
+       Your requested reminder message
+    */
+
     document
         .getElementById(
             "reminderMessage"
         )
         .textContent =
 
-
 `Dear Parent/Guardian,
 
-This is a reminder to kindly pay the monthly school fee for ${month}.
+This is a kind reminder that the school fee payment for your child is overdue. Kindly settle the outstanding fee at your earliest convenience.
 
-Thank you.`;
+Thank you for your kind cooperation.
+
+St. Theresa’s Gems International Pre-school`;
 
 }
 
@@ -2883,54 +2900,85 @@ Thank you.`;
    SEND REMINDER
 ===================================================== */
 
-window.sendReminder = function() {
+window.sendReminder =
+function() {
 
     const index =
         document
-        .getElementById("reminderStudent")
+        .getElementById(
+            "reminderStudent"
+        )
         .value;
 
 
-    if (index === "") {
+    if (
+        index === ""
+    ) {
 
-        alert("Please select a parent.");
+        alert(
+            "Please select a parent."
+        );
+
         return;
 
     }
 
 
     const student =
-        students[Number(index)];
+        students[
+            Number(index)
+        ];
 
 
     if (!student) {
 
-        alert("Student could not be found.");
+        alert(
+            "Student could not be found."
+        );
+
         return;
 
     }
 
 
+    /* =================================================
+       CLEAN PHONE
+    ================================================= */
+
     let phone =
-        String(student.phone || "")
-        .replace(/\D/g, "");
+        String(
+            student.phone || ""
+        )
+        .replace(
+            /\D/g,
+            ""
+        );
 
 
-    if (phone.startsWith("0")) {
-
-        phone =
-            "94" + phone.substring(1);
-
-    }
-
-
-    if (phone.startsWith("0094")) {
+    if (
+        phone.startsWith("0094")
+    ) {
 
         phone =
             phone.substring(2);
 
     }
 
+
+    else if (
+        phone.startsWith("0")
+    ) {
+
+        phone =
+            "94" +
+            phone.substring(1);
+
+    }
+
+
+    /* =================================================
+       CHECK PHONE
+    ================================================= */
 
     if (
         !phone.startsWith("94") ||
@@ -2940,13 +2988,20 @@ window.sendReminder = function() {
         alert(
             "The parent's WhatsApp number is invalid.\n\n" +
             "Saved number: " +
-            (student.phone || "No number")
+            (
+                student.phone ||
+                "No number"
+            )
         );
 
         return;
 
     }
 
+
+    /* =================================================
+       REMINDER MESSAGE
+    ================================================= */
 
     const message =
 `Dear Parent/Guardian,
@@ -2958,11 +3013,17 @@ Thank you for your kind cooperation.
 St. Theresa’s Gems International Pre-school`;
 
 
+    /* =================================================
+       WHATSAPP URL
+    ================================================= */
+
     const whatsappURL =
         "https://wa.me/" +
         phone +
         "?text=" +
-        encodeURIComponent(message);
+        encodeURIComponent(
+            message
+        );
 
 
     const whatsappWindow =
@@ -2982,7 +3043,6 @@ St. Theresa’s Gems International Pre-school`;
     }
 
 };
-```
 
 
 /* =====================================================
