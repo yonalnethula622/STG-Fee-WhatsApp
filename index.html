@@ -1,12 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
 
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>STG Fee WhatsApp</title>
 
@@ -14,16 +11,9 @@
 <link rel="apple-touch-icon" href="icon.png">
 
 <meta name="theme-color" content="#176d73">
-
-<meta name="apple-mobile-web-app-capable"
-      content="yes">
-
-<meta name="apple-mobile-web-app-status-bar-style"
-      content="default">
-
-<meta name="apple-mobile-web-app-title"
-      content="STG Fees">
-
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="STG Fees">
 
 <style>
 
@@ -46,38 +36,23 @@ body {
     align-items: center;
     justify-content: center;
     padding: 20px;
-    background: linear-gradient(
-        135deg,
-        #176d73,
-        #239b91
-    );
+    background: linear-gradient(135deg, #176d73, #239b91);
 }
 
 .login-card {
     width: 100%;
     max-width: 400px;
     background: white;
-    padding: 28px 22px;
-    border-radius: 20px;
+    padding: 28px;
+    border-radius: 18px;
     box-shadow: 0 8px 30px rgba(0,0,0,.2);
-}
-
-.login-logo {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.login-logo img {
-    width: 80px;
-    height: 80px;
-    object-fit: contain;
 }
 
 .login-card h1 {
     text-align: center;
     color: #176d73;
-    font-size: 21px;
-    margin: 5px 0;
+    margin: 0;
+    font-size: 23px;
 }
 
 .login-card p {
@@ -86,19 +61,45 @@ body {
     font-size: 13px;
 }
 
-/* HEADER */
+.login-card input {
+    width: 100%;
+    padding: 14px;
+    margin-top: 8px;
+    border: 1px solid #ccdada;
+    border-radius: 10px;
+    font-size: 15px;
+}
+
+.login-card button {
+    width: 100%;
+    margin-top: 15px;
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    background: #176d73;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#loginError {
+    color: #d9534f;
+    text-align: center;
+    font-size: 13px;
+    margin-top: 12px;
+}
+
+/* APP */
+
+#app {
+    display: none;
+}
 
 header {
-    background: linear-gradient(
-        135deg,
-        #176d73,
-        #239b91
-    );
-
+    background: linear-gradient(135deg, #176d73, #239b91);
     color: white;
     text-align: center;
-    padding: 15px;
-    position: relative;
+    padding: 20px 15px;
 }
 
 header h1 {
@@ -111,17 +112,15 @@ header p {
     font-size: 13px;
 }
 
-.logout-btn {
-    position: absolute;
-    right: 12px;
-    top: 13px;
-    background: rgba(255,255,255,.18);
+.logout {
+    margin-top: 10px;
+    padding: 7px 14px;
+    border: 1px solid rgba(255,255,255,.5);
+    background: rgba(255,255,255,.15);
     color: white;
-    padding: 8px 10px;
-    font-size: 11px;
+    border-radius: 8px;
+    cursor: pointer;
 }
-
-/* CONTAINER */
 
 .container {
     max-width: 650px;
@@ -177,11 +176,6 @@ button {
     cursor: pointer;
 }
 
-button:disabled {
-    opacity: .55;
-    cursor: not-allowed;
-}
-
 .full {
     width: 100%;
     margin-top: 14px;
@@ -216,8 +210,6 @@ button:disabled {
     display: none !important;
 }
 
-/* HOME */
-
 .date-box {
     text-align: center;
 }
@@ -242,66 +234,19 @@ button:disabled {
     font-size: 14px;
 }
 
-/* FIND STUDENT */
-
-.find-box {
-    text-align: center;
+.add-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.find-box h2 {
-    margin-bottom: 8px;
+.add-title h2 {
+    margin-bottom: 0;
 }
 
-.find-description {
-    color: #777;
-    font-size: 13px;
-    line-height: 1.5;
+.cancel-btn {
+    padding: 8px 12px;
 }
-
-.id-input {
-    text-align: center;
-    font-size: 24px;
-    font-weight: bold;
-    letter-spacing: 4px;
-}
-
-.full-id-preview {
-    color: #777;
-    font-size: 12px;
-    margin-top: 8px;
-}
-
-.found-student {
-    background: #eef8f7;
-    border: 1px solid #b9dcda;
-    border-radius: 14px;
-    padding: 15px;
-    margin-top: 15px;
-}
-
-.found-title {
-    color: #176d73;
-    font-size: 16px;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-.found-details {
-    font-size: 14px;
-    line-height: 1.8;
-}
-
-.confirm-box {
-    margin-top: 15px;
-    border-top: 1px solid #d5e5e5;
-    padding-top: 15px;
-}
-
-.confirm-box label {
-    margin-top: 0;
-}
-
-/* STUDENTS */
 
 .student {
     border: 1px solid #d8e5e5;
@@ -333,12 +278,6 @@ button:disabled {
     flex: 1;
 }
 
-.search {
-    margin-bottom: 10px;
-}
-
-/* MESSAGE */
-
 .message {
     background: #f3f7f7;
     border-radius: 10px;
@@ -349,20 +288,30 @@ button:disabled {
     font-size: 14px;
 }
 
-/* NAV */
+.search {
+    margin-bottom: 10px;
+}
+
+.search-result {
+    background: #e8f2f2;
+    border: 1px solid #b8d8d8;
+    border-radius: 12px;
+    padding: 15px;
+    margin-top: 12px;
+}
+
+.search-result strong {
+    color: #176d73;
+}
 
 nav {
     position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
-
     background: white;
-
     display: flex;
-
     box-shadow: 0 -3px 15px rgba(0,0,0,.12);
-
     z-index: 1000;
 }
 
@@ -391,26 +340,6 @@ nav button.active {
     color: #777;
 }
 
-.error-box {
-    background: #ffe9e9;
-    color: #a33;
-    padding: 13px;
-    border-radius: 10px;
-    font-size: 13px;
-    line-height: 1.5;
-    margin-top: 10px;
-}
-
-.success-box {
-    background: #e8f7ee;
-    color: #21743e;
-    padding: 13px;
-    border-radius: 10px;
-    font-size: 13px;
-    line-height: 1.5;
-    margin-top: 10px;
-}
-
 footer {
     text-align: center;
     font-size: 11px;
@@ -419,12 +348,9 @@ footer {
 }
 
 </style>
-
 </head>
 
-
 <body>
-
 
 <!-- =====================================================
      LOGIN SCREEN
@@ -434,80 +360,53 @@ footer {
 
     <div class="login-card">
 
-        <div class="login-logo">
+        <h1>ST. THERESA’S GEMS</h1>
 
-            <img
-                src="icon.png"
-                onerror="this.style.display='none'"
-                alt="STG">
+        <p>Monthly Fee Management</p>
 
-        </div>
-
-        <h1>
-            ST. THERESA’S GEMS
-        </h1>
-
-        <p>
-            Monthly Fee WhatsApp
-        </p>
-
-        <label>
-            Email
-        </label>
+        <label>Email</label>
 
         <input
             id="loginEmail"
             type="email"
-            placeholder="Teacher email">
+            placeholder="Enter email"
+            autocomplete="email"
+        >
 
-        <label>
-            Password
-        </label>
+        <label>Password</label>
 
         <input
             id="loginPassword"
             type="password"
-            placeholder="Password">
+            placeholder="Enter password"
+            autocomplete="current-password"
+        >
 
-        <button
-            id="loginButton"
-            class="primary full"
-            onclick="login()">
-
+        <button onclick="login()">
             🔐 LOGIN
-
         </button>
 
-        <div
-            id="loginError"
-            class="error-box hidden">
-        </div>
+        <div id="loginError"></div>
 
     </div>
 
 </div>
 
 
-
 <!-- =====================================================
-     APPLICATION
+     MAIN APP
 ===================================================== -->
 
-<div id="app" class="hidden">
-
+<div id="app">
 
 <header>
 
-    <h1>
-        ST. THERESA’S GEMS
-    </h1>
+    <h1>ST. THERESA’S GEMS</h1>
 
-    <p>
-        Monthly Fee WhatsApp
-    </p>
+    <p>Monthly Fee WhatsApp</p>
 
     <button
-        class="logout-btn"
+        class="logout"
         onclick="logout()">
 
         Logout
@@ -520,9 +419,7 @@ footer {
 <div class="container">
 
 
-<!-- =====================================================
-     HOME
-===================================================== -->
+<!-- HOME -->
 
 <section id="home">
 
@@ -531,17 +428,13 @@ footer {
         <div
             id="dayNumber"
             class="date-number">
-
             --
-
         </div>
 
         <div
             id="dateText"
             class="date-text">
-
             --
-
         </div>
 
     </div>
@@ -549,9 +442,7 @@ footer {
 
     <div class="card">
 
-        <h2>
-            📅 Monthly Fee Status
-        </h2>
+        <h2>📅 Monthly Fee Status</h2>
 
         <div
             id="feeStatus"
@@ -566,9 +457,7 @@ footer {
 
     <div class="card">
 
-        <h2>
-            👧 Students
-        </h2>
+        <h2>👧 Students</h2>
 
         <div
             id="homeStudentCount"
@@ -583,131 +472,48 @@ footer {
 </section>
 
 
-
-<!-- =====================================================
-     STUDENTS
-===================================================== -->
+<!-- STUDENTS -->
 
 <section
     id="students"
     class="hidden">
 
 
-    <!-- FIND FROM ATTENDANCE -->
+    <!-- SEARCH FROM ATTENDANCE -->
 
-    <div class="card find-box">
+    <div class="card">
 
         <h2>
             🔎 Add Student
         </h2>
 
-        <div class="find-description">
-
-            Enter only the last 4 digits of the
-            Student ID from the Attendance System.
-
-            <br><br>
-
-            Example:
-            <strong>0001</strong>
-
-            <br>
-
-            The system will automatically search
-            the Attendance database.
-
-        </div>
-
-
-        <label>
-            Last 4 Digits of Student ID
-        </label>
+        <p style="font-size:13px;color:#777;">
+            Enter only the last 4 digits of the Student ID.
+            Example: <b>0001</b>
+        </p>
 
         <input
-            id="findStudentId"
-            class="id-input"
+            id="studentSearchId"
             type="text"
-            inputmode="numeric"
             maxlength="4"
+            inputmode="numeric"
             placeholder="0001"
-            autocomplete="off"
-            oninput="studentIdInput()">
-
-
-        <div
-            id="fullIdPreview"
-            class="full-id-preview">
-
-            Student ID:
-            STG-STU-____
-
-        </div>
-
+        >
 
         <button
-            id="findButton"
             class="primary full"
-            onclick="findStudent()">
+            onclick="findAttendanceStudent()">
 
             🔎 FIND STUDENT
 
         </button>
 
-
         <div
-            id="findMessage"
-            class="hidden">
-        </div>
-
-
-        <!-- FOUND STUDENT -->
-
-        <div
-            id="foundStudent"
-            class="found-student hidden">
-
-            <div class="found-title">
-
-                ✓ Student Found
-
-            </div>
-
-
-            <div
-                id="foundDetails"
-                class="found-details">
-
-            </div>
-
-
-            <div class="confirm-box">
-
-                <label>
-                    Monthly Fee
-                </label>
-
-                <input
-                    id="newStudentFee"
-                    type="number"
-                    inputmode="numeric"
-                    placeholder="5000">
-
-
-                <button
-                    id="confirmAddButton"
-                    class="gold full"
-                    onclick="confirmAddStudent()">
-
-                    ✓ CONFIRM & ADD STUDENT
-
-                </button>
-
-            </div>
-
+            id="attendanceResult"
+            class="search-result hidden">
         </div>
 
     </div>
-
 
 
     <!-- SAVED STUDENTS -->
@@ -718,32 +524,22 @@ footer {
             👧 Saved Students
         </h2>
 
-
         <input
             id="search"
             class="search"
             type="search"
-            placeholder="🔎 Search student..."
-            oninput="showStudents()">
+            placeholder="🔎 Search saved student..."
+            oninput="showStudents()"
+        >
 
-
-        <div id="studentList">
-
-            <div class="loading">
-                Loading students...
-            </div>
-
-        </div>
+        <div id="studentList"></div>
 
     </div>
 
 </section>
 
 
-
-<!-- =====================================================
-     PAYMENT
-===================================================== -->
+<!-- PAYMENT -->
 
 <section
     id="payment"
@@ -755,10 +551,7 @@ footer {
             💳 Payment Successful
         </h2>
 
-
-        <label>
-            Select Student
-        </label>
+        <label>Select Student</label>
 
         <select
             id="paymentStudent"
@@ -771,23 +564,18 @@ footer {
         </select>
 
 
-        <label>
-            Month
-        </label>
+        <label>Month</label>
 
-        <select id="paymentMonth">
-
-        </select>
+        <select id="paymentMonth"></select>
 
 
-        <label>
-            Amount
-        </label>
+        <label>Amount</label>
 
         <input
             id="paymentAmount"
             type="number"
-            placeholder="Amount">
+            placeholder="Amount"
+        >
 
 
         <div
@@ -812,10 +600,7 @@ footer {
 </section>
 
 
-
-<!-- =====================================================
-     REMINDER
-===================================================== -->
+<!-- REMINDER -->
 
 <section
     id="reminder"
@@ -831,13 +616,10 @@ footer {
         <div
             id="reminderStatus"
             class="status">
-
         </div>
 
 
-        <label>
-            Select Parent
-        </label>
+        <label>Select Parent</label>
 
         <select id="reminderStudent">
 
@@ -851,7 +633,6 @@ footer {
         <div
             id="reminderMessage"
             class="message">
-
         </div>
 
 
@@ -864,12 +645,7 @@ footer {
         </button>
 
 
-        <p
-            style="
-            font-size:12px;
-            color:#777;
-            margin-top:10px;
-            ">
+        <p style="font-size:12px;color:#777;margin-top:10px;">
 
             The child's name is not included
             in the reminder.
@@ -884,23 +660,14 @@ footer {
 </div>
 
 
-
 <footer>
-
 ST. THERESA’S GEMS INTERNATIONAL PRESCHOOL
-
 </footer>
 
-
-
-<!-- =====================================================
-     NAVIGATION
-===================================================== -->
 
 <nav>
 
     <button
-        id="navHome"
         class="active"
         onclick="openPage('home',this)">
 
@@ -912,7 +679,6 @@ ST. THERESA’S GEMS INTERNATIONAL PRESCHOOL
 
 
     <button
-        id="navStudents"
         onclick="openPage('students',this)">
 
         👧
@@ -923,7 +689,6 @@ ST. THERESA’S GEMS INTERNATIONAL PRESCHOOL
 
 
     <button
-        id="navPayment"
         onclick="openPage('payment',this)">
 
         💳
@@ -934,7 +699,6 @@ ST. THERESA’S GEMS INTERNATIONAL PRESCHOOL
 
 
     <button
-        id="navReminder"
         onclick="openPage('reminder',this)">
 
         📅
@@ -945,9 +709,7 @@ ST. THERESA’S GEMS INTERNATIONAL PRESCHOOL
 
 </nav>
 
-
 </div>
-
 
 
 <!-- =====================================================
@@ -957,43 +719,38 @@ ST. THERESA’S GEMS INTERNATIONAL PRESCHOOL
 <script type="module">
 
 import {
-    initializeApp,
-    getApps,
-    getApp
-}
-from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
-
+    initializeApp
+} from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
 
 import {
     getAuth,
     signInWithEmailAndPassword,
-    setPersistence,
-    browserLocalPersistence,
+    signOut,
     onAuthStateChanged,
-    signOut
-}
-from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
-
+    setPersistence,
+    browserLocalPersistence
+} from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
 
 import {
     getFirestore,
-    doc,
-    getDoc,
-    setDoc,
-    deleteDoc,
     collection,
     getDocs,
+    getDoc,
+    doc,
+    setDoc,
+    deleteDoc,
     addDoc,
+    query,
+    where,
     serverTimestamp
-}
-from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
+} from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
 
 
 /* =====================================================
-   FEES FIREBASE
+   FIREBASE CONFIG
 ===================================================== */
 
-const feeFirebaseConfig = {
+const firebaseConfig = {
 
     apiKey:
         "AIzaSyBB9UX6xNDP7np27PmCg75aHzGuj9iJGLk",
@@ -1016,118 +773,42 @@ const feeFirebaseConfig = {
 };
 
 
-/* =====================================================
-   ATTENDANCE FIREBASE
-===================================================== */
+const app =
+    initializeApp(firebaseConfig);
 
-const attendanceFirebaseConfig = {
 
-    apiKey:
-        "AIzaSyAu8iTPyoCjcwmmkHVcjPhB35OSVslzwIo",
+const auth =
+    getAuth(app);
 
-    authDomain:
-        "stg-attendance-system.firebaseapp.com",
 
-    projectId:
-        "stg-attendance-system",
-
-    storageBucket:
-        "stg-attendance-system.firebasestorage.app",
-
-    messagingSenderId:
-        "1066181213971",
-
-    appId:
-        "1:1066181213971:web:79855fedf66c38872164e6"
-
-};
+const db =
+    getFirestore(app);
 
 
 /* =====================================================
-   INITIALIZE APPS
+   IMPORTANT:
+   KEEP LOGIN AFTER REFRESH
 ===================================================== */
 
-const feeApp =
-    getApps().find(
-        app => app.name === "feeApp"
-    ) ||
-    initializeApp(
-        feeFirebaseConfig,
-        "feeApp"
+setPersistence(
+    auth,
+    browserLocalPersistence
+)
+.then(() => {
+
+    console.log(
+        "Firebase login persistence enabled."
     );
 
+})
+.catch(error => {
 
-const attendanceApp =
-    getApps().find(
-        app => app.name === "attendanceApp"
-    ) ||
-    initializeApp(
-        attendanceFirebaseConfig,
-        "attendanceApp"
+    console.error(
+        "Persistence error:",
+        error
     );
 
-
-/* =====================================================
-   AUTH
-===================================================== */
-
-const feeAuth =
-    getAuth(
-        feeApp
-    );
-
-
-const attendanceAuth =
-    getAuth(
-        attendanceApp
-    );
-
-
-/* =====================================================
-   DATABASE
-===================================================== */
-
-const feeDB =
-    getFirestore(
-        feeApp
-    );
-
-
-const attendanceDB =
-    getFirestore(
-        attendanceApp
-    );
-
-
-/* =====================================================
-   GLOBAL DATA
-===================================================== */
-
-let students = [];
-
-let foundAttendanceStudent = null;
-
-
-/* =====================================================
-   MONTHS
-===================================================== */
-
-const months = [
-
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December"
-
-];
+});
 
 
 /* =====================================================
@@ -1138,43 +819,28 @@ window.login = async function() {
 
     const email =
         document
-        .getElementById(
-            "loginEmail"
-        )
+        .getElementById("loginEmail")
         .value
         .trim();
 
-
     const password =
         document
-        .getElementById(
-            "loginPassword"
-        )
+        .getElementById("loginPassword")
         .value;
 
 
     const errorBox =
-        document.getElementById(
-            "loginError"
-        );
+        document
+        .getElementById("loginError");
 
 
-    const button =
-        document.getElementById(
-            "loginButton"
-        );
-
-
-    errorBox.classList.add(
-        "hidden"
-    );
+    errorBox.textContent = "";
 
 
     if (!email || !password) {
 
-        showLoginError(
-            "Please enter your email and password."
-        );
+        errorBox.textContent =
+            "Please enter your email and password.";
 
         return;
 
@@ -1183,120 +849,20 @@ window.login = async function() {
 
     try {
 
-        button.disabled = true;
-
-        button.textContent =
-            "Logging in...";
-
-
-        /*
-         * Keep the login remembered
-         * on this device/browser.
-         */
-
-        await setPersistence(
-            feeAuth,
-            browserLocalPersistence
-        );
-
-
-        await setPersistence(
-            attendanceAuth,
-            browserLocalPersistence
-        );
-
-
-        /*
-         * Login to Fees Firebase.
-         */
-
         await signInWithEmailAndPassword(
-            feeAuth,
+            auth,
             email,
             password
         );
 
+    }
 
-        /*
-         * Login to Attendance Firebase.
-         *
-         * The same email/password account
-         * must exist in the Attendance
-         * Firebase Authentication project.
-         */
-
-        await signInWithEmailAndPassword(
-            attendanceAuth,
-            email,
-            password
-        );
-
-
-        showApp();
-
-
-    } catch (error) {
+    catch(error) {
 
         console.error(error);
 
-        let message =
-            "Login failed.";
-
-
-        if (
-            error.code ===
-            "auth/invalid-credential"
-        ) {
-
-            message =
-                "Incorrect email or password, or this account does not exist in one of the Firebase projects.";
-
-        }
-
-
-        if (
-            error.code ===
-            "auth/invalid-login-credentials"
-        ) {
-
-            message =
-                "Incorrect email or password.";
-
-        }
-
-
-        if (
-            error.code ===
-            "auth/user-not-found"
-        ) {
-
-            message =
-                "User account was not found.";
-
-        }
-
-
-        if (
-            error.code ===
-            "auth/wrong-password"
-        ) {
-
-            message =
-                "Incorrect password.";
-
-        }
-
-
-        showLoginError(
-            message
-        );
-
-    } finally {
-
-        button.disabled = false;
-
-        button.textContent =
-            "🔐 LOGIN";
+        errorBox.textContent =
+            "Login failed. Please check your email and password.";
 
     }
 
@@ -1304,69 +870,53 @@ window.login = async function() {
 
 
 /* =====================================================
-   LOGIN ERROR
-===================================================== */
-
-function showLoginError(
-    message
-) {
-
-    const box =
-        document.getElementById(
-            "loginError"
-        );
-
-    box.textContent =
-        message;
-
-    box.classList.remove(
-        "hidden"
-    );
-
-}
-
-
-/* =====================================================
    AUTH STATE
+   THIS IS THE IMPORTANT FIX FOR CTRL+R
 ===================================================== */
 
 onAuthStateChanged(
-    feeAuth,
-    async function(user) {
+    auth,
+    async (user) => {
 
-        if (!user) {
+        if (user) {
 
-            document
-                .getElementById(
-                    "loginScreen"
-                )
-                .classList.remove(
-                    "hidden"
-                );
+            console.log(
+                "User already logged in:",
+                user.email
+            );
 
             document
-                .getElementById(
-                    "app"
-                )
-                .classList.add(
-                    "hidden"
-                );
+                .getElementById("loginScreen")
+                .style.display = "none";
 
-            return;
+
+            document
+                .getElementById("app")
+                .style.display = "block";
+
+
+            await loadStudents();
+
+            updateSelects();
+
+            showStudents();
+
+            updateHome();
+
+            updateReminder();
 
         }
 
+        else {
 
-        /*
-         * Check that Attendance Firebase
-         * is also logged in.
-         */
+            document
+                .getElementById("loginScreen")
+                .style.display = "flex";
 
-        if (
-            attendanceAuth.currentUser
-        ) {
 
-            showApp();
+            document
+                .getElementById("app")
+                .style.display = "none";
 
         }
 
@@ -1375,87 +925,34 @@ onAuthStateChanged(
 
 
 /* =====================================================
-   SHOW APP
-===================================================== */
-
-async function showApp() {
-
-    document
-        .getElementById(
-            "loginScreen"
-        )
-        .classList.add(
-            "hidden"
-        );
-
-
-    document
-        .getElementById(
-            "app"
-        )
-        .classList.remove(
-            "hidden"
-        );
-
-
-    await loadStudents();
-
-    updateSelects();
-
-    updateHome();
-
-    updateReminder();
-
-    setupMonths();
-
-}
-
-
-/* =====================================================
    LOGOUT
 ===================================================== */
 
 window.logout = async function() {
 
-    const confirmed =
-        confirm(
-            "Do you want to log out?"
-        );
-
-
-    if (!confirmed) {
+    if (
+        !confirm(
+            "Do you want to logout?"
+        )
+    ) {
 
         return;
 
     }
 
 
-    try {
-
-        await signOut(
-            feeAuth
-        );
-
-
-        await signOut(
-            attendanceAuth
-        );
-
-
-        location.reload();
-
-
-    } catch (error) {
-
-        console.error(error);
-
-        alert(
-            "Logout failed."
-        );
-
-    }
+    await signOut(auth);
 
 };
+
+
+/* =====================================================
+   STUDENTS
+===================================================== */
+
+let students = [];
+
+let editingIndex = -1;
 
 
 /* =====================================================
@@ -1464,24 +961,12 @@ window.logout = async function() {
 
 async function loadStudents() {
 
-    const list =
-        document.getElementById(
-            "studentList"
-        );
-
-
-    list.innerHTML =
-        `<div class="loading">
-            Loading students...
-        </div>`;
-
-
     try {
 
         const snapshot =
             await getDocs(
                 collection(
-                    feeDB,
+                    db,
                     "feeStudents"
                 )
             );
@@ -1495,7 +980,7 @@ async function loadStudents() {
 
                 students.push({
 
-                    id:
+                    firestoreId:
                         docSnap.id,
 
                     ...docSnap.data()
@@ -1506,32 +991,23 @@ async function loadStudents() {
         );
 
 
-        students.sort(
-            (a,b) =>
-                String(a.name || "")
-                .localeCompare(
-                    String(b.name || "")
-                )
+        console.log(
+            "Fee students loaded:",
+            students.length
         );
 
+    }
 
-        showStudents();
+    catch(error) {
 
-        updateSelects();
+        console.error(
+            "Error loading students:",
+            error
+        );
 
-        updateHome();
-
-
-    } catch (error) {
-
-        console.error(error);
-
-        list.innerHTML =
-            `<div class="error-box">
-                Could not load students.
-                <br><br>
-                ${escapeHTML(error.message)}
-            </div>`;
+        alert(
+            "Could not load saved students. Check Firestore rules."
+        );
 
     }
 
@@ -1539,294 +1015,232 @@ async function loadStudents() {
 
 
 /* =====================================================
-   4 DIGIT INPUT
+   FIND STUDENT FROM ATTENDANCE DATABASE
 ===================================================== */
 
-window.studentIdInput =
-function() {
-
-    const input =
-        document.getElementById(
-            "findStudentId"
-        );
-
-
-    /*
-     * Keep numbers only.
-     */
-
-    input.value =
-        input.value
-            .replace(
-                /\D/g,
-                ""
-            )
-            .substring(
-                0,
-                4
-            );
-
-
-    const digits =
-        input.value;
-
-
-    document.getElementById(
-        "fullIdPreview"
-    ).textContent =
-
-        "Student ID: " +
-        (
-            digits.length === 4
-            ? "STG-STU-" + digits
-            : "STG-STU-____"
-        );
-
-};
-
-
-/* =====================================================
-   FIND STUDENT IN ATTENDANCE
-===================================================== */
-
-window.findStudent =
+window.findAttendanceStudent =
 async function() {
 
-    const input =
-        document.getElementById(
-            "findStudentId"
+    const last4 =
+        document
+        .getElementById(
+            "studentSearchId"
+        )
+        .value
+        .trim();
+
+
+    const result =
+        document
+        .getElementById(
+            "attendanceResult"
         );
 
 
-    const digits =
-        input.value
-            .trim();
-
-
-    const messageBox =
-        document.getElementById(
-            "findMessage"
-        );
-
-
-    const foundBox =
-        document.getElementById(
-            "foundStudent"
-        );
-
-
-    const button =
-        document.getElementById(
-            "findButton"
-        );
-
-
-    foundAttendanceStudent =
-        null;
-
-
-    foundBox.classList.add(
+    result.classList.remove(
         "hidden"
     );
 
 
-    messageBox.classList.add(
-        "hidden"
-    );
+    result.innerHTML =
+        "🔎 Searching...";
 
 
     if (
-        !/^\d{4}$/.test(
-            digits
-        )
+        !/^\d{4}$/.test(last4)
     ) {
 
-        showFindMessage(
-            "Please enter exactly 4 digits. Example: 0001",
-            "error"
-        );
+        result.innerHTML =
+            "Please enter exactly 4 digits. Example: 0001.";
 
         return;
 
     }
 
 
-    const fullStudentId =
-        "STG-STU-" +
-        digits;
-
-
-    button.disabled = true;
-
-    button.textContent =
-        "Searching...";
-
-
     try {
 
         /*
-         * Attendance students use the
-         * Student ID as the Firestore
-         * document ID.
+         * Attendance student documents are expected
+         * to be in the "students" collection.
+         *
+         * We search every student document and compare
+         * the final 4 digits of the Student ID.
          */
 
-        const studentRef =
-            doc(
-                attendanceDB,
-                "students",
-                fullStudentId
+        const snapshot =
+            await getDocs(
+                collection(
+                    db,
+                    "students"
+                )
             );
 
 
-        const studentSnap =
-            await getDoc(
-                studentRef
-            );
+        let found = null;
 
 
-        if (
-            !studentSnap.exists()
-        ) {
+        snapshot.forEach(
+            docSnap => {
 
-            showFindMessage(
-                "Student " +
-                fullStudentId +
-                " was not found in the Attendance database.",
-                "error"
-            );
+                const data =
+                    docSnap.data();
+
+
+                const possibleId =
+                    String(
+                        data.id ||
+                        data.studentId ||
+                        docSnap.id ||
+                        ""
+                    );
+
+
+                const digits =
+                    possibleId
+                    .replace(
+                        /\D/g,
+                        ""
+                    );
+
+
+                if (
+                    digits.length >= 4 &&
+                    digits.slice(-4) === last4
+                ) {
+
+                    found = {
+
+                        firestoreId:
+                            docSnap.id,
+
+                        ...data
+
+                    };
+
+                }
+
+            }
+        );
+
+
+        if (!found) {
+
+            result.innerHTML = `
+                ❌ Student not found.<br><br>
+                No attendance student with ID ending in
+                <b>${escapeHTML(last4)}</b>
+                was found.
+            `;
 
             return;
 
         }
 
 
-        const data =
-            studentSnap.data();
+        const name =
+            found.name ||
+            found.childName ||
+            found.fullName ||
+            "Unknown";
 
 
-        foundAttendanceStudent = {
-
-            id:
-                fullStudentId,
-
-            name:
-                data.name || "",
-
-            className:
-                data.class ||
-                data.className ||
-                "",
-
-            parent:
-                data.parent ||
-                data.parentName ||
-                "",
-
-            phone:
-                data.phone ||
-                data.whatsapp ||
-                ""
-
-        };
+        const studentId =
+            found.id ||
+            found.studentId ||
+            found.firestoreId;
 
 
-        /*
-         * Check whether already saved
-         * in the Fees system.
-         */
-
-        const alreadySaved =
-            students.some(
-                student =>
-                    student.id ===
-                    fullStudentId
-            );
+        const className =
+            found.className ||
+            found.class ||
+            "Not specified";
 
 
-        let details = `
+        const parent =
+            found.parent ||
+            found.parentName ||
+            found.guardian ||
+            found.guardianName ||
+            "Not specified";
 
-            <strong>🆔 Student ID:</strong>
-            ${escapeHTML(fullStudentId)}
 
-            <br>
+        const phone =
+            found.phone ||
+            found.whatsapp ||
+            found.parentPhone ||
+            found.parentMobile ||
+            "";
 
-            <strong>👧 Child:</strong>
-            ${escapeHTML(foundAttendanceStudent.name)}
+
+        const fee =
+            found.fee ||
+            found.monthlyFee ||
+            "";
+
+
+        result.innerHTML = `
+
+            <strong>Student Found</strong>
+
+            <br><br>
+
+            🆔 Student ID:
+            ${escapeHTML(studentId)}
 
             <br>
 
-            <strong>🏫 Class:</strong>
-            ${escapeHTML(foundAttendanceStudent.className)}
+            👧 Name:
+            ${escapeHTML(name)}
 
             <br>
 
-            <strong>👨‍👩‍👧 Parent:</strong>
-            ${escapeHTML(foundAttendanceStudent.parent)}
+            🏫 Class:
+            ${escapeHTML(className)}
 
             <br>
 
-            <strong>📱 WhatsApp:</strong>
-            ${escapeHTML(foundAttendanceStudent.phone)}
+            👨‍👩‍👧 Parent:
+            ${escapeHTML(parent)}
+
+            <br>
+
+            📱 WhatsApp:
+            ${escapeHTML(phone || "Not available")}
+
+            <br>
+
+            💰 Monthly Fee:
+            ${fee || "Not set"}
+
+            <button
+                class="gold full"
+                onclick='confirmAttendanceStudent(${JSON.stringify({
+                    id: studentId,
+                    name: name,
+                    className: className,
+                    parent: parent,
+                    phone: phone,
+                    fee: fee
+                })})'>
+
+                ✅ CONFIRM & SAVE STUDENT
+
+            </button>
 
         `;
 
+    }
 
-        document.getElementById(
-            "foundDetails"
-        ).innerHTML =
-            details;
-
-
-        document.getElementById(
-            "newStudentFee"
-        ).value = "";
-
-
-        foundBox.classList.remove(
-            "hidden"
-        );
-
-
-        if (
-            alreadySaved
-        ) {
-
-            showFindMessage(
-                "This student is already saved in the Fees system.",
-                "error"
-            );
-
-
-            document.getElementById(
-                "confirmAddButton"
-            ).disabled = true;
-
-
-        } else {
-
-            document.getElementById(
-                "confirmAddButton"
-            ).disabled = false;
-
-        }
-
-
-    } catch (error) {
+    catch(error) {
 
         console.error(error);
 
-        showFindMessage(
-            "Could not search the Attendance database: " +
-            error.message,
-            "error"
-        );
-
-    } finally {
-
-        button.disabled = false;
-
-        button.textContent =
-            "🔎 FIND STUDENT";
+        result.innerHTML = `
+            ❌ Could not search the Attendance database.
+            <br><br>
+            ${escapeHTML(error.message)}
+        `;
 
     }
 
@@ -1834,110 +1248,51 @@ async function() {
 
 
 /* =====================================================
-   FIND MESSAGE
+   CONFIRM ATTENDANCE STUDENT
 ===================================================== */
 
-function showFindMessage(
-    text,
-    type
-) {
-
-    const box =
-        document.getElementById(
-            "findMessage"
-        );
-
-
-    box.textContent =
-        text;
-
-
-    box.className =
-        type === "error"
-        ? "error-box"
-        : "success-box";
-
-
-    box.classList.remove(
-        "hidden"
-    );
-
-}
-
-
-/* =====================================================
-   CONFIRM & ADD STUDENT
-===================================================== */
-
-window.confirmAddStudent =
-async function() {
-
-    if (
-        !foundAttendanceStudent
-    ) {
-
-        alert(
-            "Please find a student first."
-        );
-
-        return;
-
-    }
-
-
-    const fee =
-        document.getElementById(
-            "newStudentFee"
-        )
-        .value
-        .trim();
-
-
-    if (
-        !fee ||
-        Number(fee) <= 0
-    ) {
-
-        alert(
-            "Please enter the monthly fee."
-        );
-
-        return;
-
-    }
-
-
-    const student =
-        foundAttendanceStudent;
-
-
-    const button =
-        document.getElementById(
-            "confirmAddButton"
-        );
-
-
-    button.disabled = true;
-
-    button.textContent =
-        "Saving...";
-
+window.confirmAttendanceStudent =
+async function(student) {
 
     try {
 
+        const cleanPhone =
+            String(
+                student.phone || ""
+            )
+            .replace(
+                /\D/g,
+                ""
+            );
+
+
+        const fee =
+            Number(
+                student.fee || 0
+            );
+
+
         /*
-         * Use the Attendance Student ID
-         * as the Fee document ID.
+         * Use Student ID as the Firestore document ID.
+         * This prevents the same student being saved twice.
          */
 
-        await setDoc(
-
-            doc(
-                feeDB,
-                "feeStudents",
+        const firestoreId =
+            String(
                 student.id
-            ),
+            )
+            .replace(
+                /[^a-zA-Z0-9_-]/g,
+                "_"
+            );
 
+
+        await setDoc(
+            doc(
+                db,
+                "feeStudents",
+                firestoreId
+            ),
             {
 
                 id:
@@ -1953,81 +1308,60 @@ async function() {
                     student.parent,
 
                 phone:
-                    cleanPhone(
-                        student.phone
-                    ),
+                    cleanPhone,
 
                 fee:
-                    Number(fee),
+                    fee,
 
-                createdAt:
-                    serverTimestamp(),
+                updatedAt:
+                    serverTimestamp()
 
-                source:
-                    "attendance"
-
+            },
+            {
+                merge: true
             }
-
         );
 
 
         alert(
-            student.name +
-            " was added to the Fees system."
+            "Student saved successfully!"
         );
 
 
-        foundAttendanceStudent =
-            null;
+        document
+            .getElementById(
+                "studentSearchId"
+            )
+            .value = "";
 
 
-        document.getElementById(
-            "findStudentId"
-        ).value = "";
-
-
-        document.getElementById(
-            "fullIdPreview"
-        ).textContent =
-            "Student ID: STG-STU-____";
-
-
-        document.getElementById(
-            "foundStudent"
-        ).classList.add(
-            "hidden"
-        );
-
-
-        document.getElementById(
-            "findMessage"
-        ).classList.add(
-            "hidden"
-        );
+        document
+            .getElementById(
+                "attendanceResult"
+            )
+            .classList.add(
+                "hidden"
+            );
 
 
         await loadStudents();
+
+        showStudents();
 
         updateSelects();
 
         updateHome();
 
+    }
 
-    } catch (error) {
+    catch(error) {
 
         console.error(error);
 
         alert(
-            "Could not save student:\n" +
+            "Could not save student: " +
             error.message
         );
-
-    } finally {
-
-        button.disabled = false;
-
-        button.textContent =
-            "✓ CONFIRM & ADD STUDENT";
 
     }
 
@@ -2035,52 +1369,14 @@ async function() {
 
 
 /* =====================================================
-   PHONE
+   DELETE STUDENT
 ===================================================== */
 
-function cleanPhone(
-    phone
-) {
-
-    let value =
-        String(
-            phone || ""
-        )
-        .replace(
-            /\D/g,
-            ""
-        );
-
-
-    if (
-        value.startsWith("0")
-    ) {
-
-        value =
-            "94" +
-            value.substring(1);
-
-    }
-
-
-    return value;
-
-}
-
-
-/* =====================================================
-   DELETE ONE STUDENT
-===================================================== */
-
-window.deleteFeeStudent =
-async function(studentId) {
+window.deleteStudent =
+async function(index) {
 
     const student =
-        students.find(
-            s =>
-                s.id ===
-                studentId
-        );
+        students[index];
 
 
     if (!student) {
@@ -2090,20 +1386,13 @@ async function(studentId) {
     }
 
 
-    const confirmed =
-        confirm(
-
+    if (
+        !confirm(
             "Delete " +
             student.name +
-            " from the Fees system?\n\n" +
-
-            "This will NOT delete the student " +
-            "from the Attendance system."
-
-        );
-
-
-    if (!confirmed) {
+            " from the Fee system?"
+        )
+    ) {
 
         return;
 
@@ -2113,34 +1402,35 @@ async function(studentId) {
     try {
 
         await deleteDoc(
-
             doc(
-                feeDB,
+                db,
                 "feeStudents",
-                studentId
+                student.firestoreId
             )
-
-        );
-
-
-        alert(
-            "Student deleted successfully."
         );
 
 
         await loadStudents();
+
+        showStudents();
 
         updateSelects();
 
         updateHome();
 
 
-    } catch (error) {
+        alert(
+            "Student deleted successfully."
+        );
+
+    }
+
+    catch(error) {
 
         console.error(error);
 
         alert(
-            "Could not delete the student:\n" +
+            "Could not delete student: " +
             error.message
         );
 
@@ -2176,37 +1466,43 @@ function() {
 
     const filtered =
         students.filter(
-            student =>
+            student => {
 
-                String(
-                    student.name || ""
-                )
-                .toLowerCase()
-                .includes(search)
+                return (
 
-                ||
+                    String(
+                        student.name || ""
+                    )
+                    .toLowerCase()
+                    .includes(search)
 
-                String(
-                    student.id || ""
-                )
-                .toLowerCase()
-                .includes(search)
+                    ||
 
-                ||
+                    String(
+                        student.id || ""
+                    )
+                    .toLowerCase()
+                    .includes(search)
 
-                String(
-                    student.className || ""
-                )
-                .toLowerCase()
-                .includes(search)
+                    ||
 
-                ||
+                    String(
+                        student.className || ""
+                    )
+                    .toLowerCase()
+                    .includes(search)
 
-                String(
-                    student.parent || ""
-                )
-                .toLowerCase()
-                .includes(search)
+                    ||
+
+                    String(
+                        student.parent || ""
+                    )
+                    .toLowerCase()
+                    .includes(search)
+
+                );
+
+            }
         );
 
 
@@ -2215,9 +1511,11 @@ function() {
     ) {
 
         list.innerHTML =
-            `<div class="empty">
-                No students found.
-            </div>`;
+            `
+            <div class="empty">
+                No saved students found.
+            </div>
+            `;
 
         return;
 
@@ -2226,6 +1524,12 @@ function() {
 
     filtered.forEach(
         student => {
+
+            const index =
+                students.indexOf(
+                    student
+                );
+
 
             const div =
                 document.createElement(
@@ -2242,7 +1546,7 @@ function() {
                 <div class="student-name">
 
                     ${escapeHTML(
-                        student.name
+                        student.name || ""
                     )}
 
                 </div>
@@ -2252,36 +1556,34 @@ function() {
 
                     🆔 Student ID:
                     ${escapeHTML(
-                        student.id
+                        student.id || ""
                     )}
 
                     <br>
 
                     🏫 Class:
                     ${escapeHTML(
-                        student.className
+                        student.className || ""
                     )}
 
                     <br>
 
                     👨‍👩‍👧 Parent:
                     ${escapeHTML(
-                        student.parent
+                        student.parent || ""
                     )}
 
                     <br>
 
                     📱 WhatsApp:
                     ${escapeHTML(
-                        student.phone
+                        student.phone || ""
                     )}
 
                     <br>
 
                     💰 Monthly Fee:
-                    ${Number(
-                        student.fee || 0
-                    ).toLocaleString()}
+                    ${student.fee || 0}
 
                 </div>
 
@@ -2290,9 +1592,7 @@ function() {
 
                     <button
                         class="danger"
-                        onclick="deleteFeeStudent(
-                            '${escapeAttribute(student.id)}'
-                        )">
+                        onclick="deleteStudent(${index})">
 
                         🗑️ DELETE
 
@@ -2317,62 +1617,40 @@ function() {
    ESCAPE HTML
 ===================================================== */
 
-function escapeHTML(
-    text
-) {
+function escapeHTML(text) {
 
-    return String(
-        text ?? ""
-    )
-    .replace(
-        /&/g,
-        "&amp;"
-    )
-    .replace(
-        /</g,
-        "&lt;"
-    )
-    .replace(
-        />/g,
-        "&gt;"
-    )
-    .replace(
-        /"/g,
-        "&quot;"
-    )
-    .replace(
-        /'/g,
-        "&#039;"
-    );
+    return String(text)
 
-}
+        .replace(
+            /&/g,
+            "&amp;"
+        )
 
+        .replace(
+            /</g,
+            "&lt;"
+        )
 
-/* =====================================================
-   ESCAPE ATTRIBUTE
-===================================================== */
+        .replace(
+            />/g,
+            "&gt;"
+        )
 
-function escapeAttribute(
-    text
-) {
+        .replace(
+            /"/g,
+            "&quot;"
+        )
 
-    return String(
-        text ?? ""
-    )
-    .replace(
-        /\\/g,
-        "\\\\"
-    )
-    .replace(
-        /'/g,
-        "\\'"
-    );
+        .replace(
+            /'/g,
+            "&#039;"
+        );
 
 }
 
 
 /* =====================================================
-   UPDATE SELECTS
+   UPDATE SELECT BOXES
 ===================================================== */
 
 function updateSelects() {
@@ -2390,15 +1668,19 @@ function updateSelects() {
 
 
     payment.innerHTML =
-        `<option value="">
+        `
+        <option value="">
             Select Student
-        </option>`;
+        </option>
+        `;
 
 
     reminder.innerHTML =
-        `<option value="">
+        `
+        <option value="">
             Select Parent
-        </option>`;
+        </option>
+        `;
 
 
     students.forEach(
@@ -2452,8 +1734,26 @@ function updateSelects() {
 
 
 /* =====================================================
-   PAYMENT MONTHS
+   MONTHS
 ===================================================== */
+
+const months = [
+
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December"
+
+];
+
 
 function setupMonths() {
 
@@ -2461,15 +1761,6 @@ function setupMonths() {
         document.getElementById(
             "paymentMonth"
         );
-
-
-    if (
-        select.options.length > 0
-    ) {
-
-        return;
-
-    }
 
 
     const now =
@@ -2515,7 +1806,7 @@ function setupMonths() {
 
 
 /* =====================================================
-   PAYMENT STUDENT
+   PAYMENT
 ===================================================== */
 
 window.paymentStudentChanged =
@@ -2541,7 +1832,6 @@ function() {
         ).textContent =
             "Select a student.";
 
-
         return;
 
     }
@@ -2554,32 +1844,12 @@ function() {
     document.getElementById(
         "paymentAmount"
     ).value =
-        student.fee;
+        student.fee || "";
 
 
     updatePaymentMessage();
 
 };
-
-
-/* =====================================================
-   PAYMENT MESSAGE
-===================================================== */
-
-document.getElementById(
-    "paymentMonth"
-).addEventListener(
-    "change",
-    updatePaymentMessage
-);
-
-
-document.getElementById(
-    "paymentAmount"
-).addEventListener(
-    "input",
-    updatePaymentMessage
-);
 
 
 function updatePaymentMessage() {
@@ -2630,6 +1900,22 @@ Thank you.`;
 }
 
 
+document
+.getElementById("paymentMonth")
+.addEventListener(
+    "change",
+    updatePaymentMessage
+);
+
+
+document
+.getElementById("paymentAmount")
+.addEventListener(
+    "input",
+    updatePaymentMessage
+);
+
+
 /* =====================================================
    SEND PAYMENT
 ===================================================== */
@@ -2672,10 +1958,7 @@ async function() {
         ).value;
 
 
-    if (
-        !amount ||
-        Number(amount) <= 0
-    ) {
+    if (!amount) {
 
         alert(
             "Please enter the payment amount."
@@ -2697,19 +1980,17 @@ Amount: ${amount}
 Thank you.`;
 
 
+    /*
+     * Save payment to Firestore.
+     */
+
     try {
 
-        /*
-         * Save payment in Firestore.
-         */
-
         await addDoc(
-
             collection(
-                feeDB,
+                db,
                 "payments"
             ),
-
             {
 
                 studentId:
@@ -2718,63 +1999,52 @@ Thank you.`;
                 studentName:
                     student.name,
 
-                parent:
-                    student.parent,
-
-                phone:
-                    student.phone,
-
                 month:
                     month,
 
                 amount:
                     Number(amount),
 
+                phone:
+                    student.phone,
+
                 createdAt:
                     serverTimestamp()
 
             }
-
-        );
-
-
-        /*
-         * Then open WhatsApp.
-         */
-
-        const url =
-            "https://wa.me/" +
-            cleanPhone(
-                student.phone
-            ) +
-            "?text=" +
-            encodeURIComponent(
-                message
-            );
-
-
-        window.open(
-            url,
-            "_blank"
-        );
-
-
-    } catch (error) {
-
-        console.error(error);
-
-        alert(
-            "Payment could not be saved:\n" +
-            error.message
         );
 
     }
+
+    catch(error) {
+
+        console.error(
+            "Payment save error:",
+            error
+        );
+
+    }
+
+
+    const url =
+        "https://wa.me/" +
+        student.phone +
+        "?text=" +
+        encodeURIComponent(
+            message
+        );
+
+
+    window.open(
+        url,
+        "_blank"
+    );
 
 };
 
 
 /* =====================================================
-   REMINDER MONTH
+   REMINDER
 ===================================================== */
 
 function getReminderMonth() {
@@ -2810,10 +2080,6 @@ function getReminderMonth() {
 }
 
 
-/* =====================================================
-   REMINDER
-===================================================== */
-
 function updateReminder() {
 
     const now =
@@ -2837,13 +2103,16 @@ function updateReminder() {
             month +
             ".";
 
-    } else {
+    }
+
+    else {
 
         document.getElementById(
             "reminderStatus"
         ).textContent =
 
-            "The reminder will become active after the 20th.";
+            "The reminder will become " +
+            "active after the 20th.";
 
     }
 
@@ -2906,9 +2175,7 @@ Thank you.`;
 
     const url =
         "https://wa.me/" +
-        cleanPhone(
-            student.phone
-        ) +
+        student.phone +
         "?text=" +
         encodeURIComponent(
             message
@@ -2945,16 +2212,9 @@ function updateHome() {
         now.toLocaleDateString(
             "en-US",
             {
-
-                weekday:
-                    "long",
-
-                month:
-                    "long",
-
-                year:
-                    "numeric"
-
+                weekday: "long",
+                month: "long",
+                year: "numeric"
             }
         );
 
@@ -2986,7 +2246,9 @@ function updateHome() {
             "The 20th has passed. " +
             "Monthly fee reminders are now active.";
 
-    } else {
+    }
+
+    else {
 
         document.getElementById(
             "feeStatus"
@@ -3004,57 +2266,43 @@ function updateHome() {
 ===================================================== */
 
 window.openPage =
-function(
-    page,
-    button
-) {
+function(page,button) {
 
-    document.getElementById(
-        "home"
-    ).classList.add(
-        "hidden"
-    );
+    document
+        .querySelectorAll(
+            ".container > section"
+        )
+        .forEach(
+            section => {
 
+                section.classList.add(
+                    "hidden"
+                );
 
-    document.getElementById(
-        "students"
-    ).classList.add(
-        "hidden"
-    );
+            }
+        );
 
 
-    document.getElementById(
-        "payment"
-    ).classList.add(
-        "hidden"
-    );
+    document
+        .getElementById(page)
+        .classList.remove(
+            "hidden"
+        );
 
 
-    document.getElementById(
-        "reminder"
-    ).classList.add(
-        "hidden"
-    );
+    document
+        .querySelectorAll(
+            "nav button"
+        )
+        .forEach(
+            btn => {
 
+                btn.classList.remove(
+                    "active"
+                );
 
-    document.getElementById(
-        page
-    ).classList.remove(
-        "hidden"
-    );
-
-
-    document.querySelectorAll(
-        "nav button"
-    ).forEach(
-        btn => {
-
-            btn.classList.remove(
-                "active"
-            );
-
-        }
-    );
+            }
+        );
 
 
     button.classList.add(
@@ -3079,25 +2327,26 @@ function(
 
     }
 
-
-    if (
-        page === "payment"
-    ) {
-
-        setupMonths();
-
-    }
-
 };
 
+
+/* =====================================================
+   START
+===================================================== */
+
+setupMonths();
+
+</script>
+
+
+<script>
 
 /* =====================================================
    SERVICE WORKER
 ===================================================== */
 
 if (
-    "serviceWorker"
-    in navigator
+    "serviceWorker" in navigator
 ) {
 
     window.addEventListener(
@@ -3127,5 +2376,4 @@ if (
 </script>
 
 </body>
-
 </html>
