@@ -606,10 +606,8 @@ footer {
 
 
         <button onclick="login()">
-
-            🔐 LOGIN
-
-        </button>
+    🔐 LOGIN
+      </button>
 
 
         <div id="loginError"></div>
@@ -1229,31 +1227,47 @@ async function connectAttendance() {
    LOGIN
 ===================================================== */
 
-window.login =
-async function() {
+window.login = async function() {
 
     const email =
-        document
-        .getElementById(
-            "loginEmail"
-        )
-        .value
-        .trim();
-
+        document.getElementById("loginEmail").value.trim();
 
     const password =
-        document
-        .getElementById(
-            "loginPassword"
-        )
-        .value;
-
+        document.getElementById("loginPassword").value;
 
     const errorBox =
-        document
-        .getElementById(
-            "loginError"
+        document.getElementById("loginError");
+
+    errorBox.textContent = "";
+
+    if (!email || !password) {
+
+        errorBox.textContent =
+            "Please enter your email and password.";
+
+        return;
+    }
+
+    try {
+
+        await signInWithEmailAndPassword(
+            feeAuth,
+            email,
+            password
         );
+
+    }
+
+    catch(error) {
+
+        console.error("LOGIN ERROR:", error);
+
+        errorBox.textContent =
+            "Login failed: " + error.message;
+
+    }
+
+};
 
 
     errorBox.textContent = "";
