@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
 
 <title>STG Fee WhatsApp</title>
 
@@ -11,9 +14,19 @@
 <link rel="apple-touch-icon" href="icon.png">
 
 <meta name="theme-color" content="#176d73">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="default">
-<meta name="apple-mobile-web-app-title" content="STG Fees">
+
+<meta name="mobile-web-app-capable"
+      content="yes">
+
+<meta name="apple-mobile-web-app-capable"
+      content="yes">
+
+<meta name="apple-mobile-web-app-status-bar-style"
+      content="default">
+
+<meta name="apple-mobile-web-app-title"
+      content="STG Fees">
+
 
 <style>
 
@@ -28,343 +41,548 @@ body {
     color: #173b3d;
 }
 
-/* LOGIN */
+/* =========================
+   LOGIN
+========================= */
 
 #loginScreen {
+
     min-height: 100vh;
+
     display: flex;
+
     align-items: center;
+
     justify-content: center;
+
     padding: 20px;
-    background: linear-gradient(135deg, #176d73, #239b91);
+
+    background:
+        linear-gradient(
+            135deg,
+            #176d73,
+            #239b91
+        );
 }
 
 .login-card {
+
     width: 100%;
+
     max-width: 400px;
+
     background: white;
+
     padding: 28px;
+
     border-radius: 18px;
-    box-shadow: 0 8px 30px rgba(0,0,0,.2);
+
+    box-shadow:
+        0 8px 30px rgba(0,0,0,.2);
 }
 
 .login-card h1 {
+
     text-align: center;
+
     color: #176d73;
+
     margin: 0;
+
     font-size: 23px;
 }
 
 .login-card p {
+
     text-align: center;
+
     color: #777;
+
     font-size: 13px;
 }
 
 .login-card input {
+
     width: 100%;
+
     padding: 14px;
+
     margin-top: 8px;
-    border: 1px solid #ccdada;
+
+    border:
+        1px solid #ccdada;
+
     border-radius: 10px;
+
     font-size: 15px;
 }
 
 .login-card button {
+
     width: 100%;
+
     margin-top: 15px;
+
     padding: 14px;
+
     border: none;
+
     border-radius: 10px;
+
     background: #176d73;
+
     color: white;
+
     font-weight: bold;
+
     cursor: pointer;
 }
 
 #loginError {
+
     color: #d9534f;
+
     text-align: center;
+
     font-size: 13px;
+
     margin-top: 12px;
 }
 
-/* APP */
+
+/* =========================
+   APP
+========================= */
 
 #app {
     display: none;
 }
 
 header {
-    background: linear-gradient(135deg, #176d73, #239b91);
+
+    background:
+        linear-gradient(
+            135deg,
+            #176d73,
+            #239b91
+        );
+
     color: white;
+
     text-align: center;
+
     padding: 20px 15px;
 }
 
 header h1 {
+
     margin: 0;
+
     font-size: 21px;
 }
 
 header p {
+
     margin: 5px 0 0;
+
     font-size: 13px;
 }
 
 .logout {
+
     margin-top: 10px;
+
     padding: 7px 14px;
-    border: 1px solid rgba(255,255,255,.5);
-    background: rgba(255,255,255,.15);
+
+    border:
+        1px solid rgba(255,255,255,.5);
+
+    background:
+        rgba(255,255,255,.15);
+
     color: white;
+
     border-radius: 8px;
+
     cursor: pointer;
 }
 
 .container {
+
     max-width: 650px;
+
     margin: auto;
+
     padding: 15px;
+
     padding-bottom: 100px;
 }
 
 .card {
+
     background: white;
+
     padding: 18px;
+
     border-radius: 16px;
+
     margin-bottom: 15px;
-    box-shadow: 0 3px 12px rgba(0,0,0,.07);
+
+    box-shadow:
+        0 3px 12px rgba(0,0,0,.07);
 }
 
 .card h2 {
+
     color: #176d73;
+
     margin-top: 0;
+
     font-size: 19px;
 }
 
 label {
+
     display: block;
+
     margin-top: 13px;
+
     margin-bottom: 6px;
+
     font-size: 13px;
+
     font-weight: bold;
 }
 
 input,
 select {
+
     width: 100%;
+
     padding: 13px;
-    border: 1px solid #ccdada;
+
+    border:
+        1px solid #ccdada;
+
     border-radius: 10px;
+
     font-size: 15px;
+
     background: white;
 }
 
 input:focus,
 select:focus {
+
     outline: none;
+
     border-color: #176d73;
 }
 
 button {
+
     border: none;
+
     border-radius: 10px;
+
     padding: 13px;
+
     font-size: 14px;
+
     font-weight: bold;
+
     cursor: pointer;
 }
 
 .full {
+
     width: 100%;
+
     margin-top: 14px;
 }
 
 .primary {
+
     background: #176d73;
+
     color: white;
 }
 
 .whatsapp {
+
     background: #25D366;
+
     color: white;
 }
 
 .gold {
+
     background: #e4ad3e;
+
     color: white;
 }
 
 .danger {
+
     background: #d9534f;
+
     color: white;
 }
 
 .light {
+
     background: #e8f2f2;
+
     color: #176d73;
 }
 
 .hidden {
+
     display: none !important;
 }
 
+
+/* =========================
+   HOME
+========================= */
+
 .date-box {
+
     text-align: center;
 }
 
 .date-number {
+
     font-size: 40px;
+
     font-weight: bold;
+
     color: #176d73;
 }
 
 .date-text {
+
     color: #777;
+
     margin-top: 4px;
 }
 
 .status {
+
     background: #fff8df;
+
     color: #715c19;
+
     padding: 14px;
+
     border-radius: 10px;
+
     line-height: 1.5;
+
     font-size: 14px;
 }
 
-.add-title {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
 
-.add-title h2 {
-    margin-bottom: 0;
-}
-
-.cancel-btn {
-    padding: 8px 12px;
-}
+/* =========================
+   STUDENTS
+========================= */
 
 .student {
-    border: 1px solid #d8e5e5;
+
+    border:
+        1px solid #d8e5e5;
+
     border-radius: 12px;
+
     padding: 14px;
+
     margin-top: 10px;
 }
 
 .student-name {
+
     color: #176d73;
+
     font-size: 17px;
+
     font-weight: bold;
 }
 
 .student-details {
+
     color: #666;
+
     font-size: 13px;
+
     line-height: 1.6;
+
     margin-top: 6px;
 }
 
 .student-buttons {
+
     display: flex;
+
     gap: 8px;
+
     margin-top: 12px;
 }
 
 .student-buttons button {
+
     flex: 1;
 }
 
-.message {
-    background: #f3f7f7;
-    border-radius: 10px;
-    padding: 14px;
-    margin-top: 13px;
-    white-space: pre-line;
-    line-height: 1.5;
-    font-size: 14px;
-}
-
 .search {
+
     margin-bottom: 10px;
 }
 
 .search-result {
+
     background: #e8f2f2;
-    border: 1px solid #b8d8d8;
+
+    border:
+        1px solid #b8d8d8;
+
     border-radius: 12px;
+
     padding: 15px;
+
     margin-top: 12px;
+
+    line-height: 1.7;
 }
 
 .search-result strong {
+
     color: #176d73;
-}
-
-nav {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: white;
-    display: flex;
-    box-shadow: 0 -3px 15px rgba(0,0,0,.12);
-    z-index: 1000;
-}
-
-nav button {
-    flex: 1;
-    background: transparent;
-    color: #176d73;
-    border-radius: 0;
-    font-size: 11px;
-    padding: 9px 3px;
-}
-
-nav button.active {
-    background: #e8f2f2;
 }
 
 .empty {
+
     text-align: center;
+
     color: #777;
+
     padding: 20px;
 }
 
 .loading {
+
     text-align: center;
+
     padding: 20px;
+
     color: #777;
 }
 
-footer {
-    text-align: center;
+
+/* =========================
+   PAYMENT
+========================= */
+
+.message {
+
+    background: #f3f7f7;
+
+    border-radius: 10px;
+
+    padding: 14px;
+
+    margin-top: 13px;
+
+    white-space: pre-line;
+
+    line-height: 1.5;
+
+    font-size: 14px;
+}
+
+
+/* =========================
+   NAV
+========================= */
+
+nav {
+
+    position: fixed;
+
+    bottom: 0;
+
+    left: 0;
+
+    right: 0;
+
+    background: white;
+
+    display: flex;
+
+    box-shadow:
+        0 -3px 15px rgba(0,0,0,.12);
+
+    z-index: 1000;
+}
+
+nav button {
+
+    flex: 1;
+
+    background: transparent;
+
+    color: #176d73;
+
+    border-radius: 0;
+
     font-size: 11px;
+
+    padding: 9px 3px;
+}
+
+nav button.active {
+
+    background: #e8f2f2;
+}
+
+footer {
+
+    text-align: center;
+
+    font-size: 11px;
+
     color: #777;
+
     padding: 20px;
 }
 
 </style>
+
 </head>
+
 
 <body>
 
+
 <!-- =====================================================
-     LOGIN SCREEN
+     LOGIN
 ===================================================== -->
 
 <div id="loginScreen">
 
     <div class="login-card">
 
-        <h1>ST. THERESA’S GEMS</h1>
+        <h1>
+            ST. THERESA’S GEMS
+        </h1>
 
-        <p>Monthly Fee Management</p>
+        <p>
+            Monthly Fee Management
+        </p>
 
-        <label>Email</label>
+
+        <label>
+            Email
+        </label>
 
         <input
             id="loginEmail"
@@ -373,7 +591,10 @@ footer {
             autocomplete="email"
         >
 
-        <label>Password</label>
+
+        <label>
+            Password
+        </label>
 
         <input
             id="loginPassword"
@@ -382,9 +603,13 @@ footer {
             autocomplete="current-password"
         >
 
+
         <button onclick="login()">
+
             🔐 LOGIN
+
         </button>
+
 
         <div id="loginError"></div>
 
@@ -393,17 +618,24 @@ footer {
 </div>
 
 
+
 <!-- =====================================================
-     MAIN APP
+     APP
 ===================================================== -->
 
 <div id="app">
 
+
 <header>
 
-    <h1>ST. THERESA’S GEMS</h1>
+    <h1>
+        ST. THERESA’S GEMS
+    </h1>
 
-    <p>Monthly Fee WhatsApp</p>
+    <p>
+        Monthly Fee WhatsApp
+    </p>
+
 
     <button
         class="logout"
@@ -416,33 +648,46 @@ footer {
 </header>
 
 
+
 <div class="container">
 
 
-<!-- HOME -->
+<!-- =====================================================
+     HOME
+===================================================== -->
 
 <section id="home">
+
 
     <div class="card date-box">
 
         <div
             id="dayNumber"
             class="date-number">
+
             --
+
         </div>
+
 
         <div
             id="dateText"
             class="date-text">
+
             --
+
         </div>
 
     </div>
 
 
+
     <div class="card">
 
-        <h2>📅 Monthly Fee Status</h2>
+        <h2>
+            📅 Monthly Fee Status
+        </h2>
+
 
         <div
             id="feeStatus"
@@ -455,9 +700,13 @@ footer {
     </div>
 
 
+
     <div class="card">
 
-        <h2>👧 Students</h2>
+        <h2>
+            👧 Students
+        </h2>
+
 
         <div
             id="homeStudentCount"
@@ -472,14 +721,17 @@ footer {
 </section>
 
 
-<!-- STUDENTS -->
+
+<!-- =====================================================
+     STUDENTS
+===================================================== -->
 
 <section
     id="students"
     class="hidden">
 
 
-    <!-- SEARCH FROM ATTENDANCE -->
+    <!-- SEARCH ATTENDANCE -->
 
     <div class="card">
 
@@ -487,10 +739,24 @@ footer {
             🔎 Add Student
         </h2>
 
-        <p style="font-size:13px;color:#777;">
-            Enter only the last 4 digits of the Student ID.
-            Example: <b>0001</b>
+
+        <p
+            style="
+            font-size:13px;
+            color:#777;
+            line-height:1.5;
+            ">
+
+            Enter only the last 4 digits
+            of the Student ID.
+
+            <br>
+
+            Example:
+            <b>0001</b>
+
         </p>
+
 
         <input
             id="studentSearchId"
@@ -500,6 +766,7 @@ footer {
             placeholder="0001"
         >
 
+
         <button
             class="primary full"
             onclick="findAttendanceStudent()">
@@ -508,12 +775,15 @@ footer {
 
         </button>
 
+
         <div
             id="attendanceResult"
             class="search-result hidden">
+
         </div>
 
     </div>
+
 
 
     <!-- SAVED STUDENTS -->
@@ -524,6 +794,7 @@ footer {
             👧 Saved Students
         </h2>
 
+
         <input
             id="search"
             class="search"
@@ -532,18 +803,25 @@ footer {
             oninput="showStudents()"
         >
 
-        <div id="studentList"></div>
+
+        <div id="studentList">
+
+        </div>
 
     </div>
 
 </section>
 
 
-<!-- PAYMENT -->
+
+<!-- =====================================================
+     PAYMENT
+===================================================== -->
 
 <section
     id="payment"
     class="hidden">
+
 
     <div class="card">
 
@@ -551,7 +829,11 @@ footer {
             💳 Payment Successful
         </h2>
 
-        <label>Select Student</label>
+
+        <label>
+            Select Student
+        </label>
+
 
         <select
             id="paymentStudent"
@@ -564,18 +846,29 @@ footer {
         </select>
 
 
-        <label>Month</label>
 
-        <select id="paymentMonth"></select>
+        <label>
+            Month
+        </label>
 
 
-        <label>Amount</label>
+        <select id="paymentMonth">
+
+        </select>
+
+
+
+        <label>
+            Amount
+        </label>
+
 
         <input
             id="paymentAmount"
             type="number"
             placeholder="Amount"
         >
+
 
 
         <div
@@ -585,6 +878,7 @@ footer {
             Select a student.
 
         </div>
+
 
 
         <button
@@ -600,11 +894,15 @@ footer {
 </section>
 
 
-<!-- REMINDER -->
+
+<!-- =====================================================
+     REMINDER
+===================================================== -->
 
 <section
     id="reminder"
     class="hidden">
+
 
     <div class="card">
 
@@ -616,10 +914,14 @@ footer {
         <div
             id="reminderStatus"
             class="status">
+
         </div>
 
 
-        <label>Select Parent</label>
+        <label>
+            Select Parent
+        </label>
+
 
         <select id="reminderStudent">
 
@@ -630,10 +932,13 @@ footer {
         </select>
 
 
+
         <div
             id="reminderMessage"
             class="message">
+
         </div>
+
 
 
         <button
@@ -645,7 +950,12 @@ footer {
         </button>
 
 
-        <p style="font-size:12px;color:#777;margin-top:10px;">
+        <p
+            style="
+            font-size:12px;
+            color:#777;
+            margin-top:10px;
+            ">
 
             The child's name is not included
             in the reminder.
@@ -660,12 +970,21 @@ footer {
 </div>
 
 
+
 <footer>
-ST. THERESA’S GEMS INTERNATIONAL PRESCHOOL
+
+    ST. THERESA’S GEMS INTERNATIONAL PRESCHOOL
+
 </footer>
 
 
+
+<!-- =====================================================
+     NAVIGATION
+===================================================== -->
+
 <nav>
+
 
     <button
         class="active"
@@ -678,6 +997,7 @@ ST. THERESA’S GEMS INTERNATIONAL PRESCHOOL
     </button>
 
 
+
     <button
         onclick="openPage('students',this)">
 
@@ -686,6 +1006,7 @@ ST. THERESA’S GEMS INTERNATIONAL PRESCHOOL
         Students
 
     </button>
+
 
 
     <button
@@ -698,6 +1019,7 @@ ST. THERESA’S GEMS INTERNATIONAL PRESCHOOL
     </button>
 
 
+
     <button
         onclick="openPage('reminder',this)">
 
@@ -707,9 +1029,12 @@ ST. THERESA’S GEMS INTERNATIONAL PRESCHOOL
 
     </button>
 
+
 </nav>
 
+
 </div>
+
 
 
 <!-- =====================================================
@@ -718,9 +1043,16 @@ ST. THERESA’S GEMS INTERNATIONAL PRESCHOOL
 
 <script type="module">
 
+
+/* =====================================================
+   FIREBASE IMPORTS
+===================================================== */
+
 import {
     initializeApp
-} from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
+} from
+"https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
+
 
 import {
     getAuth,
@@ -728,29 +1060,31 @@ import {
     signOut,
     onAuthStateChanged,
     setPersistence,
-    browserLocalPersistence
-} from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
+    browserLocalPersistence,
+    signInAnonymously
+} from
+"https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
+
 
 import {
     getFirestore,
     collection,
     getDocs,
-    getDoc,
     doc,
     setDoc,
     deleteDoc,
     addDoc,
-    query,
-    where,
     serverTimestamp
-} from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
+} from
+"https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
+
 
 
 /* =====================================================
-   FIREBASE CONFIG
+   FEE FIREBASE
 ===================================================== */
 
-const firebaseConfig = {
+const feeFirebaseConfig = {
 
     apiKey:
         "AIzaSyBB9UX6xNDP7np27PmCg75aHzGuj9iJGLk",
@@ -773,71 +1107,202 @@ const firebaseConfig = {
 };
 
 
-const app =
-    initializeApp(firebaseConfig);
 
+/* =====================================================
+   ATTENDANCE FIREBASE
+===================================================== */
 
-const auth =
-    getAuth(app);
+const attendanceFirebaseConfig = {
 
+    apiKey:
+        "AIzaSyAu8iTPyoCjcwmmkHVcjPhB35OSVslzwIo",
 
-const db =
-    getFirestore(app);
+    authDomain:
+        "stg-attendance-system.firebaseapp.com",
+
+    projectId:
+        "stg-attendance-system",
+
+    storageBucket:
+        "stg-attendance-system.firebasestorage.app",
+
+    messagingSenderId:
+        "1066181213971",
+
+    appId:
+        "1:1066181213971:web:79855fedf66c38872164e6"
+
+};
+
 
 
 /* =====================================================
-   IMPORTANT:
-   KEEP LOGIN AFTER REFRESH
+   INITIALIZE BOTH FIREBASE PROJECTS
+===================================================== */
+
+const feeApp =
+    initializeApp(
+        feeFirebaseConfig,
+        "feeApp"
+    );
+
+
+const attendanceApp =
+    initializeApp(
+        attendanceFirebaseConfig,
+        "attendanceApp"
+    );
+
+
+
+/* =====================================================
+   FEE AUTH / FIRESTORE
+===================================================== */
+
+const feeAuth =
+    getAuth(
+        feeApp
+    );
+
+
+const feeDB =
+    getFirestore(
+        feeApp
+    );
+
+
+
+/* =====================================================
+   ATTENDANCE AUTH / FIRESTORE
+===================================================== */
+
+const attendanceAuth =
+    getAuth(
+        attendanceApp
+    );
+
+
+const attendanceDB =
+    getFirestore(
+        attendanceApp
+    );
+
+
+
+/* =====================================================
+   FEE LOGIN PERSISTENCE
 ===================================================== */
 
 setPersistence(
-    auth,
+    feeAuth,
     browserLocalPersistence
 )
 .then(() => {
 
     console.log(
-        "Firebase login persistence enabled."
+        "Fee login persistence enabled."
     );
 
 })
 .catch(error => {
 
     console.error(
-        "Persistence error:",
+        "Fee persistence error:",
         error
     );
 
 });
 
 
+
+/* =====================================================
+   CONNECT TO ATTENDANCE DATABASE
+   SILENTLY USING ANONYMOUS AUTH
+===================================================== */
+
+async function connectAttendance() {
+
+    try {
+
+        if (
+            !attendanceAuth.currentUser
+        ) {
+
+            await signInAnonymously(
+                attendanceAuth
+            );
+
+        }
+
+
+        console.log(
+            "Attendance database authentication ready."
+        );
+
+        return true;
+
+    }
+
+    catch(error) {
+
+        console.error(
+            "Attendance authentication error:",
+            error
+        );
+
+
+        console.error(
+            "Enable Anonymous Authentication in the Attendance Firebase project."
+        );
+
+
+        return false;
+
+    }
+
+}
+
+
+
 /* =====================================================
    LOGIN
 ===================================================== */
 
-window.login = async function() {
+window.login =
+async function() {
+
 
     const email =
         document
-        .getElementById("loginEmail")
+        .getElementById(
+            "loginEmail"
+        )
         .value
         .trim();
 
+
     const password =
         document
-        .getElementById("loginPassword")
+        .getElementById(
+            "loginPassword"
+        )
         .value;
 
 
     const errorBox =
         document
-        .getElementById("loginError");
+        .getElementById(
+            "loginError"
+        );
 
 
     errorBox.textContent = "";
 
 
-    if (!email || !password) {
+    if (
+        !email ||
+        !password
+    ) {
 
         errorBox.textContent =
             "Please enter your email and password.";
@@ -850,7 +1315,7 @@ window.login = async function() {
     try {
 
         await signInWithEmailAndPassword(
-            auth,
+            feeAuth,
             email,
             password
         );
@@ -859,7 +1324,10 @@ window.login = async function() {
 
     catch(error) {
 
-        console.error(error);
+        console.error(
+            error
+        );
+
 
         errorBox.textContent =
             "Login failed. Please check your email and password.";
@@ -869,33 +1337,55 @@ window.login = async function() {
 };
 
 
+
 /* =====================================================
-   AUTH STATE
-   THIS IS THE IMPORTANT FIX FOR CTRL+R
+   FEE AUTH STATE
+   THIS FIXES CTRL + R
 ===================================================== */
 
 onAuthStateChanged(
-    auth,
-    async (user) => {
+    feeAuth,
+    async user => {
+
 
         if (user) {
 
+
             console.log(
-                "User already logged in:",
+                "Fee user already logged in:",
                 user.email
             );
 
-            document
-                .getElementById("loginScreen")
-                .style.display = "none";
-
 
             document
-                .getElementById("app")
-                .style.display = "block";
+                .getElementById(
+                    "loginScreen"
+                )
+                .style.display =
+                    "none";
 
+
+            document
+                .getElementById(
+                    "app"
+                )
+                .style.display =
+                    "block";
+
+
+            /*
+             * Connect to Attendance silently.
+             */
+
+            await connectAttendance();
+
+
+            /*
+             * Load saved Fee students.
+             */
 
             await loadStudents();
+
 
             updateSelects();
 
@@ -909,14 +1399,21 @@ onAuthStateChanged(
 
         else {
 
+
             document
-                .getElementById("loginScreen")
-                .style.display = "flex";
+                .getElementById(
+                    "loginScreen"
+                )
+                .style.display =
+                    "flex";
 
 
             document
-                .getElementById("app")
-                .style.display = "none";
+                .getElementById(
+                    "app"
+                )
+                .style.display =
+                    "none";
 
         }
 
@@ -924,11 +1421,14 @@ onAuthStateChanged(
 );
 
 
+
 /* =====================================================
    LOGOUT
 ===================================================== */
 
-window.logout = async function() {
+window.logout =
+async function() {
+
 
     if (
         !confirm(
@@ -941,32 +1441,35 @@ window.logout = async function() {
     }
 
 
-    await signOut(auth);
+    await signOut(
+        feeAuth
+    );
 
 };
 
 
+
 /* =====================================================
-   STUDENTS
+   STUDENT ARRAY
 ===================================================== */
 
 let students = [];
 
-let editingIndex = -1;
 
 
 /* =====================================================
-   LOAD SAVED FEE STUDENTS
+   LOAD FEE STUDENTS
 ===================================================== */
 
 async function loadStudents() {
 
     try {
 
+
         const snapshot =
             await getDocs(
                 collection(
-                    db,
+                    feeDB,
                     "feeStudents"
                 )
             );
@@ -977,6 +1480,7 @@ async function loadStudents() {
 
         snapshot.forEach(
             docSnap => {
+
 
                 students.push({
 
@@ -1000,13 +1504,15 @@ async function loadStudents() {
 
     catch(error) {
 
+
         console.error(
-            "Error loading students:",
+            "Fee student loading error:",
             error
         );
 
+
         alert(
-            "Could not load saved students. Check Firestore rules."
+            "Could not load Fee students. Check the Fee Firestore rules."
         );
 
     }
@@ -1014,12 +1520,14 @@ async function loadStudents() {
 }
 
 
+
 /* =====================================================
-   FIND STUDENT FROM ATTENDANCE DATABASE
+   FIND STUDENT IN ATTENDANCE DATABASE
 ===================================================== */
 
 window.findAttendanceStudent =
 async function() {
+
 
     const last4 =
         document
@@ -1043,15 +1551,18 @@ async function() {
 
 
     result.innerHTML =
-        "🔎 Searching...";
+        "🔎 Searching Attendance database...";
 
 
     if (
-        !/^\d{4}$/.test(last4)
+        !/^\d{4}$/.test(
+            last4
+        )
     ) {
 
+
         result.innerHTML =
-            "Please enter exactly 4 digits. Example: 0001.";
+            "Please enter exactly 4 digits. Example: <b>0001</b>.";
 
         return;
 
@@ -1060,18 +1571,39 @@ async function() {
 
     try {
 
+
         /*
-         * Attendance student documents are expected
-         * to be in the "students" collection.
-         *
-         * We search every student document and compare
-         * the final 4 digits of the Student ID.
+         * Make sure Attendance Firebase
+         * is authenticated.
+         */
+
+        if (
+            !attendanceAuth.currentUser
+        ) {
+
+            const connected =
+                await connectAttendance();
+
+
+            if (!connected) {
+
+                throw new Error(
+                    "Attendance authentication failed."
+                );
+
+            }
+
+        }
+
+
+        /*
+         * Read the Attendance students.
          */
 
         const snapshot =
             await getDocs(
                 collection(
-                    db,
+                    attendanceDB,
                     "students"
                 )
             );
@@ -1083,9 +1615,15 @@ async function() {
         snapshot.forEach(
             docSnap => {
 
+
                 const data =
                     docSnap.data();
 
+
+                /*
+                 * Attendance system may use
+                 * id, studentId or document ID.
+                 */
 
                 const possibleId =
                     String(
@@ -1109,6 +1647,7 @@ async function() {
                     digits.slice(-4) === last4
                 ) {
 
+
                     found = {
 
                         firestoreId:
@@ -1126,11 +1665,17 @@ async function() {
 
         if (!found) {
 
+
             result.innerHTML = `
-                ❌ Student not found.<br><br>
-                No attendance student with ID ending in
+
+                ❌ Student not found.
+
+                <br><br>
+
+                No Attendance student with ID ending in
                 <b>${escapeHTML(last4)}</b>
                 was found.
+
             `;
 
             return;
@@ -1138,22 +1683,31 @@ async function() {
         }
 
 
+        /*
+         * Read possible field names.
+         * This makes the Fee app compatible
+         * with the Attendance system fields.
+         */
+
         const name =
             found.name ||
             found.childName ||
             found.fullName ||
+            found.childFullName ||
             "Unknown";
 
 
         const studentId =
             found.id ||
             found.studentId ||
+            found.studentID ||
             found.firestoreId;
 
 
         const className =
             found.className ||
             found.class ||
+            found.className ||
             "Not specified";
 
 
@@ -1168,20 +1722,23 @@ async function() {
         const phone =
             found.phone ||
             found.whatsapp ||
+            found.whatsappNumber ||
             found.parentPhone ||
             found.parentMobile ||
+            found.parentNumber ||
             "";
 
 
-        const fee =
-            found.fee ||
-            found.monthlyFee ||
-            "";
+        /*
+         * Fee is normally not stored in Attendance.
+         */
+
+        const fee = "";
 
 
         result.innerHTML = `
 
-            <strong>Student Found</strong>
+            <strong>✅ Student Found</strong>
 
             <br><br>
 
@@ -1206,23 +1763,18 @@ async function() {
             <br>
 
             📱 WhatsApp:
-            ${escapeHTML(phone || "Not available")}
+            ${escapeHTML(
+                phone || "Not available"
+            )}
 
             <br>
 
             💰 Monthly Fee:
-            ${fee || "Not set"}
+            Not set
 
             <button
                 class="gold full"
-                onclick='confirmAttendanceStudent(${JSON.stringify({
-                    id: studentId,
-                    name: name,
-                    className: className,
-                    parent: parent,
-                    phone: phone,
-                    fee: fee
-                })})'>
+                id="confirmStudentButton">
 
                 ✅ CONFIRM & SAVE STUDENT
 
@@ -1230,16 +1782,64 @@ async function() {
 
         `;
 
+
+        /*
+         * Avoid putting JSON directly inside
+         * an HTML onclick attribute.
+         */
+
+        document
+            .getElementById(
+                "confirmStudentButton"
+            )
+            .onclick =
+                function() {
+
+                    confirmAttendanceStudent({
+
+                        id:
+                            studentId,
+
+                        name:
+                            name,
+
+                        className:
+                            className,
+
+                        parent:
+                            parent,
+
+                        phone:
+                            phone,
+
+                        fee:
+                            fee
+
+                    });
+
+                };
+
     }
 
     catch(error) {
 
-        console.error(error);
+
+        console.error(
+            "Attendance search error:",
+            error
+        );
+
 
         result.innerHTML = `
+
             ❌ Could not search the Attendance database.
+
             <br><br>
-            ${escapeHTML(error.message)}
+
+            ${escapeHTML(
+                error.message
+            )}
+
         `;
 
     }
@@ -1247,14 +1847,17 @@ async function() {
 };
 
 
+
 /* =====================================================
-   CONFIRM ATTENDANCE STUDENT
+   SAVE FOUND STUDENT INTO FEE DATABASE
 ===================================================== */
 
 window.confirmAttendanceStudent =
 async function(student) {
 
+
     try {
+
 
         const cleanPhone =
             String(
@@ -1266,15 +1869,8 @@ async function(student) {
             );
 
 
-        const fee =
-            Number(
-                student.fee || 0
-            );
-
-
         /*
-         * Use Student ID as the Firestore document ID.
-         * This prevents the same student being saved twice.
+         * Student ID becomes the Fee document ID.
          */
 
         const firestoreId =
@@ -1287,12 +1883,45 @@ async function(student) {
             );
 
 
+        /*
+         * Check if already saved.
+         */
+
+        const alreadySaved =
+            students.some(
+                existing =>
+                    String(
+                        existing.id
+                    ) ===
+                    String(
+                        student.id
+                    )
+            );
+
+
+        if (
+            alreadySaved
+        ) {
+
+
+            alert(
+                "This student is already saved in the Fee system."
+            );
+
+
+            return;
+
+        }
+
+
         await setDoc(
+
             doc(
-                db,
+                feeDB,
                 "feeStudents",
                 firestoreId
             ),
+
             {
 
                 id:
@@ -1310,16 +1939,25 @@ async function(student) {
                 phone:
                     cleanPhone,
 
+                /*
+                 * Fee is entered later
+                 * if it is not available
+                 * in Attendance.
+                 */
+
                 fee:
-                    fee,
+                    Number(
+                        student.fee || 0
+                    ),
+
+                createdAt:
+                    serverTimestamp(),
 
                 updatedAt:
                     serverTimestamp()
 
-            },
-            {
-                merge: true
             }
+
         );
 
 
@@ -1346,17 +1984,24 @@ async function(student) {
 
         await loadStudents();
 
-        showStudents();
 
         updateSelects();
 
+        showStudents();
+
         updateHome();
+
 
     }
 
     catch(error) {
 
-        console.error(error);
+
+        console.error(
+            "Save student error:",
+            error
+        );
+
 
         alert(
             "Could not save student: " +
@@ -1368,12 +2013,14 @@ async function(student) {
 };
 
 
+
 /* =====================================================
-   DELETE STUDENT
+   DELETE FEE STUDENT
 ===================================================== */
 
 window.deleteStudent =
 async function(index) {
+
 
     const student =
         students[index];
@@ -1401,20 +2048,24 @@ async function(index) {
 
     try {
 
+
         await deleteDoc(
+
             doc(
-                db,
+                feeDB,
                 "feeStudents",
                 student.firestoreId
             )
+
         );
 
 
         await loadStudents();
 
-        showStudents();
 
         updateSelects();
+
+        showStudents();
 
         updateHome();
 
@@ -1427,7 +2078,11 @@ async function(index) {
 
     catch(error) {
 
-        console.error(error);
+
+        console.error(
+            error
+        );
+
 
         alert(
             "Could not delete student: " +
@@ -1439,12 +2094,14 @@ async function(index) {
 };
 
 
+
 /* =====================================================
-   DISPLAY STUDENTS
+   DISPLAY SAVED STUDENTS
 ===================================================== */
 
 window.showStudents =
 function() {
+
 
     const list =
         document.getElementById(
@@ -1468,13 +2125,16 @@ function() {
         students.filter(
             student => {
 
+
                 return (
 
                     String(
                         student.name || ""
                     )
                     .toLowerCase()
-                    .includes(search)
+                    .includes(
+                        search
+                    )
 
                     ||
 
@@ -1482,7 +2142,9 @@ function() {
                         student.id || ""
                     )
                     .toLowerCase()
-                    .includes(search)
+                    .includes(
+                        search
+                    )
 
                     ||
 
@@ -1490,7 +2152,9 @@ function() {
                         student.className || ""
                     )
                     .toLowerCase()
-                    .includes(search)
+                    .includes(
+                        search
+                    )
 
                     ||
 
@@ -1498,7 +2162,9 @@ function() {
                         student.parent || ""
                     )
                     .toLowerCase()
-                    .includes(search)
+                    .includes(
+                        search
+                    )
 
                 );
 
@@ -1510,12 +2176,16 @@ function() {
         filtered.length === 0
     ) {
 
-        list.innerHTML =
-            `
+
+        list.innerHTML = `
+
             <div class="empty">
+
                 No saved students found.
+
             </div>
-            `;
+
+        `;
 
         return;
 
@@ -1524,6 +2194,7 @@ function() {
 
     filtered.forEach(
         student => {
+
 
             const index =
                 students.indexOf(
@@ -1613,8 +2284,9 @@ function() {
 };
 
 
+
 /* =====================================================
-   ESCAPE HTML
+   HTML ESCAPE
 ===================================================== */
 
 function escapeHTML(text) {
@@ -1649,11 +2321,13 @@ function escapeHTML(text) {
 }
 
 
+
 /* =====================================================
    UPDATE SELECT BOXES
 ===================================================== */
 
 function updateSelects() {
+
 
     const payment =
         document.getElementById(
@@ -1667,24 +2341,31 @@ function updateSelects() {
         );
 
 
-    payment.innerHTML =
-        `
+    payment.innerHTML = `
+
         <option value="">
+
             Select Student
+
         </option>
-        `;
+
+    `;
 
 
-    reminder.innerHTML =
-        `
+    reminder.innerHTML = `
+
         <option value="">
+
             Select Parent
+
         </option>
-        `;
+
+    `;
 
 
     students.forEach(
         (student,index) => {
+
 
             const option =
                 document.createElement(
@@ -1733,6 +2414,7 @@ function updateSelects() {
 }
 
 
+
 /* =====================================================
    MONTHS
 ===================================================== */
@@ -1757,6 +2439,7 @@ const months = [
 
 function setupMonths() {
 
+
     const select =
         document.getElementById(
             "paymentMonth"
@@ -1769,6 +2452,7 @@ function setupMonths() {
 
     months.forEach(
         (month,index) => {
+
 
             const option =
                 document.createElement(
@@ -1805,32 +2489,41 @@ function setupMonths() {
 }
 
 
+
 /* =====================================================
-   PAYMENT
+   PAYMENT STUDENT
 ===================================================== */
 
 window.paymentStudentChanged =
 function() {
 
+
     const index =
         document.getElementById(
             "paymentStudent"
-        ).value;
+        )
+        .value;
 
 
     if (
         index === ""
     ) {
 
-        document.getElementById(
-            "paymentAmount"
-        ).value = "";
+
+        document
+            .getElementById(
+                "paymentAmount"
+            )
+            .value = "";
 
 
-        document.getElementById(
-            "paymentMessage"
-        ).textContent =
-            "Select a student.";
+        document
+            .getElementById(
+                "paymentMessage"
+            )
+            .textContent =
+                "Select a student.";
+
 
         return;
 
@@ -1841,10 +2534,12 @@ function() {
         students[index];
 
 
-    document.getElementById(
-        "paymentAmount"
-    ).value =
-        student.fee || "";
+    document
+        .getElementById(
+            "paymentAmount"
+        )
+        .value =
+            student.fee || "";
 
 
     updatePaymentMessage();
@@ -1852,12 +2547,20 @@ function() {
 };
 
 
+
+/* =====================================================
+   PAYMENT MESSAGE
+===================================================== */
+
 function updatePaymentMessage() {
 
+
     const index =
-        document.getElementById(
+        document
+        .getElementById(
             "paymentStudent"
-        ).value;
+        )
+        .value;
 
 
     if (
@@ -1874,20 +2577,27 @@ function updatePaymentMessage() {
 
 
     const month =
-        document.getElementById(
+        document
+        .getElementById(
             "paymentMonth"
-        ).value;
+        )
+        .value;
 
 
     const amount =
-        document.getElementById(
+        document
+        .getElementById(
             "paymentAmount"
-        ).value;
+        )
+        .value;
 
 
-    document.getElementById(
-        "paymentMessage"
-    ).textContent =
+    document
+        .getElementById(
+            "paymentMessage"
+        )
+        .textContent =
+
 
 `Payment received successfully.
 
@@ -1900,20 +2610,26 @@ Thank you.`;
 }
 
 
+
 document
-.getElementById("paymentMonth")
-.addEventListener(
-    "change",
-    updatePaymentMessage
-);
+    .getElementById(
+        "paymentMonth"
+    )
+    .addEventListener(
+        "change",
+        updatePaymentMessage
+    );
 
 
 document
-.getElementById("paymentAmount")
-.addEventListener(
-    "input",
-    updatePaymentMessage
-);
+    .getElementById(
+        "paymentAmount"
+    )
+    .addEventListener(
+        "input",
+        updatePaymentMessage
+    );
+
 
 
 /* =====================================================
@@ -1923,19 +2639,24 @@ document
 window.sendPayment =
 async function() {
 
+
     const index =
-        document.getElementById(
+        document
+        .getElementById(
             "paymentStudent"
-        ).value;
+        )
+        .value;
 
 
     if (
         index === ""
     ) {
 
+
         alert(
             "Please select a student."
         );
+
 
         return;
 
@@ -1947,22 +2668,30 @@ async function() {
 
 
     const month =
-        document.getElementById(
+        document
+        .getElementById(
             "paymentMonth"
-        ).value;
+        )
+        .value;
 
 
     const amount =
-        document.getElementById(
+        document
+        .getElementById(
             "paymentAmount"
-        ).value;
+        )
+        .value;
 
 
-    if (!amount) {
+    if (
+        !amount
+    ) {
+
 
         alert(
             "Please enter the payment amount."
         );
+
 
         return;
 
@@ -1970,6 +2699,7 @@ async function() {
 
 
     const message =
+
 
 `Payment received successfully.
 
@@ -1980,17 +2710,17 @@ Amount: ${amount}
 Thank you.`;
 
 
-    /*
-     * Save payment to Firestore.
-     */
 
     try {
 
+
         await addDoc(
+
             collection(
-                db,
+                feeDB,
                 "payments"
             ),
+
             {
 
                 studentId:
@@ -2003,7 +2733,9 @@ Thank you.`;
                     month,
 
                 amount:
-                    Number(amount),
+                    Number(
+                        amount
+                    ),
 
                 phone:
                     student.phone,
@@ -2012,16 +2744,26 @@ Thank you.`;
                     serverTimestamp()
 
             }
+
         );
 
     }
 
     catch(error) {
 
+
         console.error(
             "Payment save error:",
             error
         );
+
+
+        alert(
+            "Payment could not be saved."
+        );
+
+
+        return;
 
     }
 
@@ -2043,11 +2785,13 @@ Thank you.`;
 };
 
 
+
 /* =====================================================
-   REMINDER
+   REMINDER MONTH
 ===================================================== */
 
 function getReminderMonth() {
+
 
     const now =
         new Date();
@@ -2060,6 +2804,7 @@ function getReminderMonth() {
     if (
         now.getDate() > 20
     ) {
+
 
         month++;
 
@@ -2080,7 +2825,13 @@ function getReminderMonth() {
 }
 
 
+
+/* =====================================================
+   UPDATE REMINDER
+===================================================== */
+
 function updateReminder() {
+
 
     const now =
         new Date();
@@ -2094,32 +2845,40 @@ function updateReminder() {
         now.getDate() > 20
     ) {
 
-        document.getElementById(
-            "reminderStatus"
-        ).textContent =
 
-            "The 20th has passed. " +
-            "The reminder is active for " +
-            month +
-            ".";
+        document
+            .getElementById(
+                "reminderStatus"
+            )
+            .textContent =
+
+                "The 20th has passed. " +
+                "The reminder is active for " +
+                month +
+                ".";
 
     }
 
     else {
 
-        document.getElementById(
-            "reminderStatus"
-        ).textContent =
 
-            "The reminder will become " +
-            "active after the 20th.";
+        document
+            .getElementById(
+                "reminderStatus"
+            )
+            .textContent =
+
+                "The reminder will become active after the 20th.";
 
     }
 
 
-    document.getElementById(
-        "reminderMessage"
-    ).textContent =
+    document
+        .getElementById(
+            "reminderMessage"
+        )
+        .textContent =
+
 
 `Dear Parent/Guardian,
 
@@ -2130,6 +2889,7 @@ Thank you.`;
 }
 
 
+
 /* =====================================================
    SEND REMINDER
 ===================================================== */
@@ -2137,19 +2897,24 @@ Thank you.`;
 window.sendReminder =
 function() {
 
+
     const index =
-        document.getElementById(
+        document
+        .getElementById(
             "reminderStudent"
-        ).value;
+        )
+        .value;
 
 
     if (
         index === ""
     ) {
 
+
         alert(
             "Please select a parent."
         );
+
 
         return;
 
@@ -2166,11 +2931,13 @@ function() {
 
     const message =
 
+
 `Dear Parent/Guardian,
 
 This is a reminder to kindly pay the monthly school fee for ${month}.
 
 Thank you.`;
+
 
 
     const url =
@@ -2190,38 +2957,55 @@ Thank you.`;
 };
 
 
+
 /* =====================================================
    HOME
 ===================================================== */
 
 function updateHome() {
 
+
     const now =
         new Date();
 
 
-    document.getElementById(
-        "dayNumber"
-    ).textContent =
-        now.getDate();
+    document
+        .getElementById(
+            "dayNumber"
+        )
+        .textContent =
+            now.getDate();
 
 
-    document.getElementById(
-        "dateText"
-    ).textContent =
-        now.toLocaleDateString(
-            "en-US",
-            {
-                weekday: "long",
-                month: "long",
-                year: "numeric"
-            }
-        );
+    document
+        .getElementById(
+            "dateText"
+        )
+        .textContent =
+
+            now.toLocaleDateString(
+                "en-US",
+                {
+
+                    weekday:
+                        "long",
+
+                    month:
+                        "long",
+
+                    year:
+                        "numeric"
+
+                }
+            );
 
 
-    document.getElementById(
-        "homeStudentCount"
-    ).textContent =
+    document
+        .getElementById(
+            "homeStudentCount"
+        )
+        .textContent =
+
 
         students.length === 1
 
@@ -2235,30 +3019,38 @@ function updateHome() {
         " students are saved.";
 
 
+
     if (
         now.getDate() > 20
     ) {
 
-        document.getElementById(
-            "feeStatus"
-        ).textContent =
 
-            "The 20th has passed. " +
-            "Monthly fee reminders are now active.";
+        document
+            .getElementById(
+                "feeStatus"
+            )
+            .textContent =
+
+                "The 20th has passed. " +
+                "Monthly fee reminders are now active.";
 
     }
 
     else {
 
-        document.getElementById(
-            "feeStatus"
-        ).textContent =
 
-            "Monthly fee reminders become active after the 20th.";
+        document
+            .getElementById(
+                "feeStatus"
+            )
+            .textContent =
+
+                "Monthly fee reminders become active after the 20th.";
 
     }
 
 }
+
 
 
 /* =====================================================
@@ -2266,7 +3058,11 @@ function updateHome() {
 ===================================================== */
 
 window.openPage =
-function(page,button) {
+function(
+    page,
+    button
+) {
+
 
     document
         .querySelectorAll(
@@ -2284,7 +3080,9 @@ function(page,button) {
 
 
     document
-        .getElementById(page)
+        .getElementById(
+            page
+        )
         .classList.remove(
             "hidden"
         );
@@ -2330,6 +3128,7 @@ function(page,button) {
 };
 
 
+
 /* =====================================================
    START
 ===================================================== */
@@ -2339,21 +3138,26 @@ setupMonths();
 </script>
 
 
+
+<!-- =====================================================
+     SERVICE WORKER
+===================================================== -->
+
 <script>
 
-/* =====================================================
-   SERVICE WORKER
-===================================================== */
-
 if (
-    "serviceWorker" in navigator
+    "serviceWorker"
+    in navigator
 ) {
+
 
     window.addEventListener(
         "load",
         function() {
 
-            navigator.serviceWorker
+
+            navigator
+                .serviceWorker
                 .register(
                     "sw.js"
                 )
@@ -2375,5 +3179,7 @@ if (
 
 </script>
 
+
 </body>
+
 </html>
