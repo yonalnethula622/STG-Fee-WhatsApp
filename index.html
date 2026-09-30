@@ -2865,71 +2865,56 @@ Thank you.`;
 }
 
 
+```javascript
 /* =====================================================
    SEND REMINDER
 ===================================================== */
 
-window.sendReminder =
-function() {
+window.sendReminder = function() {
 
     const index =
         document
-        .getElementById(
-            "reminderStudent"
-        )
+        .getElementById("reminderStudent")
         .value;
 
 
-    if (
-        index === ""
-    ) {
+    if (index === "") {
 
-        alert(
-            "Please select a parent."
-        );
-
+        alert("Please select a parent.");
         return;
 
     }
 
 
     const student =
-        students[
-            Number(index)
-        ];
+        students[Number(index)];
 
 
     if (!student) {
 
-        alert(
-            "Student could not be found."
-        );
-
+        alert("Student could not be found.");
         return;
 
     }
 
 
     let phone =
-        String(
-            student.phone || ""
-        );
+        String(student.phone || "")
+        .replace(/\D/g, "");
 
 
-    phone =
-        phone.replace(
-            /\D/g,
-            ""
-        );
-
-
-    if (
-        phone.startsWith("0")
-    ) {
+    if (phone.startsWith("0")) {
 
         phone =
-            "94" +
-            phone.substring(1);
+            "94" + phone.substring(1);
+
+    }
+
+
+    if (phone.startsWith("0094")) {
+
+        phone =
+            phone.substring(2);
 
     }
 
@@ -2940,7 +2925,9 @@ function() {
     ) {
 
         alert(
-            "The parent's WhatsApp number is invalid."
+            "The parent's WhatsApp number is invalid.\n\n" +
+            "Saved number: " +
+            (student.phone || "No number")
         );
 
         return;
@@ -2948,35 +2935,41 @@ function() {
     }
 
 
-    const month =
-        getReminderMonth();
-
-
     const message =
-
-
 `Dear Parent/Guardian,
 
-This is a reminder to kindly pay the monthly school fee for ${month}.
+This is a kind reminder that the school fee payment for your child is overdue. Kindly settle the outstanding fee at your earliest convenience.
 
-Thank you.`;
+Thank you for your kind cooperation.
+
+St. Theresa’s Gems International Pre-school`;
 
 
-    const url =
+    const whatsappURL =
         "https://wa.me/" +
         phone +
         "?text=" +
-        encodeURIComponent(
-            message
+        encodeURIComponent(message);
+
+
+    const whatsappWindow =
+        window.open(
+            whatsappURL,
+            "_blank"
         );
 
 
-    window.open(
-        url,
-        "_blank"
-    );
+    if (!whatsappWindow) {
+
+        alert(
+            "WhatsApp could not be opened because the browser blocked the new window.\n\n" +
+            "Please allow pop-ups for this site and try again."
+        );
+
+    }
 
 };
+```
 
 
 /* =====================================================
