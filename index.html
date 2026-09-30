@@ -41,6 +41,7 @@ body {
     color: #173b3d;
 }
 
+
 /* =========================
    LOGIN
 ========================= */
@@ -658,7 +659,6 @@ footer {
 
 <section id="home">
 
-
     <div class="card date-box">
 
         <div
@@ -668,7 +668,6 @@ footer {
             --
 
         </div>
-
 
         <div
             id="dateText"
@@ -681,13 +680,11 @@ footer {
     </div>
 
 
-
     <div class="card">
 
         <h2>
             📅 Monthly Fee Status
         </h2>
-
 
         <div
             id="feeStatus"
@@ -700,13 +697,11 @@ footer {
     </div>
 
 
-
     <div class="card">
 
         <h2>
             👧 Students
         </h2>
-
 
         <div
             id="homeStudentCount"
@@ -730,8 +725,6 @@ footer {
     id="students"
     class="hidden">
 
-
-    <!-- SEARCH ATTENDANCE -->
 
     <div class="card">
 
@@ -785,8 +778,6 @@ footer {
     </div>
 
 
-
-    <!-- SAVED STUDENTS -->
 
     <div class="card">
 
@@ -846,7 +837,6 @@ footer {
         </select>
 
 
-
         <label>
             Month
         </label>
@@ -855,7 +845,6 @@ footer {
         <select id="paymentMonth">
 
         </select>
-
 
 
         <label>
@@ -870,7 +859,6 @@ footer {
         >
 
 
-
         <div
             id="paymentMessage"
             class="message">
@@ -878,7 +866,6 @@ footer {
             Select a student.
 
         </div>
-
 
 
         <button
@@ -932,13 +919,11 @@ footer {
         </select>
 
 
-
         <div
             id="reminderMessage"
             class="message">
 
         </div>
-
 
 
         <button
@@ -985,7 +970,6 @@ footer {
 
 <nav>
 
-
     <button
         class="active"
         onclick="openPage('home',this)">
@@ -995,7 +979,6 @@ footer {
         Home
 
     </button>
-
 
 
     <button
@@ -1008,7 +991,6 @@ footer {
     </button>
 
 
-
     <button
         onclick="openPage('payment',this)">
 
@@ -1019,7 +1001,6 @@ footer {
     </button>
 
 
-
     <button
         onclick="openPage('reminder',this)">
 
@@ -1028,7 +1009,6 @@ footer {
         Reminder
 
     </button>
-
 
 </nav>
 
@@ -1050,7 +1030,8 @@ footer {
 
 import {
     initializeApp
-} from
+}
+from
 "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
 
 
@@ -1062,7 +1043,8 @@ import {
     setPersistence,
     browserLocalPersistence,
     signInAnonymously
-} from
+}
+from
 "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
 
 
@@ -1075,9 +1057,9 @@ import {
     deleteDoc,
     addDoc,
     serverTimestamp
-} from
+}
+from
 "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
-
 
 
 /* =====================================================
@@ -1107,7 +1089,6 @@ const feeFirebaseConfig = {
 };
 
 
-
 /* =====================================================
    ATTENDANCE FIREBASE
 ===================================================== */
@@ -1135,9 +1116,8 @@ const attendanceFirebaseConfig = {
 };
 
 
-
 /* =====================================================
-   INITIALIZE BOTH FIREBASE PROJECTS
+   INITIALIZE FIREBASE
 ===================================================== */
 
 const feeApp =
@@ -1154,9 +1134,8 @@ const attendanceApp =
     );
 
 
-
 /* =====================================================
-   FEE AUTH / FIRESTORE
+   AUTH / DATABASE
 ===================================================== */
 
 const feeAuth =
@@ -1171,11 +1150,6 @@ const feeDB =
     );
 
 
-
-/* =====================================================
-   ATTENDANCE AUTH / FIRESTORE
-===================================================== */
-
 const attendanceAuth =
     getAuth(
         attendanceApp
@@ -1188,36 +1162,35 @@ const attendanceDB =
     );
 
 
-
 /* =====================================================
-   FEE LOGIN PERSISTENCE
+   LOGIN PERSISTENCE
 ===================================================== */
 
 setPersistence(
     feeAuth,
     browserLocalPersistence
 )
-.then(() => {
+.catch(
+    error => {
 
-    console.log(
-        "Fee login persistence enabled."
-    );
+        console.error(
+            "Fee persistence error:",
+            error
+        );
 
-})
-.catch(error => {
-
-    console.error(
-        "Fee persistence error:",
-        error
-    );
-
-});
-
+    }
+);
 
 
 /* =====================================================
-   CONNECT TO ATTENDANCE DATABASE
-   SILENTLY USING ANONYMOUS AUTH
+   STUDENTS
+===================================================== */
+
+let students = [];
+
+
+/* =====================================================
+   CONNECT ATTENDANCE
 ===================================================== */
 
 async function connectAttendance() {
@@ -1234,11 +1207,6 @@ async function connectAttendance() {
 
         }
 
-
-        console.log(
-            "Attendance database authentication ready."
-        );
-
         return true;
 
     }
@@ -1250,18 +1218,11 @@ async function connectAttendance() {
             error
         );
 
-
-        console.error(
-            "Enable Anonymous Authentication in the Attendance Firebase project."
-        );
-
-
         return false;
 
     }
 
 }
-
 
 
 /* =====================================================
@@ -1270,7 +1231,6 @@ async function connectAttendance() {
 
 window.login =
 async function() {
-
 
     const email =
         document
@@ -1325,9 +1285,9 @@ async function() {
     catch(error) {
 
         console.error(
+            "Login error:",
             error
         );
-
 
         errorBox.textContent =
             "Login failed. Please check your email and password.";
@@ -1337,25 +1297,15 @@ async function() {
 };
 
 
-
 /* =====================================================
-   FEE AUTH STATE
-   THIS FIXES CTRL + R
+   AUTH STATE
 ===================================================== */
 
 onAuthStateChanged(
     feeAuth,
     async user => {
 
-
         if (user) {
-
-
-            console.log(
-                "Fee user already logged in:",
-                user.email
-            );
-
 
             document
                 .getElementById(
@@ -1373,19 +1323,11 @@ onAuthStateChanged(
                     "block";
 
 
-            /*
-             * Connect to Attendance silently.
-             */
-
             await connectAttendance();
-
-
-            /*
-             * Load saved Fee students.
-             */
 
             await loadStudents();
 
+            setupMonths();
 
             updateSelects();
 
@@ -1398,7 +1340,6 @@ onAuthStateChanged(
         }
 
         else {
-
 
             document
                 .getElementById(
@@ -1421,14 +1362,12 @@ onAuthStateChanged(
 );
 
 
-
 /* =====================================================
    LOGOUT
 ===================================================== */
 
 window.logout =
 async function() {
-
 
     if (
         !confirm(
@@ -1448,23 +1387,13 @@ async function() {
 };
 
 
-
 /* =====================================================
-   STUDENT ARRAY
-===================================================== */
-
-let students = [];
-
-
-
-/* =====================================================
-   LOAD FEE STUDENTS
+   LOAD STUDENTS
 ===================================================== */
 
 async function loadStudents() {
 
     try {
-
 
         const snapshot =
             await getDocs(
@@ -1481,7 +1410,6 @@ async function loadStudents() {
         snapshot.forEach(
             docSnap => {
 
-
                 students.push({
 
                     firestoreId:
@@ -1494,16 +1422,9 @@ async function loadStudents() {
             }
         );
 
-
-        console.log(
-            "Fee students loaded:",
-            students.length
-        );
-
     }
 
     catch(error) {
-
 
         console.error(
             "Fee student loading error:",
@@ -1520,14 +1441,12 @@ async function loadStudents() {
 }
 
 
-
 /* =====================================================
-   FIND STUDENT IN ATTENDANCE DATABASE
+   FIND ATTENDANCE STUDENT
 ===================================================== */
 
 window.findAttendanceStudent =
 async function() {
-
 
     const last4 =
         document
@@ -1560,7 +1479,6 @@ async function() {
         )
     ) {
 
-
         result.innerHTML =
             "Please enter exactly 4 digits. Example: <b>0001</b>.";
 
@@ -1570,12 +1488,6 @@ async function() {
 
 
     try {
-
-
-        /*
-         * Make sure Attendance Firebase
-         * is authenticated.
-         */
 
         if (
             !attendanceAuth.currentUser
@@ -1596,10 +1508,6 @@ async function() {
         }
 
 
-        /*
-         * Read the Attendance students.
-         */
-
         const snapshot =
             await getDocs(
                 collection(
@@ -1615,15 +1523,9 @@ async function() {
         snapshot.forEach(
             docSnap => {
 
-
                 const data =
                     docSnap.data();
 
-
-                /*
-                 * Attendance system may use
-                 * id, studentId or document ID.
-                 */
 
                 const possibleId =
                     String(
@@ -1647,7 +1549,6 @@ async function() {
                     digits.slice(-4) === last4
                 ) {
 
-
                     found = {
 
                         firestoreId:
@@ -1665,7 +1566,6 @@ async function() {
 
         if (!found) {
 
-
             result.innerHTML = `
 
                 ❌ Student not found.
@@ -1682,12 +1582,6 @@ async function() {
 
         }
 
-
-        /*
-         * Read possible field names.
-         * This makes the Fee app compatible
-         * with the Attendance system fields.
-         */
 
         const name =
             found.name ||
@@ -1707,7 +1601,6 @@ async function() {
         const className =
             found.className ||
             found.class ||
-            found.className ||
             "Not specified";
 
 
@@ -1727,13 +1620,6 @@ async function() {
             found.parentMobile ||
             found.parentNumber ||
             "";
-
-
-        /*
-         * Fee is normally not stored in Attendance.
-         */
-
-        const fee = "";
 
 
         result.innerHTML = `
@@ -1783,11 +1669,6 @@ async function() {
         `;
 
 
-        /*
-         * Avoid putting JSON directly inside
-         * an HTML onclick attribute.
-         */
-
         document
             .getElementById(
                 "confirmStudentButton"
@@ -1810,10 +1691,7 @@ async function() {
                             parent,
 
                         phone:
-                            phone,
-
-                        fee:
-                            fee
+                            phone
 
                     });
 
@@ -1822,7 +1700,6 @@ async function() {
     }
 
     catch(error) {
-
 
         console.error(
             "Attendance search error:",
@@ -1847,17 +1724,14 @@ async function() {
 };
 
 
-
 /* =====================================================
-   SAVE FOUND STUDENT INTO FEE DATABASE
+   SAVE STUDENT
 ===================================================== */
 
 window.confirmAttendanceStudent =
 async function(student) {
 
-
     try {
-
 
         const cleanPhone =
             String(
@@ -1869,10 +1743,6 @@ async function(student) {
             );
 
 
-        /*
-         * Student ID becomes the Fee document ID.
-         */
-
         const firestoreId =
             String(
                 student.id
@@ -1882,10 +1752,6 @@ async function(student) {
                 "_"
             );
 
-
-        /*
-         * Check if already saved.
-         */
 
         const alreadySaved =
             students.some(
@@ -1903,11 +1769,9 @@ async function(student) {
             alreadySaved
         ) {
 
-
             alert(
                 "This student is already saved in the Fee system."
             );
-
 
             return;
 
@@ -1939,16 +1803,8 @@ async function(student) {
                 phone:
                     cleanPhone,
 
-                /*
-                 * Fee is entered later
-                 * if it is not available
-                 * in Attendance.
-                 */
-
                 fee:
-                    Number(
-                        student.fee || 0
-                    ),
+                    0,
 
                 createdAt:
                     serverTimestamp(),
@@ -1984,18 +1840,15 @@ async function(student) {
 
         await loadStudents();
 
-
         updateSelects();
 
         showStudents();
 
         updateHome();
 
-
     }
 
     catch(error) {
-
 
         console.error(
             "Save student error:",
@@ -2013,14 +1866,12 @@ async function(student) {
 };
 
 
-
 /* =====================================================
-   DELETE FEE STUDENT
+   DELETE STUDENT
 ===================================================== */
 
 window.deleteStudent =
 async function(index) {
-
 
     const student =
         students[index];
@@ -2048,7 +1899,6 @@ async function(index) {
 
     try {
 
-
         await deleteDoc(
 
             doc(
@@ -2061,7 +1911,6 @@ async function(index) {
 
 
         await loadStudents();
-
 
         updateSelects();
 
@@ -2078,7 +1927,6 @@ async function(index) {
 
     catch(error) {
 
-
         console.error(
             error
         );
@@ -2094,14 +1942,12 @@ async function(index) {
 };
 
 
-
 /* =====================================================
-   DISPLAY SAVED STUDENTS
+   SHOW STUDENTS
 ===================================================== */
 
 window.showStudents =
 function() {
-
 
     const list =
         document.getElementById(
@@ -2110,7 +1956,8 @@ function() {
 
 
     const search =
-        document.getElementById(
+        document
+        .getElementById(
             "search"
         )
         .value
@@ -2125,16 +1972,13 @@ function() {
         students.filter(
             student => {
 
-
                 return (
 
                     String(
                         student.name || ""
                     )
                     .toLowerCase()
-                    .includes(
-                        search
-                    )
+                    .includes(search)
 
                     ||
 
@@ -2142,9 +1986,7 @@ function() {
                         student.id || ""
                     )
                     .toLowerCase()
-                    .includes(
-                        search
-                    )
+                    .includes(search)
 
                     ||
 
@@ -2152,9 +1994,7 @@ function() {
                         student.className || ""
                     )
                     .toLowerCase()
-                    .includes(
-                        search
-                    )
+                    .includes(search)
 
                     ||
 
@@ -2162,9 +2002,7 @@ function() {
                         student.parent || ""
                     )
                     .toLowerCase()
-                    .includes(
-                        search
-                    )
+                    .includes(search)
 
                 );
 
@@ -2175,7 +2013,6 @@ function() {
     if (
         filtered.length === 0
     ) {
-
 
         list.innerHTML = `
 
@@ -2194,7 +2031,6 @@ function() {
 
     filtered.forEach(
         student => {
-
 
             const index =
                 students.indexOf(
@@ -2284,9 +2120,8 @@ function() {
 };
 
 
-
 /* =====================================================
-   HTML ESCAPE
+   ESCAPE HTML
 ===================================================== */
 
 function escapeHTML(text) {
@@ -2321,13 +2156,11 @@ function escapeHTML(text) {
 }
 
 
-
 /* =====================================================
-   UPDATE SELECT BOXES
+   UPDATE SELECTS
 ===================================================== */
 
 function updateSelects() {
-
 
     const payment =
         document.getElementById(
@@ -2365,7 +2198,6 @@ function updateSelects() {
 
     students.forEach(
         (student,index) => {
-
 
             const option =
                 document.createElement(
@@ -2414,7 +2246,6 @@ function updateSelects() {
 }
 
 
-
 /* =====================================================
    MONTHS
 ===================================================== */
@@ -2439,11 +2270,13 @@ const months = [
 
 function setupMonths() {
 
-
     const select =
         document.getElementById(
             "paymentMonth"
         );
+
+
+    select.innerHTML = "";
 
 
     const now =
@@ -2452,7 +2285,6 @@ function setupMonths() {
 
     months.forEach(
         (month,index) => {
-
 
             const option =
                 document.createElement(
@@ -2489,7 +2321,6 @@ function setupMonths() {
 }
 
 
-
 /* =====================================================
    PAYMENT STUDENT
 ===================================================== */
@@ -2497,9 +2328,9 @@ function setupMonths() {
 window.paymentStudentChanged =
 function() {
 
-
     const index =
-        document.getElementById(
+        document
+        .getElementById(
             "paymentStudent"
         )
         .value;
@@ -2508,7 +2339,6 @@ function() {
     if (
         index === ""
     ) {
-
 
         document
             .getElementById(
@@ -2531,7 +2361,16 @@ function() {
 
 
     const student =
-        students[index];
+        students[
+            Number(index)
+        ];
+
+
+    if (!student) {
+
+        return;
+
+    }
 
 
     document
@@ -2547,13 +2386,11 @@ function() {
 };
 
 
-
 /* =====================================================
    PAYMENT MESSAGE
 ===================================================== */
 
 function updatePaymentMessage() {
-
 
     const index =
         document
@@ -2567,13 +2404,29 @@ function updatePaymentMessage() {
         index === ""
     ) {
 
+        document
+            .getElementById(
+                "paymentMessage"
+            )
+            .textContent =
+                "Select a student.";
+
         return;
 
     }
 
 
     const student =
-        students[index];
+        students[
+            Number(index)
+        ];
+
+
+    if (!student) {
+
+        return;
+
+    }
 
 
     const month =
@@ -2598,17 +2451,15 @@ function updatePaymentMessage() {
         )
         .textContent =
 
-
 `Payment received successfully.
 
 Child: ${student.name}
 Month: ${month}
-Amount: ${amount}
+Amount: Rs. ${amount}
 
 Thank you.`;
 
 }
-
 
 
 document
@@ -2631,32 +2482,44 @@ document
     );
 
 
-
 /* =====================================================
    SEND PAYMENT
 ===================================================== */
 
-```javascript
-window.sendPayment = async function() {
+window.sendPayment =
+async function() {
 
     const studentSelect =
-        document.getElementById("paymentStudent");
+        document.getElementById(
+            "paymentStudent"
+        );
+
 
     const monthSelect =
-        document.getElementById("paymentMonth");
+        document.getElementById(
+            "paymentMonth"
+        );
+
 
     const amountInput =
-        document.getElementById("paymentAmount");
+        document.getElementById(
+            "paymentAmount"
+        );
+
 
     const messageBox =
-        document.getElementById("paymentMessage");
+        document.getElementById(
+            "paymentMessage"
+        );
 
 
-    const studentId =
+    const studentIndex =
         studentSelect.value;
+
 
     const month =
         monthSelect.value;
+
 
     const amount =
         amountInput.value.trim();
@@ -2666,27 +2529,39 @@ window.sendPayment = async function() {
        CHECK INPUTS
     ============================== */
 
-    if (!studentId) {
+    if (
+        studentIndex === ""
+    ) {
 
-        alert("Please select a student.");
-
-        return;
-
-    }
-
-
-    if (!month) {
-
-        alert("Please select a month.");
+        alert(
+            "Please select a student."
+        );
 
         return;
 
     }
 
 
-    if (!amount) {
+    if (
+        month === ""
+    ) {
 
-        alert("Please enter the payment amount.");
+        alert(
+            "Please select a month."
+        );
+
+        return;
+
+    }
+
+
+    if (
+        amount === ""
+    ) {
+
+        alert(
+            "Please enter the payment amount."
+        );
 
         return;
 
@@ -2694,20 +2569,20 @@ window.sendPayment = async function() {
 
 
     /* ==============================
-       FIND STUDENT
+       GET STUDENT
     ============================== */
 
     const student =
-        students.find(
-            item =>
-                String(item.id) ===
-                String(studentId)
-        );
+        students[
+            Number(studentIndex)
+        ];
 
 
     if (!student) {
 
-        alert("Student could not be found.");
+        alert(
+            "Student could not be found."
+        );
 
         return;
 
@@ -2724,15 +2599,6 @@ window.sendPayment = async function() {
         );
 
 
-    /*
-       Remove:
-       +
-       spaces
-       -
-       brackets
-       other symbols
-    */
-
     phone =
         phone.replace(
             /\D/g,
@@ -2741,14 +2607,8 @@ window.sendPayment = async function() {
 
 
     /*
-       Convert Sri Lankan number:
-
        0764120923
-       ↓
-       94764120923
-
-       +94764120923
-       ↓
+       →
        94764120923
     */
 
@@ -2764,7 +2624,7 @@ window.sendPayment = async function() {
 
 
     /* ==============================
-       CHECK PHONE NUMBER
+       CHECK PHONE
     ============================== */
 
     if (
@@ -2773,9 +2633,16 @@ window.sendPayment = async function() {
     ) {
 
         alert(
+
             "The student's WhatsApp number is invalid.\n\n" +
+
             "Saved number: " +
-            (student.phone || "No number")
+
+            (
+                student.phone ||
+                "No number"
+            )
+
         );
 
         return;
@@ -2784,16 +2651,23 @@ window.sendPayment = async function() {
 
 
     /* ==============================
-       TODAY'S DATE
+       DATE
     ============================== */
 
     const date =
         new Date().toLocaleDateString(
             "en-GB",
             {
-                day: "2-digit",
-                month: "long",
-                year: "numeric"
+
+                day:
+                    "2-digit",
+
+                month:
+                    "long",
+
+                year:
+                    "numeric"
+
             }
         );
 
@@ -2810,7 +2684,7 @@ Dear Parent,
 This is to confirm that the school fee payment for ${student.name} has been received successfully.
 
 Student: ${student.name}
-Class: ${student.class || "—"}
+Class: ${student.className || "—"}
 Month: ${month}
 Amount: Rs. ${amount}
 Date: ${date}
@@ -2821,7 +2695,7 @@ ST. THERESA'S GEMS INTERNATIONAL PRESCHOOL`;
 
 
     /* ==============================
-       SAVE PAYMENT TO FIRESTORE
+       SAVE PAYMENT
     ============================== */
 
     try {
@@ -2841,8 +2715,8 @@ ST. THERESA'S GEMS INTERNATIONAL PRESCHOOL`;
                 studentName:
                     student.name,
 
-                class:
-                    student.class || "",
+                className:
+                    student.className || "",
 
                 month:
                     month,
@@ -2874,10 +2748,12 @@ ST. THERESA'S GEMS INTERNATIONAL PRESCHOOL`;
 
 
         alert(
-            "Payment could not be saved.\n\n" +
-            "WhatsApp message was NOT opened."
-        );
 
+            "Payment could not be saved.\n\n" +
+
+            error.message
+
+        );
 
         return;
 
@@ -2916,7 +2792,7 @@ ST. THERESA'S GEMS INTERNATIONAL PRESCHOOL`;
 
 
     /* ==============================
-       SUCCESS MESSAGE
+       SUCCESS
     ============================== */
 
     alert(
@@ -2925,7 +2801,6 @@ ST. THERESA'S GEMS INTERNATIONAL PRESCHOOL`;
     );
 
 };
-```
 
 
 /* =====================================================
@@ -2933,7 +2808,6 @@ ST. THERESA'S GEMS INTERNATIONAL PRESCHOOL`;
 ===================================================== */
 
 function getReminderMonth() {
-
 
     const now =
         new Date();
@@ -2946,7 +2820,6 @@ function getReminderMonth() {
     if (
         now.getDate() > 20
     ) {
-
 
         month++;
 
@@ -2962,10 +2835,11 @@ function getReminderMonth() {
     }
 
 
-    return months[month];
+    return months[
+        month
+    ];
 
 }
-
 
 
 /* =====================================================
@@ -2973,7 +2847,6 @@ function getReminderMonth() {
 ===================================================== */
 
 function updateReminder() {
-
 
     const now =
         new Date();
@@ -2986,7 +2859,6 @@ function updateReminder() {
     if (
         now.getDate() > 20
     ) {
-
 
         document
             .getElementById(
@@ -3002,7 +2874,6 @@ function updateReminder() {
     }
 
     else {
-
 
         document
             .getElementById(
@@ -3031,14 +2902,12 @@ Thank you.`;
 }
 
 
-
 /* =====================================================
    SEND REMINDER
 ===================================================== */
 
 window.sendReminder =
 function() {
-
 
     const index =
         document
@@ -3052,11 +2921,9 @@ function() {
         index === ""
     ) {
 
-
         alert(
             "Please select a parent."
         );
-
 
         return;
 
@@ -3064,7 +2931,58 @@ function() {
 
 
     const student =
-        students[index];
+        students[
+            Number(index)
+        ];
+
+
+    if (!student) {
+
+        alert(
+            "Student could not be found."
+        );
+
+        return;
+
+    }
+
+
+    let phone =
+        String(
+            student.phone || ""
+        );
+
+
+    phone =
+        phone.replace(
+            /\D/g,
+            ""
+        );
+
+
+    if (
+        phone.startsWith("0")
+    ) {
+
+        phone =
+            "94" +
+            phone.substring(1);
+
+    }
+
+
+    if (
+        !phone.startsWith("94") ||
+        phone.length !== 11
+    ) {
+
+        alert(
+            "The parent's WhatsApp number is invalid."
+        );
+
+        return;
+
+    }
 
 
     const month =
@@ -3081,10 +2999,9 @@ This is a reminder to kindly pay the monthly school fee for ${month}.
 Thank you.`;
 
 
-
     const url =
         "https://wa.me/" +
-        student.phone +
+        phone +
         "?text=" +
         encodeURIComponent(
             message
@@ -3099,13 +3016,11 @@ Thank you.`;
 };
 
 
-
 /* =====================================================
    HOME
 ===================================================== */
 
 function updateHome() {
-
 
     const now =
         new Date();
@@ -3148,7 +3063,6 @@ function updateHome() {
         )
         .textContent =
 
-
         students.length === 1
 
         ?
@@ -3161,11 +3075,9 @@ function updateHome() {
         " students are saved.";
 
 
-
     if (
         now.getDate() > 20
     ) {
-
 
         document
             .getElementById(
@@ -3180,7 +3092,6 @@ function updateHome() {
 
     else {
 
-
         document
             .getElementById(
                 "feeStatus"
@@ -3194,7 +3105,6 @@ function updateHome() {
 }
 
 
-
 /* =====================================================
    PAGE SWITCHING
 ===================================================== */
@@ -3204,7 +3114,6 @@ function(
     page,
     button
 ) {
-
 
     document
         .querySelectorAll(
@@ -3267,15 +3176,17 @@ function(
 
     }
 
+
+    if (
+        page === "payment"
+    ) {
+
+        updatePaymentMessage();
+
+    }
+
 };
 
-
-
-/* =====================================================
-   START
-===================================================== */
-
-setupMonths();
 
 </script>
 
@@ -3292,11 +3203,9 @@ if (
     in navigator
 ) {
 
-
     window.addEventListener(
         "load",
         function() {
-
 
             navigator
                 .serviceWorker
